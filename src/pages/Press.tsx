@@ -57,7 +57,7 @@ const Press = () => (
         </div>
 
         {/* Brand assets */}
-        <div className="max-w-3xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8 mb-10">
+        <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-10">
           <h2 className="section-title">BRAND ASSETS</h2>
           <p className="text-muted-foreground mb-4">
             The Wild AI wordmark and flame icon on transparent backgrounds, in light and dark
@@ -72,7 +72,7 @@ const Press = () => (
         </div>
 
         {/* Boilerplate */}
-        <div className="max-w-3xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8 mb-10">
+        <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-10">
           <h2 className="section-title">BOILERPLATE</h2>
           <blockquote className="border-l-2 border-wildai-mint pl-4 text-muted-foreground leading-relaxed">
             Wild AI is a community-run meetup network for people who build with AI. Founded in
@@ -88,7 +88,7 @@ const Press = () => (
           <h2 className="section-title text-center">IN THE WILD</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {mentions.map((m) => (
-              <div key={m.outlet} className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div key={m.outlet} className="bg-secondary/50 cyberpunk-border p-6">
                 <Quote className="w-5 h-5 text-wildai-mint mb-3" />
                 <p className="text-sm text-muted-foreground mb-4">"{m.quote}"</p>
                 <p className="text-xs font-mono text-wildai-mint">
@@ -103,7 +103,7 @@ const Press = () => (
         </div>
 
         {/* Fact sheet */}
-        <div className="max-w-3xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8 mb-10">
+        <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-10">
           <h2 className="section-title">FACT SHEET</h2>
           <dl className="space-y-3">
             {facts.map(([k, v]) => (
@@ -116,14 +116,14 @@ const Press = () => (
         </div>
 
         {/* Media contact */}
-        <div className="max-w-2xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8 text-center">
+        <div className="max-w-2xl mx-auto bg-secondary/40 cyberpunk-border p-8 text-center">
           <Mail className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
           <h2 className="text-xl font-bold font-mono mb-2">MEDIA CONTACT</h2>
           <p className="text-muted-foreground mb-4">
             Interview requests, speaker bios, and event photography access.
           </p>
           <a href="mailto:press@wildai.us">
-            <Button className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal">
+            <Button >
               press@wildai.us
             </Button>
           </a>

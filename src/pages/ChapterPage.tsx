@@ -94,13 +94,13 @@ const ChapterPage = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               {next ? (
                 <a href={`/events/${next.slug}`}>
-                  <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg">
+                  <Button size="lg" >
                     RSVP NOW
                   </Button>
                 </a>
               ) : (
                 <a href="#chapter-signup">
-                  <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg">
+                  <Button size="lg" >
                     GET LAUNCH UPDATES
                   </Button>
                 </a>
@@ -117,8 +117,8 @@ const ChapterPage = () => {
         {/* Next event + cadence */}
         <section className="container mx-auto px-4 mb-14">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="bg-secondary p-6 rounded-lg cyberpunk-border">
-              <h2 className="text-xl font-bold mb-4 font-mono">NEXT EVENT</h2>
+            <div className="bg-secondary p-6 cyberpunk-border">
+              <h2 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">NEXT EVENT</h2>
               {next ? (
                 <>
                   <Link to={`/events/${next.slug}`} className="text-2xl font-bold text-wildai-mint mb-2 block hover:underline">
@@ -134,7 +134,7 @@ const ChapterPage = () => {
                   <p className="font-medium mb-1">{next.venue_name}</p>
                   <p className="text-muted-foreground mb-4">{next.venue_address}</p>
                   <a href={`/events/${next.slug}`}>
-                    <Button className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal">
+                    <Button >
                       EVENT DETAILS <ArrowRight className="w-4 h-4 ml-1" />
                     </Button>
                   </a>
@@ -154,8 +154,8 @@ const ChapterPage = () => {
                 </>
               )}
             </div>
-            <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-6 rounded-lg cyberpunk-border">
-              <h2 className="text-xl font-bold mb-4 font-mono">THE CADENCE</h2>
+            <div className="bg-primary/25 p-6 cyberpunk-border">
+              <h2 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">THE CADENCE</h2>
               <p className="text-lg mb-3 flex items-center gap-2">
                 <CalendarDays className="w-5 h-5 text-wildai-mint" /> {chapter.cadence ?? 'Monthly'}
               </p>
@@ -174,7 +174,7 @@ const ChapterPage = () => {
 
         {/* About this chapter */}
         <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-4xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8">
+          <div className="max-w-4xl mx-auto bg-secondary/40 cyberpunk-border p-8">
             <h2 className="section-title">ABOUT THIS CHAPTER</h2>
             <p className="text-muted-foreground leading-relaxed">{chapter.about_text}</p>
           </div>
@@ -194,7 +194,7 @@ const ChapterPage = () => {
                 </p>
               )}
               {(organizers ?? []).map((o) => (
-                <div key={o.id} className="bg-secondary/50 rounded-lg cyberpunk-border p-6 text-center">
+                <div key={o.id} className="bg-secondary/50 cyberpunk-border p-6 text-center">
                   <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center overflow-hidden">
                     {o.photo_url ? (
                       <img src={o.photo_url} alt={o.name} className="w-full h-full object-cover" />
@@ -231,7 +231,7 @@ const ChapterPage = () => {
                   <Link
                     key={e.id}
                     to={`/events/${e.slug}`}
-                    className="bg-secondary/50 rounded-lg cyberpunk-border p-5 hover:bg-secondary/80 transition-colors group"
+                    className="bg-secondary/50 cyberpunk-border p-5 hover:bg-secondary/80 transition-colors group"
                   >
                     <p className="text-xs text-muted-foreground font-mono mb-1">
                       {formatDate(e.event_date)}
@@ -254,7 +254,7 @@ const ChapterPage = () => {
         {/* Venue / location */}
         {chapter.venue_name && (
           <section className="container mx-auto px-4 mb-14">
-            <div className="max-w-4xl mx-auto bg-secondary/40 rounded-lg cyberpunk-border p-8">
+            <div className="max-w-4xl mx-auto bg-secondary/40 cyberpunk-border p-8">
               <h2 className="section-title">VENUE</h2>
               {chapter.venue_name === 'TBA' ? (
                 <p className="text-muted-foreground">
@@ -281,7 +281,7 @@ const ChapterPage = () => {
 
         {/* Local speaker CTA */}
         <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-wildai-mint/20 to-accent/20 rounded-lg cyberpunk-border p-8 text-center">
+          <div className="max-w-4xl mx-auto bg-primary/25 cyberpunk-border p-8 text-center">
             <Mic2 className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
             <h2 className="text-xl font-bold font-mono mb-2">
               DEMO AT WILD AI {chapter.city.toUpperCase()}
@@ -290,7 +290,7 @@ const ChapterPage = () => {
               Have something to show? Submit to give a 5-minute fire talk at this chapter.
             </p>
             <Link to="/speak">
-              <Button className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal">
+              <Button >
                 SUBMIT A DEMO <ExternalLink className="w-4 h-4 ml-1" />
               </Button>
             </Link>

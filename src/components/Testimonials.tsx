@@ -21,13 +21,13 @@ const Testimonials = () => {
     <section className="py-10 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-center">WHAT_PEOPLE_SAY</h2>
+          <h2 className="section-title text-center">What people say</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             {quotes.map((q) => (
               <div
                 key={q.attribution}
-                className="bg-secondary/50 p-6 rounded-lg cyberpunk-border flex flex-col"
+                className="bg-secondary/50 p-6 cyberpunk-border flex flex-col"
               >
                 <p className="text-lg leading-relaxed mb-4 flex-1">
                   <span className="text-wildai-mint mr-1">“</span>

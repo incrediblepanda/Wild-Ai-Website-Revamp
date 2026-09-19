@@ -313,10 +313,10 @@ const LogoCarousel = () => {
                   }}
                 >
                   <div 
-                    className="bg-secondary/40 p-5 md:p-8 rounded-xl cyberpunk-border flex flex-col items-center justify-between w-40 md:w-52 h-40 md:h-52"
+                    className="bg-secondary/40 p-5 md:p-8 cyberpunk-border flex flex-col items-center justify-between w-40 md:w-52 h-40 md:h-52"
                     style={{
                       backgroundColor: isHovered ? 'hsl(var(--secondary) / 0.7)' : undefined,
-                      boxShadow: isHovered ? '0 20px 40px -10px rgba(0, 255, 200, 0.15)' : 'none',
+                      boxShadow: isHovered ? '0 18px 44px -18px hsl(186 40% 2% / 0.9)' : 'none',
                       transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
                     }}
                   >
@@ -324,7 +324,7 @@ const LogoCarousel = () => {
                       <img 
                         src={company.logo} 
                         alt={company.name} 
-                        className={`h-16 md:h-24 w-auto object-contain pointer-events-none rounded-md p-1 ${needsDarkBg ? 'bg-gray-800' : 'bg-white/90'}`}
+                        className={`h-16 md:h-24 w-auto object-contain pointer-events-none rounded-sm p-1.5 transition-all duration-200 ${needsDarkBg ? 'bg-secondary' : 'bg-foreground/80'} ${isHovered ? 'grayscale-0 opacity-100' : 'grayscale opacity-60'}`}
                         style={{
                           transform: isHovered ? 'scale(1.05)' : 'scale(1)',
                           transition: 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -336,7 +336,7 @@ const LogoCarousel = () => {
                     <p 
                       className="text-center font-mono text-xs md:text-sm w-full leading-tight"
                       style={{
-                        color: isHovered ? 'hsl(var(--wildai-mint))' : 'hsl(var(--muted-foreground))',
+                        color: isHovered ? 'hsl(var(--accent))' : 'hsl(var(--muted-foreground))',
                         transition: 'color 0.2s ease',
                         display: '-webkit-box',
                         WebkitLineClamp: 2,

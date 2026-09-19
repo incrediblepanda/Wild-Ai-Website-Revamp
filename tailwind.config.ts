@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,6 +52,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				surface: {
+					raised: 'hsl(var(--surface-raised))',
+					deep: 'hsl(var(--surface-deep))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -63,7 +66,6 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
 				wildai: {
 					dark: 'hsl(var(--wildai-teal))',
 					neutral: 'hsl(var(--wildai-neutral))',
@@ -73,14 +75,14 @@ export default {
 				}
 			},
 			fontFamily: {
-				mono: ['ui-sans-serif', 'system-ui', 'sans-serif'],
-				sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-				display: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+				sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+				display: ['"Chakra Petch"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				md: 'var(--radius)',
+				sm: 'var(--radius)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -93,28 +95,22 @@ export default {
 				},
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' },
+					'50%': { opacity: '0.45' },
 				},
-				'gradient-shift': {
-					'0%': { backgroundPosition: '0% 50%' },
-					'50%': { backgroundPosition: '100% 50%' },
-					'100%': { backgroundPosition: '0% 50%' },
+				'marquee': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-50%)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 8s ease infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'marquee': 'marquee 40s linear infinite',
 			},
 			boxShadow: {
-				'signal': '0 0 28px hsl(var(--primary) / 0.18)',
-			},
-			backgroundImage: {
-				'grid-pattern': 'linear-gradient(rgba(168, 240, 200, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(168, 240, 200, 0.1) 1px, transparent 1px)',
-			},
-			backgroundSize: {
-				'grid-lg': '50px 50px',
+				'signal': '0 18px 50px -24px hsl(186 40% 2% / 0.9)',
+				'inset-line': 'inset 0 1px 0 0 hsl(var(--foreground) / 0.04)',
 			},
 		}
 	},

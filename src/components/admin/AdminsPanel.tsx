@@ -59,7 +59,7 @@ const AdminsPanel = ({ currentRole }: { currentRole: 'admin' | 'super_admin' | n
   };
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5 space-y-6">
+    <div className="bg-secondary/40 cyberpunk-border p-5 space-y-6">
       <p className="text-sm text-muted-foreground">{isSuper ? 'Manage who has admin access.' : 'Only super admins can change roles.'}</p>
 
       {loading ? <Loader2 className="w-6 h-6 animate-spin text-wildai-mint mx-auto" /> : (

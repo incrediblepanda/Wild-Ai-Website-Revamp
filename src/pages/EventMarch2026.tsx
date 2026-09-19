@@ -133,12 +133,12 @@ const EventMarch2026 = () => {
           </div>
 
           {/* CTA */}
-          <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-8 rounded-lg cyberpunk-border text-center">
+          <div className="bg-primary/25 p-8 cyberpunk-border text-center">
             <h2 className="text-2xl font-bold font-mono mb-3">JOIN US</h2>
             <p className="text-muted-foreground mb-6">Celebrate our anniversary, show off your projects, and connect with the Wild AI community.</p>
             <a
               href="/#register"
-              className="inline-block bg-wildai-mint text-background font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
+              className="btn-primary"
             >
               Register Now
             </a>

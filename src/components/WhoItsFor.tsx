@@ -16,50 +16,39 @@ const reasons = [
   'Stay ahead of what is shipping',
 ];
 
+const columns = [
+  { key: 'Who it\u2019s for', items: audience, tone: 'bg-secondary/50' },
+  { key: 'Why attend', items: reasons, tone: 'bg-primary/25' },
+];
+
 const WhoItsFor = () => {
   return (
-    <section className="py-10 md:py-16">
+    <section className="py-14 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-center">WHO_IT'S_FOR</h2>
+        <p className="signal-label mb-5">The room</p>
+        <h2 className="section-title max-w-2xl">Who shows up, and why they keep coming back</h2>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
-            <div className="bg-secondary p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">WHO IT'S FOR</h3>
+        <div className="grid md:grid-cols-2 gap-6 mt-10 mb-10">
+          {columns.map((col) => (
+            <div key={col.key} className={`cyberpunk-border p-7 ${col.tone}`}>
+              <h3 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-6">
+                {col.key}
+              </h3>
               <ul className="space-y-4">
-                {audience.map((a) => (
-                  <li key={a} className="flex items-start">
-                    <span className="text-wildai-mint mr-2">→</span>
-                    <span>{a}</span>
+                {col.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[0.9375rem] leading-relaxed">
+                    <span className="mt-2 h-px w-3 flex-shrink-0 bg-accent/60" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">WHY ATTEND</h3>
-              <ul className="space-y-4">
-                {reasons.map((r) => (
-                  <li key={r} className="flex items-start">
-                    <span className="text-wildai-mint mr-2">→</span>
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <a href="#register">
-              <Button
-                size="lg"
-                className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg"
-              >
-                REGISTER NOW
-              </Button>
-            </a>
-          </div>
+          ))}
         </div>
+
+        <a href="#register">
+          <Button size="lg">Register now</Button>
+        </a>
       </div>
     </section>
   );

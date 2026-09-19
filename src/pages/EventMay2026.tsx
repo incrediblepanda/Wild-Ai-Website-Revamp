@@ -20,7 +20,7 @@ const EventMay2026 = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-gradient font-mono mb-6">MAY 2026 MEETUP</h1>
 
           {/* Intro */}
-          <div className="bg-secondary/40 cyberpunk-border rounded-lg p-6 mb-10 space-y-4">
+          <div className="bg-secondary/40 cyberpunk-border p-6 mb-10 space-y-4">
             <p className="text-lg">
               Wild AI is back, <span className="text-wildai-mint font-semibold">6pm May 18th</span> at the Improving office in Minneapolis. 🚀
             </p>
@@ -118,12 +118,12 @@ const EventMay2026 = () => {
           </p>
 
           {/* CTA */}
-          <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-8 rounded-lg cyberpunk-border text-center">
+          <div className="bg-primary/25 p-8 cyberpunk-border text-center">
             <h2 className="text-2xl font-bold font-mono mb-3">JOIN US</h2>
             <p className="text-muted-foreground mb-6">Connect with the Wild AI community.</p>
             <a
               href="/#register"
-              className="inline-block bg-wildai-mint text-background font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
+              className="btn-primary"
             >
               Register Now
             </a>

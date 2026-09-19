@@ -5,20 +5,22 @@ import { Handshake } from 'lucide-react';
 
 /** Full-width sponsorship band. */
 const SponsorCtaBand = () => (
-  <section className="py-10 md:py-14">
+  <section className="py-12 md:py-16">
     <div className="container mx-auto px-4">
-      <div className="max-w-4xl mx-auto bg-secondary/50 rounded-lg cyberpunk-border p-8 md:p-12 text-center">
-        <Handshake className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-        <h2 className="text-2xl md:text-3xl font-bold font-mono mb-3">
-          REACH AI <span className="text-gradient">BUILDERS</span>
-        </h2>
-        <p className="text-muted-foreground max-w-xl mx-auto mb-6">
-          Sponsor a Wild AI chapter and put your brand in front of hundreds of engineers,
-          founders, and researchers who ship. Sponsorships fund venues, food, and growth.
-        </p>
-        <Link to="/sponsor">
-          <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal">
-            BECOME A SPONSOR
+      <div className="cyberpunk-border bg-secondary/50 p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 md:items-end">
+        <div>
+          <p className="signal-label mb-5">
+            <Handshake /> Partners
+          </p>
+          <h2 className="section-title mb-4 max-w-xl">Reach AI builders</h2>
+          <p className="text-muted-foreground max-w-xl leading-relaxed">
+            Sponsor a Wild AI chapter and put your brand in front of hundreds of engineers,
+            founders, and researchers who ship. Sponsorships fund venues, food, and growth.
+          </p>
+        </div>
+        <Link to="/sponsor" className="flex-shrink-0">
+          <Button size="lg" variant="outline">
+            Become a sponsor
           </Button>
         </Link>
       </div>

@@ -3,23 +3,18 @@ import { Button } from '@/components/ui/button';
 
 const FinalCtaBand = () => {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center bg-secondary/50 p-8 md:p-12 rounded-lg cyberpunk-border">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Come Meet the People <span className="text-gradient">Building AI</span>.
+        <div className="max-w-3xl">
+          <p className="signal-label mb-6">Last call</p>
+          <h2 className="display-title text-4xl md:text-5xl lg:text-6xl mb-6">
+            Come meet the people <em>building AI</em>.
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Seats are limited and most events fill up. Lock in your spot for the
-            next meetup.
+          <p className="text-lg text-muted-foreground mb-9 max-w-xl leading-relaxed">
+            Seats are limited and most events fill up. Lock in your spot for the next meetup.
           </p>
           <a href="#register">
-            <Button
-              size="lg"
-              className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg"
-            >
-              REGISTER NOW
-            </Button>
+            <Button size="lg">Register now</Button>
           </a>
         </div>
       </div>

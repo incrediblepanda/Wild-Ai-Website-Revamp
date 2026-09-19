@@ -31,41 +31,47 @@ const ScarcityCountdown = () => {
     : null;
 
   return (
-    <section className="pt-24 md:pt-28 pb-8 md:pb-12 relative">
+    <section className="pt-24 md:pt-28 pb-10 md:pb-14">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs md:text-sm font-mono text-wildai-mint mb-4 uppercase tracking-[0.3em]">
-            ◢ Next Event Starts In ◣
-          </p>
-
-          {tiles ? (
-            <div className="flex justify-center gap-3 md:gap-6 mb-8">
-              {tiles.map((t) => (
-                <div
-                  key={t.label}
-                  className="bg-secondary cyberpunk-border rounded-xl px-5 py-5 md:px-10 md:py-7 min-w-[88px] md:min-w-[140px] shadow-[0_0_40px_-10px_hsl(var(--wildai-mint)/0.5)]"
-                >
-                  <p className="text-4xl md:text-7xl font-bold font-mono text-wildai-mint leading-none drop-shadow-[0_0_12px_hsl(var(--wildai-mint)/0.6)]">
-                    {String(t.value).padStart(2, '0')}
-                  </p>
-                  <p className="text-[11px] md:text-sm text-muted-foreground font-mono uppercase mt-2 tracking-widest">
-                    {t.label}
-                  </p>
-                </div>
-              ))}
+        <div className="panel panel--notched p-6 md:p-8">
+            <div className="flex items-center gap-2.5 mb-6">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent animate-pulse-slow" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              <p className="font-mono text-[0.625rem] uppercase tracking-[0.22em] text-accent">
+                Next event starts in
+              </p>
             </div>
-          ) : (
-            <p className="text-2xl md:text-3xl font-mono text-wildai-mint mb-8">
-              Doors opening soon
-            </p>
-          )}
 
-          <p className="text-lg md:text-xl text-foreground mb-2">
-            RSVP and we'll email you event details, the speaker lineup, and a reminder the day before.
-          </p>
-          <p className="text-sm md:text-base font-mono text-wildai-mint uppercase tracking-wide">
-            ⚡ Most events fill up — RSVP early ⚡
-          </p>
+            {tiles ? (
+              <div className="grid grid-cols-4 border-l border-t border-border mb-7">
+                {tiles.map((t) => (
+                  <div key={t.label} className="border-r border-b border-border px-3 py-5 md:py-7">
+                    <p className="font-mono text-3xl md:text-5xl font-medium text-foreground leading-none tabular-nums">
+                      {String(t.value).padStart(2, '0')}
+                    </p>
+                    <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground mt-3">
+                      {t.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="font-display text-2xl md:text-3xl text-foreground mb-7">
+                Doors opening soon
+              </p>
+            )}
+
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-1">
+              <p className="text-base text-muted-foreground max-w-lg leading-relaxed">
+                RSVP and we&apos;ll email you event details, the speaker lineup, and a reminder the
+                day before.
+              </p>
+              <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent/80 whitespace-nowrap">
+                Most events fill up — RSVP early
+              </p>
+            </div>
         </div>
       </div>
     </section>

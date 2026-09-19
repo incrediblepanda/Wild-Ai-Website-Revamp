@@ -77,14 +77,14 @@ const Events = () => {
               <Button
                 variant={timeFilter === 'upcoming' ? 'default' : 'outline'}
                 onClick={() => setTimeFilter('upcoming')}
-                className={timeFilter === 'upcoming' ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90' : ''}
+                className={timeFilter === 'upcoming' ? '' : ''}
               >
                 UPCOMING
               </Button>
               <Button
                 variant={timeFilter === 'past' ? 'default' : 'outline'}
                 onClick={() => setTimeFilter('past')}
-                className={timeFilter === 'past' ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90' : ''}
+                className={timeFilter === 'past' ? '' : ''}
               >
                 PAST
               </Button>
@@ -98,7 +98,7 @@ const Events = () => {
 
           {/* Event list */}
           <div className="max-w-3xl mx-auto space-y-4 mb-16">
-            {isLoading && <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6 h-28 animate-pulse" />}
+            {isLoading && <div className="bg-secondary/50 cyberpunk-border p-6 h-28 animate-pulse" />}
             {!isLoading && filtered.length === 0 && !showPastFallback && (
               <p className="text-center text-muted-foreground py-10">
                 {timeFilter === 'upcoming'
@@ -118,7 +118,7 @@ const Events = () => {
               <Link
                 key={e.id}
                 to={`/events/${e.slug}`}
-                className="block bg-secondary/50 rounded-lg cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group"
+                className="block bg-secondary/50 cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex-grow">

@@ -52,7 +52,7 @@ const AdminDashboard = () => {
         <Navbar />
         <main className="pt-24 pb-20 flex-grow">
           <div className="container mx-auto px-4 max-w-md">
-            <div className="bg-secondary/50 rounded-lg cyberpunk-border p-8 text-center">
+            <div className="bg-secondary/50 cyberpunk-border p-8 text-center">
               <h1 className="text-2xl font-bold font-mono mb-4">ACCESS PENDING</h1>
               <p className="text-muted-foreground mb-6">
                 Signed in as <span className="text-wildai-mint">{user?.email}</span>. You don't have admin access yet.

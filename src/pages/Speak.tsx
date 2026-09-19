@@ -56,7 +56,7 @@ const Speak = () => (
 
         {/* What we're looking for + what to expect */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-secondary/50 rounded-lg cyberpunk-border p-8">
+          <div className="bg-secondary/50 cyberpunk-border p-8">
             <h2 className="text-xl font-bold font-mono text-wildai-mint mb-4">WHAT WE'RE LOOKING FOR</h2>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start">
@@ -73,7 +73,7 @@ const Speak = () => (
               </li>
             </ul>
           </div>
-          <div className="bg-secondary/50 rounded-lg cyberpunk-border p-8">
+          <div className="bg-secondary/50 cyberpunk-border p-8">
             <h2 className="text-xl font-bold font-mono text-wildai-mint mb-4">WHAT TO EXPECT</h2>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start">
@@ -115,7 +115,7 @@ const Speak = () => (
           <h2 className="section-title text-center">FAQ</h2>
           <div className="space-y-4">
             {faqs.map((f) => (
-              <details key={f.q} className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+              <details key={f.q} className="bg-secondary/40 cyberpunk-border p-5">
                 <summary className="font-bold font-mono cursor-pointer text-sm">{f.q}</summary>
                 <p className="text-muted-foreground text-sm mt-3">{f.a}</p>
               </details>

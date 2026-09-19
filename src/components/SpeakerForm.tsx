@@ -61,7 +61,7 @@ const SpeakerForm = () => {
     return (
       <section id="speak" className="py-10 md:py-20 bg-secondary/20">
         <div className="container mx-auto px-4 max-w-2xl">
-          <div className="bg-secondary/40 rounded-lg cyberpunk-border p-10 text-center">
+          <div className="bg-secondary/40 cyberpunk-border p-10 text-center">
             <CheckCircle2 className="w-14 h-14 text-wildai-mint mx-auto mb-4" />
             <h2 className="text-2xl font-bold font-mono mb-3">APPLICATION RECEIVED</h2>
             <p className="text-muted-foreground">
@@ -77,7 +77,7 @@ const SpeakerForm = () => {
   return (
     <section id="speak" className="py-10 md:py-20 bg-secondary/20">
       <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="section-title">SPEAK_AT_WILD_AI</h2>
+        <h2 className="section-title">Speak at Wild AI</h2>
 
         <div className="text-center mb-8">
           <p className="text-lg mb-3">Have an AI project, experiment, or insight to share?</p>
@@ -87,7 +87,7 @@ const SpeakerForm = () => {
           </p>
         </div>
 
-        <form onSubmit={submit} className="bg-secondary/40 rounded-lg cyberpunk-border p-6 md:p-8 space-y-5">
+        <form onSubmit={submit} className="bg-secondary/40 cyberpunk-border p-6 md:p-8 space-y-5">
           <h3 className="text-xl font-bold font-mono text-wildai-mint text-center mb-2">APPLY TO SPEAK</h3>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -140,7 +140,7 @@ const SpeakerForm = () => {
             <p className="text-xs text-muted-foreground mt-1">Optional. Max 5 MB.</p>
           </div>
 
-          <Button type="submit" disabled={submitting} className="w-full bg-wildai-mint text-background hover:bg-wildai-mint/90 font-bold py-6 text-base">
+          <Button type="submit" disabled={submitting} className="w-full py-6">
             {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'SUBMIT APPLICATION'}
           </Button>
         </form>

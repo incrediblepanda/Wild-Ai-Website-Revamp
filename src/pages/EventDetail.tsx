@@ -109,7 +109,7 @@ const EventDetail = () => {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 {event.meetup_url && (
                   <a href={event.meetup_url} target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg">
+                    <Button size="lg" >
                       RSVP NOW
                     </Button>
                   </a>
@@ -131,14 +131,14 @@ const EventDetail = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-10">
             {/* Description */}
-            <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+            <div className="bg-secondary/40 cyberpunk-border p-8">
               <h2 className="section-title">ABOUT THIS EVENT</h2>
               <p className="text-muted-foreground leading-relaxed">{event.description}</p>
             </div>
 
             {/* Agenda */}
             {(event.agenda ?? []).length > 0 && (
-              <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+              <div className="bg-secondary/40 cyberpunk-border p-8">
                 <h2 className="section-title">RUN OF SHOW</h2>
                 <ul className="space-y-4">
                   {(event.agenda ?? []).map((a, i) => (
@@ -153,7 +153,7 @@ const EventDetail = () => {
 
             {/* Speakers / demo lineup */}
             {displayedSpeakers.length > 0 ? (
-              <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+              <div className="bg-secondary/40 cyberpunk-border p-8">
                 <h2 className="section-title">SPEAKER LINEUP</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {displayedSpeakers.map((s, i) => (
@@ -166,7 +166,7 @@ const EventDetail = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+              <div className="bg-secondary/40 cyberpunk-border p-8">
                 <h2 className="section-title">SPEAKER LINEUP</h2>
                 <p className="text-muted-foreground">
                   Fire talks are 5 minutes, no slides — the lineup is announced the week of the event.
@@ -180,12 +180,12 @@ const EventDetail = () => {
 
             {/* Venue + map */}
             {event.venue_name && (
-              <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+              <div className="bg-secondary/40 cyberpunk-border p-8">
                 <h2 className="section-title">VENUE</h2>
                 <p className="font-bold text-lg mb-1">{event.venue_name}</p>
                 <p className="text-muted-foreground mb-4">{event.venue_address}</p>
                 {event.venue_address && (
-                  <div className="cyberpunk-border rounded-lg overflow-hidden h-[280px] mb-4">
+                  <div className="cyberpunk-border overflow-hidden h-[280px] mb-4">
                     <iframe
                       src={`https://www.google.com/maps?q=${encodeURIComponent(event.venue_address)}&output=embed`}
                       width="100%"
@@ -209,7 +209,7 @@ const EventDetail = () => {
 
             {/* Share + related */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-secondary/40 rounded-lg cyberpunk-border p-6 flex flex-col justify-center">
+              <div className="bg-secondary/40 cyberpunk-border p-6 flex flex-col justify-center">
                 <h3 className="font-bold font-mono text-wildai-mint mb-2 flex items-center gap-2">
                   <Share2 className="w-4 h-4" /> SHARE THIS EVENT
                 </h3>
@@ -233,7 +233,7 @@ const EventDetail = () => {
               {related && (
                 <Link
                   to={`/events/${related.slug}`}
-                  className="bg-secondary/40 rounded-lg cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group flex flex-col justify-center"
+                  className="bg-secondary/40 cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group flex flex-col justify-center"
                 >
                   <h3 className="font-bold font-mono text-wildai-mint mb-2">NEXT UP</h3>
                   <p className="text-xs text-muted-foreground font-mono mb-1">
@@ -248,7 +248,7 @@ const EventDetail = () => {
             </div>
 
             {/* Sponsors */}
-            <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8 text-center">
+            <div className="bg-secondary/40 cyberpunk-border p-8 text-center">
               <Handshake className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
               <h3 className="font-bold font-mono mb-2">THIS EVENT IS POWERED BY OUR SPONSORS</h3>
               <p className="text-sm text-muted-foreground mb-4">

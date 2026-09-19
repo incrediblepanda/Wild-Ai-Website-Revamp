@@ -46,7 +46,7 @@ const LocationStats = ({ events }: { events: WildAiEvent[] }) => {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-secondary/40 cyberpunk-border rounded-lg p-5"
+              className="bg-secondary/40 cyberpunk-border p-5"
             >
               <div className="text-2xl md:text-3xl font-mono font-bold text-wildai-mint">
                 {s.value}
@@ -72,13 +72,13 @@ const VenueGroupList = ({ events }: { events: WildAiEvent[] }) => {
           {groups.map((g) => (
             <div
               key={g.venueName}
-              className="bg-secondary/40 cyberpunk-border rounded-lg p-6 flex flex-col"
+              className="bg-secondary/40 cyberpunk-border p-6 flex flex-col"
             >
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h3 className="text-xl font-bold font-mono leading-snug">
                   {g.venueName}
                 </h3>
-                <Badge className="bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90 shrink-0">
+                <Badge className=" shrink-0">
                   {g.eventCount} event{g.eventCount === 1 ? '' : 's'}
                 </Badge>
               </div>
@@ -105,7 +105,7 @@ const PastEventCard = ({ event }: { event: WildAiEvent }) => {
   const year = d.getFullYear();
 
   return (
-    <article className="group bg-secondary/40 cyberpunk-border rounded-lg overflow-hidden hover:bg-secondary/60 hover:border-wildai-mint/60 transition-all">
+    <article className="group bg-secondary/40 cyberpunk-border overflow-hidden hover:bg-secondary/60 hover:border-wildai-mint/60 transition-all">
       <div className="flex flex-col md:flex-row">
         {/* Date block */}
         <div className="md:w-32 shrink-0 bg-wildai-mint/10 border-b md:border-b-0 md:border-r border-wildai-mint/20 flex md:flex-col items-center justify-center gap-2 md:gap-0 py-4 md:py-6 px-4">
@@ -250,7 +250,7 @@ const Location = () => {
                     onClick={() => setYear('all')}
                     className={
                       year === 'all'
-                        ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90'
+                        ? ''
                         : ''
                     }
                     size="sm"
@@ -265,7 +265,7 @@ const Location = () => {
                       onClick={() => setYear(y)}
                       className={
                         year === y
-                          ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90'
+                          ? ''
                           : ''
                       }
                       size="sm"
@@ -278,7 +278,7 @@ const Location = () => {
             </div>
 
             {filtered.length === 0 ? (
-              <div className="text-center py-16 bg-secondary/30 rounded-lg cyberpunk-border">
+              <div className="text-center py-16 bg-secondary/30 cyberpunk-border">
                 <p className="font-mono text-muted-foreground">
                   No events match those filters. Try clearing the search or picking a
                   different year.

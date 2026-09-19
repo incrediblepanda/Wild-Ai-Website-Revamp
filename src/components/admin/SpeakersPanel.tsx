@@ -109,7 +109,7 @@ const SpeakersPanel = () => {
   };
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
         <div>
           <h2 className="text-lg font-mono text-wildai-mint">Speaker Applications</h2>

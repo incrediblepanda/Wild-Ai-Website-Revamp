@@ -30,13 +30,13 @@ const PastHighlights = () => {
     <section className="py-10 md:py-16 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-center">PAST_EVENTS</h2>
+          <h2 className="section-title text-center">Past events</h2>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {highlights.map((h) => (
               <div
                 key={h.title}
-                className="bg-secondary/50 p-6 rounded-lg cyberpunk-border"
+                className="bg-secondary/50 p-6 cyberpunk-border"
               >
                 <p className="text-sm font-mono text-wildai-mint mb-2">
                   {h.date}

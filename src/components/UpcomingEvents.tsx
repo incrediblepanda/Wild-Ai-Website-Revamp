@@ -16,14 +16,14 @@ const UpcomingEvents = () => {
     <section className="py-10 md:py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-center">UPCOMING EVENTS</h2>
+          <h2 className="section-title text-center">Upcoming events</h2>
           <p className="text-center text-muted-foreground mb-10">
             The next gatherings across every Wild AI chapter.
           </p>
 
           <div className="space-y-4 max-w-3xl mx-auto">
             {isLoading && (
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6 h-28 animate-pulse" />
+              <div className="bg-secondary/50 cyberpunk-border p-6 h-28 animate-pulse" />
             )}
             {!isLoading && upcoming.length === 0 && (
               <p className="text-center text-muted-foreground py-8">
@@ -34,7 +34,7 @@ const UpcomingEvents = () => {
               <Link
                 key={e.id}
                 to={`/events/${e.slug}`}
-                className="block bg-secondary/50 rounded-lg cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group"
+                className="block bg-secondary/50 cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex-grow">

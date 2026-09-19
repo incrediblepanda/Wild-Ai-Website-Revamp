@@ -54,7 +54,7 @@ const ShowAndTell = () => {
               <p className="text-muted-foreground text-lg mb-4">No approved projects yet — be the first!</p>
               <a
                 href="/events/march-2026"
-                className="inline-block bg-wildai-mint text-background font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Submit Your Project
               </a>
@@ -62,7 +62,7 @@ const ShowAndTell = () => {
           ) : (
             <div className="grid sm:grid-cols-2 gap-6">
               {projects.map((project) => (
-                <div key={project.id} className="bg-secondary/50 rounded-lg cyberpunk-border overflow-hidden">
+                <div key={project.id} className="bg-secondary/50 cyberpunk-border overflow-hidden">
                   {project.image_url && (
                     <div className="aspect-video bg-background/50 flex items-center justify-center p-4">
                       <img

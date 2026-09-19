@@ -5,11 +5,11 @@ const EventDetails = () => {
   return <section id="event" className="py-10 md:py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-title">EVENT_DETAILS</h2>
+          <h2 className="section-title">Event details</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-secondary p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">UPCOMING EVENT</h3>
+            <div className="bg-secondary p-6 cyberpunk-border">
+              <h3 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">UPCOMING EVENT</h3>
               <p className="text-2xl font-bold text-wildai-mint mb-2">August 17, 2026</p>
               <p className="text-muted-foreground mb-4">6:00 PM</p>
               <p className="font-medium">Improving Minneapolis</p>
@@ -17,8 +17,8 @@ const EventDetails = () => {
               <p className="text-muted-foreground mb-4">Minneapolis, MN 55416</p>
             </div>
             
-            <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">WHAT TO EXPECT</h3>
+            <div className="bg-primary/25 p-6 cyberpunk-border">
+              <h3 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">WHAT TO EXPECT</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="text-wildai-mint mr-2">→</span>

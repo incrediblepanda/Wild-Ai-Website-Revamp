@@ -216,7 +216,7 @@ const AttendeesPanel = () => {
   });
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <Input placeholder="Search by name, email, company…" value={search} onChange={(e) => setSearch(e.target.value)} className="max-w-xs" />
         <div className="ml-auto flex gap-2">

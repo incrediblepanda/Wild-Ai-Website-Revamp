@@ -101,7 +101,7 @@ const AdminShowAndTell = () => {
                 <p className="text-muted-foreground text-center py-12">No submissions found.</p>
               ) : (
                 submissions.map((s) => (
-                  <div key={s.id} className="bg-secondary/50 rounded-lg cyberpunk-border p-5 flex flex-col sm:flex-row gap-4">
+                  <div key={s.id} className="bg-secondary/50 cyberpunk-border p-5 flex flex-col sm:flex-row gap-4">
                     {s.image_url && (
                       <img src={s.image_url} alt={s.project_name} className="w-20 h-20 object-contain rounded flex-shrink-0" />
                     )}

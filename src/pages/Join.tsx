@@ -69,7 +69,7 @@ const Join = () => {
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Signup form */}
-            <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+            <div className="bg-secondary/40 cyberpunk-border p-8">
               {status === 'done' ? (
                 <div className="text-center py-10">
                   <CheckCircle2 className="w-12 h-12 text-wildai-mint mx-auto mb-4" />
@@ -126,7 +126,7 @@ const Join = () => {
                   <Button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal"
+                    className="w-full"
                   >
                     {status === 'submitting' ? 'JOINING…' : 'JOIN THE LIST'}
                   </Button>
@@ -139,7 +139,7 @@ const Join = () => {
 
             {/* What you get */}
             <div className="space-y-4">
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="bg-secondary/50 cyberpunk-border p-6">
                 <Mail className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">EVENT INVITES FIRST</h3>
                 <p className="text-sm text-muted-foreground">
@@ -147,14 +147,14 @@ const Join = () => {
                   room fills up.
                 </p>
               </div>
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="bg-secondary/50 cyberpunk-border p-6">
                 <Sparkles className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">SPEAKER LINEUPS & RECAPS</h3>
                 <p className="text-sm text-muted-foreground">
                   Who's demoing, what they showed, and the links — even if you had to miss it.
                 </p>
               </div>
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="bg-secondary/50 cyberpunk-border p-6">
                 <CalendarDays className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">CITY-BY-CITY UPDATES</h3>
                 <p className="text-sm text-muted-foreground">
@@ -162,7 +162,7 @@ const Join = () => {
                   that city.
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 rounded-lg cyberpunk-border p-6">
+              <div className="bg-primary/25 cyberpunk-border p-6">
                 <h3 className="font-bold font-mono text-wildai-mint mb-1">WANT TO DO MORE THAN ATTEND?</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Fire talks and chapter organizing are open to everyone on the list.

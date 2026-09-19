@@ -99,7 +99,7 @@ const RsvpForm = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="section-title">Register</h2>
           
-          <div className="bg-secondary/50 p-6 md:p-8 rounded-lg cyberpunk-border shadow-lg">
+          <div className="bg-secondary/50 p-6 md:p-8 cyberpunk-border shadow-lg">
             <h3 className="text-xl font-bold mb-4 font-mono text-center">
               SECURE YOUR SPOT
             </h3>
