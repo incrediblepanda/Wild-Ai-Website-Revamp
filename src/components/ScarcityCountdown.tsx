@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-
-// TODO: Wire to events data — currently hardcoded to match EventDetails.tsx.
-const EVENT_DATE = new Date('2026-08-17T18:00:00-05:00');
-
-function getDiff(target: Date) {
-  const ms = target.getTime() - Date.now();
-  if (ms <= 0) return null;
-  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-  const hrs = Math.floor((ms / (1000 * 60 * 60)) % 24);
-  const min = Math.floor((ms / (1000 * 60)) % 60);
-  const sec = Math.floor((ms / 1000) % 60);
-  return { days, hrs, min, sec };
-}
+import { useCountdown } from '@/hooks/useCountdown';
+import { MEETUP_START_TIME, nextMeetupDate } from '@/lib/meetupSchedule';
 
 /** Animated two-digit cell — the digit slides when its value changes. */
 const Digit = ({ value, label }: { value: number; label: string }) => (
@@ -32,12 +21,7 @@ const Digit = ({ value, label }: { value: number; label: string }) => (
 );
 
 const ScarcityCountdown = () => {
-  const [diff, setDiff] = useState(() => getDiff(EVENT_DATE));
-
-  useEffect(() => {
-    const id = setInterval(() => setDiff(getDiff(EVENT_DATE)), 1000);
-    return () => clearInterval(id);
-  }, []);
+  const diff = useCountdown(new Date(`${nextMeetupDate()}T${MEETUP_START_TIME}:00`));
 
   const tiles = diff
     ? [

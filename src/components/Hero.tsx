@@ -3,14 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import { useScrollProgress, ramp } from '@/hooks/useScrollProgress';
-
-const meta = [
-  { k: 'Cadence', v: 'Every third Monday' },
-  { k: 'Format', v: '5 minute fire talks' },
-  { k: 'Rule', v: 'No slides' },
-];
-
-const tracks = ['Under the hood', 'Tools people built', 'Live demos'];
+import HeroCountdown from '@/components/HeroCountdown';
 
 /**
  * Full-viewport opening stage. It is sticky, so the rest of the page
@@ -46,7 +39,7 @@ const Hero = () => {
           willChange: spent ? undefined : 'transform, opacity',
         }}
       >
-        <div className="grid items-end gap-12 lg:grid-cols-[1.35fr_1fr]">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
           <div>
             <div className="line-mask">
               <p className="rise kicker" style={{ ['--rise-delay' as string]: '120ms' }}>
@@ -103,27 +96,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="rise hidden lg:block" style={{ ['--rise-delay' as string]: '900ms' }}>
-            <ul className="flex flex-col">
-              {tracks.map((track, i) => (
-                <li
-                  key={track}
-                  className="flex items-baseline gap-5 border-t border-border/70 py-4 last:border-b"
-                >
-                  <span className="font-mono text-[0.625rem] text-muted-foreground">0{i + 1}</span>
-                  <span className="text-base text-foreground">{track}</span>
-                </li>
-              ))}
-            </ul>
-
-            <dl className="mt-10 space-y-4">
-              {meta.map((m) => (
-                <div key={m.k} className="flex items-baseline justify-between gap-6">
-                  <dt className="kicker">{m.k}</dt>
-                  <dd className="text-sm text-foreground">{m.v}</dd>
-                </div>
-              ))}
-            </dl>
+          <div className="rise" style={{ ['--rise-delay' as string]: '900ms' }}>
+            <HeroCountdown spent={spent} />
           </div>
         </div>
       </div>

@@ -24,9 +24,14 @@ const Events = () => {
   const sorted = (events ?? [])
     .filter((e) => (cityFilter === 'all' ? true : e.chapter?.slug === cityFilter))
     .sort((a, b) => b.event_date.localeCompare(a.event_date));
-  const filtered = sorted.filter((e) =>
-    timeFilter === 'upcoming' ? isUpcoming(e.event_date) : !isUpcoming(e.event_date)
-  );
+  const filtered = sorted
+    .filter((e) => (timeFilter === 'upcoming' ? isUpcoming(e.event_date) : !isUpcoming(e.event_date)))
+    /* Upcoming reads soonest-first; past stays newest-first. */
+    .sort((a, b) =>
+      timeFilter === 'upcoming'
+        ? a.event_date.localeCompare(b.event_date)
+        : b.event_date.localeCompare(a.event_date)
+    );
   const past = sorted.filter((e) => !isUpcoming(e.event_date));
   const showPastFallback = timeFilter === 'upcoming' && filtered.length === 0 && past.length > 0;
   const displayList = showPastFallback ? past : filtered;
