@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Footer from '@/components/Footer';
 import LoonCafeMap from '@/components/LoonCafeMap';
+import { LOGO_SRC } from '@/components/Logo';
 import { MapPin } from 'lucide-react';
 const Afterparty = () => {
   const isMobile = useIsMobile();
@@ -10,7 +11,7 @@ const Afterparty = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-8 md:pt-24 md:pb-12 flex items-center relative">
         <div className="absolute top-16 left-0 w-full flex justify-center">
-          <img src="/lovable-uploads/4b758e76-3d87-4964-9506-d66b3fa83e25.png" alt="Wild AI Logo" className={`${isMobile ? 'h-32 max-w-full' : 'h-48 md:h-64'} w-auto object-contain mix-blend-lighten`} />
+          <img src={LOGO_SRC} alt="Wild AI Logo" className={`${isMobile ? 'h-32 max-w-full' : 'h-48 md:h-64'} w-auto object-contain mix-blend-lighten`} />
         </div>
         
         <div className={`container mx-auto px-4 ${isMobile ? 'mt-36' : 'mt-56 md:mt-64'}`}>

@@ -49,7 +49,7 @@ const ScarcityCountdown = () => {
     : null;
 
   return (
-    <section className="pt-24 md:pt-28 pb-6">
+    <section className="pt-14 md:pt-20 pb-6">
       <div className="container mx-auto px-4">
         <div className="surface overflow-hidden">
           {/* Sheen sweep signals "live" without shouting. */}

@@ -60,6 +60,10 @@ export default {
 					DEFAULT: 'hsl(var(--ember))',
 					foreground: 'hsl(var(--ember-foreground))'
 				},
+				cta: {
+					DEFAULT: 'hsl(var(--cta))',
+					foreground: 'hsl(var(--cta-foreground))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

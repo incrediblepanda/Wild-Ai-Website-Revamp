@@ -2,23 +2,22 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/motion/Reveal';
-import AmbientField from '@/components/motion/AmbientField';
 
 const FinalCtaBand = () => {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
-      <AmbientField className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
-      <div className="container relative mx-auto px-4">
+    <section className="py-24 md:py-32">
+      <div className="container mx-auto px-4">
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow mb-6 justify-center">Last call</p>
-            <h2 className="display-title mb-6 text-balance text-4xl md:text-5xl lg:text-6xl">
+          <div className="max-w-3xl">
+            <p className="eyebrow mb-7">Last call</p>
+            <h2 className="display-title text-balance text-[2.5rem] md:text-5xl lg:text-6xl">
               Come meet the people <em>building AI</em>.
             </h2>
-            <p className="mx-auto mb-9 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <div className="hero-rule mt-9 max-w-sm" />
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Seats are limited and most events fill up. Lock in your spot for the next meetup.
             </p>
-            <a href="#register">
+            <a href="#register" className="mt-9 inline-block">
               <Button size="lg" className="group">
                 Register now
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />

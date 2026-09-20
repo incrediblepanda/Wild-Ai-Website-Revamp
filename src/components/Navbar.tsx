@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import ChapterSwitcher from '@/components/ChapterSwitcher';
+import Logo from '@/components/Logo';
 import CommandPalette, { useCommandPalette } from '@/components/CommandPalette';
 
 const navLinks = [
@@ -50,11 +51,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4 h-16 flex justify-between items-center gap-4">
           <div className="flex items-center gap-4 flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img
-                src="/lovable-uploads/4b758e76-3d87-4964-9506-d66b3fa83e25.png"
-                alt="Wild AI Logo"
-                className="h-7 md:h-8 w-auto"
-              />
+<Logo className="h-7 md:h-8" />
             </Link>
             <span className="hidden md:block h-5 w-px bg-border" />
             {!isMobile && <ChapterSwitcher />}

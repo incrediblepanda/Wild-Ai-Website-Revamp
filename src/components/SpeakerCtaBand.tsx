@@ -9,7 +9,7 @@ const SpeakerCtaBand = () => (
   <section className="py-12 md:py-16">
     <div className="container mx-auto px-4">
       <Reveal>
-        <div className="surface spotlight relative overflow-hidden p-8 md:p-12">
+        <div className="surface relative overflow-hidden p-8 md:p-12">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
