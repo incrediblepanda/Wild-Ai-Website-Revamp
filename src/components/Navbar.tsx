@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4 h-16 flex justify-between items-center gap-4">
           <div className="flex items-center gap-4 flex-shrink-0">
             <Link to="/" className="flex items-center">
-<Logo className="h-7 md:h-8" />
+<Logo className="h-7 md:h-8" data-nav-logo="" />
             </Link>
             <span className="hidden md:block h-5 w-px bg-border" />
             {!isMobile && <ChapterSwitcher />}

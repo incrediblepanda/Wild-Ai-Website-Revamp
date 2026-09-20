@@ -283,42 +283,46 @@
     z-index: 100;
     display: grid;
     place-items: center;
-    background: #000;
-    cursor: pointer;
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #000;
+    transition: background-color 0.7s ease;
   }
   .intro-overlay[data-leaving='true'] {
-    opacity: 0;
+    background-color: transparent;
     pointer-events: none;
   }
   .intro-glow {
     position: absolute;
-    width: 80vmax;
-    height: 80vmax;
+    width: 70vmax;
+    height: 70vmax;
     border-radius: 50%;
-    background: radial-gradient(circle, hsl(179 78% 15% / 0.6), transparent 62%);
-    animation: intro-glow 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    background: radial-gradient(circle, hsl(179 78% 15% / 0.55), transparent 62%);
+    animation: intro-glow 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   @keyframes intro-glow {
     from {
       opacity: 0;
-      transform: scale(0.35);
+      transform: scale(0.4);
     }
     to {
       opacity: 1;
       transform: scale(1);
     }
   }
+  .intro-overlay[data-leaving='true'] .intro-glow {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
   .intro-logo {
     position: relative;
-    width: min(82vw, 980px);
+    width: min(54vw, 560px);
     height: auto;
-    animation: intro-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform;
+    animation: intro-zoom 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   @keyframes intro-zoom {
     from {
       opacity: 0;
-      transform: scale(0.06);
+      transform: scale(0.08);
       filter: blur(8px);
     }
     60% {
@@ -330,35 +334,16 @@
       filter: blur(0);
     }
   }
+  /* Flies to the measured navbar position; duration matches FLIGHT_MS. */
   .intro-overlay[data-leaving='true'] .intro-logo {
     animation: none;
+    transition: transform 0.9s cubic-bezier(0.6, 0.02, 0.2, 1);
+  }
+  /* The real navbar mark stays hidden until the flying one has landed on it. */
+  [data-intro] [data-nav-logo] {
     opacity: 0;
-    transform: scale(1.35);
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
   }
-  .intro-prompt {
-    position: absolute;
-    bottom: clamp(2rem, 6vh, 4rem);
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: hsl(172 18% 76%);
-    animation: intro-prompt 0.9s ease-out 1.9s both;
-  }
-  @keyframes intro-prompt {
-    from {
-      opacity: 0;
-      transform: translate(-50%, 10px);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
-  /* Hold the hero entrance until the curtain lifts. */
+  /* Hold the hero entrance until the curtain starts lifting. */
   [data-intro='active'] .rise {
     animation-play-state: paused;
   }
@@ -615,12 +600,8 @@
     transform: none;
   }
   .intro-logo,
-  .intro-glow,
-  .intro-prompt {
+  .intro-glow {
     opacity: 1;
     filter: none;
-  }
-  .intro-logo {
-    transform: none;
   }
 }
