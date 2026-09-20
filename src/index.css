@@ -276,6 +276,93 @@
     background: hsl(var(--surface-deep));
   }
 
+  /* ---------- Intro curtain ---------- */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background: #000;
+    cursor: pointer;
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .intro-overlay[data-leaving='true'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .intro-glow {
+    position: absolute;
+    width: 80vmax;
+    height: 80vmax;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(179 78% 15% / 0.6), transparent 62%);
+    animation: intro-glow 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes intro-glow {
+    from {
+      opacity: 0;
+      transform: scale(0.35);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .intro-logo {
+    position: relative;
+    width: min(82vw, 980px);
+    height: auto;
+    animation: intro-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes intro-zoom {
+    from {
+      opacity: 0;
+      transform: scale(0.06);
+      filter: blur(8px);
+    }
+    60% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  }
+  .intro-overlay[data-leaving='true'] .intro-logo {
+    animation: none;
+    opacity: 0;
+    transform: scale(1.35);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+  }
+  .intro-prompt {
+    position: absolute;
+    bottom: clamp(2rem, 6vh, 4rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(172 18% 76%);
+    animation: intro-prompt 0.9s ease-out 1.9s both;
+  }
+  @keyframes intro-prompt {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 10px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  /* Hold the hero entrance until the curtain lifts. */
+  [data-intro='active'] .rise {
+    animation-play-state: paused;
+  }
+
   /* ---------- Hero stage ---------- */
   .hero-stage {
     height: 100svh;
@@ -525,6 +612,15 @@
   }
   .rise {
     opacity: 1;
+    transform: none;
+  }
+  .intro-logo,
+  .intro-glow,
+  .intro-prompt {
+    opacity: 1;
+    filter: none;
+  }
+  .intro-logo {
     transform: none;
   }
 }

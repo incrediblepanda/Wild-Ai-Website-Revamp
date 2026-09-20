@@ -16,6 +16,7 @@ import UpcomingEvents from '@/components/UpcomingEvents';
 import SpeakerCtaBand from '@/components/SpeakerCtaBand';
 import SponsorCtaBand from '@/components/SponsorCtaBand';
 import Footer from '@/components/Footer';
+import Intro from '@/components/Intro';
 
 interface BandProps {
   tone?: 'slate' | 'paper' | 'deep';
@@ -35,6 +36,7 @@ const Band = ({ tone = 'slate', children }: BandProps) => (
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <Intro />
       <Navbar />
       <main>
         <Hero />
