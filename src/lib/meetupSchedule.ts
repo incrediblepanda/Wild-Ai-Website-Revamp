@@ -43,7 +43,7 @@ export const nextMeetupDate = (from = new Date()) => upcomingMeetupDates(1, from
 
 const agenda = [
   { time: '6:00 PM', label: 'Arrival, mingling, and drinks' },
-  { time: '6:40 PM', label: 'Fire talks — five minutes, no slides' },
+  { time: '6:40 PM', label: 'Fire talks - five minutes, no slides' },
   { time: '7:00 PM', label: 'Open networking' },
 ];
 
@@ -60,7 +60,7 @@ export const scheduledMeetups = (chapter: Chapter, count = 4): ChapterEvent[] =>
     venue_name: MEETUP_VENUE.name,
     venue_address: MEETUP_VENUE.address,
     description:
-      'Our monthly gathering of Minneapolis AI builders — five-minute fire talks, live demos, and an hour of open networking. Third Monday of every month at 6:00 PM.',
+      'Our monthly gathering of Minneapolis AI builders - five-minute fire talks, live demos, and an hour of open networking. Third Monday of every month at 6:00 PM.',
     agenda,
     speakers: [],
     recap_url: null,

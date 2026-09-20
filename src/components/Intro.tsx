@@ -7,7 +7,7 @@ import { LOGO_SRC } from '@/components/Logo';
  */
 let hasPlayed = false;
 
-/** The route this page load started on — the curtain is for direct landings only. */
+/** The route this page load started on - the curtain is for direct landings only. */
 const ENTRY_PATH = typeof window === 'undefined' ? '/' : window.location.pathname;
 
 /** How long the mark sits centred before it takes off. */
@@ -28,7 +28,7 @@ const Intro = () => {
    *
    * Driven by the Web Animations API rather than a CSS transition: the entry
    * keyframes have to be cancelled in the same frame the flight starts, and a
-   * transition fired at that moment is unreliable — it tends to snap. Explicit
+   * transition fired at that moment is unreliable - it tends to snap. Explicit
    * keyframes make the start and end states unambiguous.
    */
   const depart = useCallback(() => {

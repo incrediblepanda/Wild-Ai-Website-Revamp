@@ -3,7 +3,7 @@ import { Quote } from 'lucide-react';
 import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/motion/Reveal';
 
-// NOTE: Placeholder quotes — replace with real attendee testimonials.
+// NOTE: Placeholder quotes - replace with real attendee testimonials.
 const quotes = [
   {
     quote: 'My best AI collab started at a Wild AI meetup.',

@@ -60,7 +60,7 @@ const Sponsor = () => {
       message: form.message || null,
     });
     if (err) {
-      setError('Something went wrong — please email us directly instead.');
+      setError('Something went wrong - please email us directly instead.');
     } else {
       setSubmitted(true);
     }
@@ -70,7 +70,7 @@ const Sponsor = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Sponsor Wild AI — Reach working AI builders</title>
+        <title>Sponsor Wild AI - Reach working AI builders</title>
         <meta
           name="description"
           content="Put your brand in front of hundreds of active AI engineers and founders at Wild AI meetups in Minneapolis, San Francisco, and Toronto."
@@ -135,7 +135,7 @@ const Sponsor = () => {
               ))}
             </div>
             <p className="text-center text-xs text-muted-foreground mt-4">
-              Placeholder pricing — final tiers are confirmed with sponsors directly.
+              Placeholder pricing - final tiers are confirmed with sponsors directly.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ const Sponsor = () => {
             {submitted ? (
               <div className="bg-secondary/50 cyberpunk-border p-8 text-center">
                 <CheckCircle2 className="w-10 h-10 text-wildai-mint mx-auto mb-3" />
-                <p className="font-bold">Thanks — we'll be in touch shortly.</p>
+                <p className="font-bold">Thanks - we'll be in touch shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-secondary/40 cyberpunk-border p-8 space-y-4">

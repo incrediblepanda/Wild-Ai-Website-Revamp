@@ -47,7 +47,7 @@ const EventDetails = () => {
                 {formatDate(nextDate)}
               </p>
               <p className="mt-1 text-muted-foreground">
-                6:00 PM — third Monday of every month
+                6:00 PM - third Monday of every month
               </p>
 
               <div className="mt-6 flex items-start gap-3 border-t border-border pt-6">
@@ -91,7 +91,7 @@ const EventDetails = () => {
 
               <div className="mt-8 rounded-xl border border-accent/20 bg-accent/[0.06] p-5">
                 <p className="font-display text-base font-semibold">
-                  First time? Don&apos;t worry — we&apos;re a friendly bunch.
+                  First time? Don&apos;t worry - we&apos;re a friendly bunch.
                 </p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                   Just show up, grab a drink, and start chatting about what excites you in AI.

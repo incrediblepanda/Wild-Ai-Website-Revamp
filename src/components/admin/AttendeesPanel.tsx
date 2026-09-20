@@ -279,13 +279,13 @@ const AttendeesPanel = () => {
                 const last = a.last_name || parts.slice(1).join(' ');
                 return (
                 <TableRow key={a.id}>
-                  <TableCell className="font-medium">{first || '—'}</TableCell>
-                  <TableCell className="font-medium">{last || '—'}</TableCell>
+                  <TableCell className="font-medium">{first || '-'}</TableCell>
+                  <TableCell className="font-medium">{last || '-'}</TableCell>
                   <TableCell>{a.email}</TableCell>
-                  <TableCell>{a.company || '—'}</TableCell>
-                  <TableCell className="text-xs">{(a.events_attended || []).join(', ') || '—'}</TableCell>
+                  <TableCell>{a.company || '-'}</TableCell>
+                  <TableCell className="text-xs">{(a.events_attended || []).join(', ') || '-'}</TableCell>
                   <TableCell className="text-xs">{a.source}</TableCell>
-                  <TableCell className="text-xs">{a.subscribed ? '✓' : '—'}</TableCell>
+                  <TableCell className="text-xs">{a.subscribed ? '✓' : '-'}</TableCell>
                   <TableCell className="text-right">
                     <Button variant="ghost" size="sm" onClick={() => openEdit(a)}><Pencil className="w-4 h-4" /></Button>
                     <Button variant="ghost" size="sm" onClick={() => handleDelete(a.id)}><Trash2 className="w-4 h-4" /></Button>
@@ -315,11 +315,11 @@ const AttendeesPanel = () => {
                   <TableBody>
                     {importPreview.rows.slice(0, 20).map((r, i) => (
                       <TableRow key={i}>
-                        <TableCell>{r.first_name || '—'}</TableCell>
-                        <TableCell>{r.last_name || '—'}</TableCell>
+                        <TableCell>{r.first_name || '-'}</TableCell>
+                        <TableCell>{r.last_name || '-'}</TableCell>
                         <TableCell className="text-xs">{r.email}</TableCell>
-                        <TableCell className="text-xs">{r.company || '—'}</TableCell>
-                        <TableCell className="text-xs">{(r.events_attended || []).join(', ') || '—'}</TableCell>
+                        <TableCell className="text-xs">{r.company || '-'}</TableCell>
+                        <TableCell className="text-xs">{(r.events_attended || []).join(', ') || '-'}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

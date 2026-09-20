@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
  * clamped to 0..1.
  *
  * The value is damped toward the real scroll position rather than tracking it
- * exactly, so wheel clicks — which arrive as coarse jumps — still read as one
+ * exactly, so wheel clicks - which arrive as coarse jumps - still read as one
  * continuous glide. `smoothing` is the fraction of the remaining distance
  * closed each frame; lower is slower and looser.
  */
@@ -34,7 +34,7 @@ export const useScrollProgress = (spanRatio = 1, smoothing = 0.12) => {
       if (!frame && current !== target) frame = requestAnimationFrame(tick);
     };
 
-    // Land on the true value immediately on mount — no opening slide.
+    // Land on the true value immediately on mount - no opening slide.
     readTarget();
     current = target;
     setProgress(target);
@@ -51,7 +51,7 @@ export const useScrollProgress = (spanRatio = 1, smoothing = 0.12) => {
   return progress;
 };
 
-/** Smoothstep easing — no hard starts or stops. */
+/** Smoothstep easing - no hard starts or stops. */
 export const smoothstep = (t: number) => {
   const c = Math.min(Math.max(t, 0), 1);
   return c * c * (3 - 2 * c);

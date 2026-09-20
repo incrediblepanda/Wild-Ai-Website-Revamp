@@ -29,11 +29,11 @@
     --muted: 190 10% 24%;
     --muted-foreground: 180 7% 67%;
 
-    /* Pale sage — quiet accent for eyebrows and meta text on slate. */
+    /* Pale sage - quiet accent for eyebrows and meta text on slate. */
     --accent: 172 18% 76%;
     --accent-foreground: 190 20% 14%;
 
-    /* Warm sand — used sparingly for "launching" / highlight states. */
+    /* Warm sand - used sparingly for "launching" / highlight states. */
     --ember: 34 44% 70%;
     --ember-foreground: 34 40% 12%;
 
@@ -58,7 +58,7 @@
     --line-soft: 188 9% 29%;
     --shadow-soft: 0 28px 60px -34px hsl(191 40% 3% / 0.8);
 
-    /* Headline accent — #a1eec3. */
+    /* Headline accent - #a1eec3. */
     --hero-accent: 147 69% 78%;
 
     --radius: 0.625rem;
@@ -357,7 +357,7 @@
     @apply sticky top-0 flex items-center overflow-hidden;
     background: hsl(var(--surface-deep));
   }
-  /* Slow duotone wash — replaces the generic particle field. */
+  /* Slow duotone wash - replaces the generic particle field. */
   .hero-wash {
     position: absolute;
     inset: -20%;

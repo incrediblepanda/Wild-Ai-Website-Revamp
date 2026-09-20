@@ -57,7 +57,7 @@ const ChapterPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Wild AI {chapter.city} — AI meetup & demo nights</title>
+        <title>Wild AI {chapter.city} - AI meetup & demo nights</title>
         <meta
           name="description"
           content={`Wild AI ${chapter.city}: ${chapter.tagline ?? 'monthly AI meetups with fire talks and networking'}. See the next event and RSVP.`}
@@ -161,7 +161,7 @@ const ChapterPage = () => {
               </p>
               <ul className="space-y-3 text-muted-foreground text-sm">
                 <li className="flex items-start"><span className="text-wildai-mint mr-2">→</span> 40 minutes of social hour</li>
-                <li className="flex items-start"><span className="text-wildai-mint mr-2">→</span> 20 minutes of fire talks — 5 min, no slides</li>
+                <li className="flex items-start"><span className="text-wildai-mint mr-2">→</span> 20 minutes of fire talks - 5 min, no slides</li>
                 <li className="flex items-start"><span className="text-wildai-mint mr-2">→</span> An hour of open networking</li>
               </ul>
               <div className="mt-6 flex items-center gap-2 text-xs text-muted-foreground">

@@ -1,4 +1,4 @@
-// Wild AI past events — seeded from the public Meetup archive
+// Wild AI past events - seeded from the public Meetup archive
 // Source: https://www.meetup.com/wild-ai/events/?type=past
 // NOTE: Speaker names are intentionally NOT included. Meetup's public listings
 // describe the speaker FORMAT (e.g., fire talks, demo nights) but do not
@@ -24,12 +24,12 @@ export type WildAiEvent = {
 };
 
 const fireTalkNotes =
-  "No slides — concise, high-level introductions. Speakers share who they are, what they're working on, and why it matters in five minutes or less, setting the stage for the networking hour.";
+  "No slides - concise, high-level introductions. Speakers share who they are, what they're working on, and why it matters in five minutes or less, setting the stage for the networking hour.";
 
 export const wildAiEvents: WildAiEvent[] = [
   {
     id: "314668845",
-    title: "Wild AI — May Meetup @ Improving",
+    title: "Wild AI - May Meetup @ Improving",
     date: "2025-05-19",
     displayDate: "Mon, May 19, 2025",
     venueName: "Lake Calhoun Executive Center (Improving)",
@@ -42,14 +42,14 @@ export const wildAiEvents: WildAiEvent[] = [
       "3rd Monday Monthly at Improving. 40 minutes of social, 20 minutes of fire talks by passionate innovators, and an hour of networking after.",
     speakerInfo: {
       hasSpeakerDetails: true,
-      format: "Demo Night — 4 short-form demos",
+      format: "Demo Night - 4 short-form demos",
       notes:
         "Four short-form demos from local builders, followed by open networking with the presenters.",
     },
   },
   {
     id: "314184693",
-    title: "Wild AI — April Meetup @ Improving",
+    title: "Wild AI - April Meetup @ Improving",
     date: "2025-04-21",
     displayDate: "Mon, Apr 21, 2025",
     venueName: "Lake Calhoun Executive Center (Improving)",
@@ -68,7 +68,7 @@ export const wildAiEvents: WildAiEvent[] = [
   },
   {
     id: "313611884",
-    title: "Wild AI — March Meetup @ HeadFlyer",
+    title: "Wild AI - March Meetup @ HeadFlyer",
     date: "2025-03-17",
     displayDate: "Mon, Mar 17, 2025",
     venueName: "HeadFlyer Brewing",
@@ -87,7 +87,7 @@ export const wildAiEvents: WildAiEvent[] = [
   },
   {
     id: "313236830",
-    title: "Wild AI — February Meetup @ HeadFlyer Brewing",
+    title: "Wild AI - February Meetup @ HeadFlyer Brewing",
     date: "2025-02-17",
     displayDate: "Mon, Feb 17, 2025",
     venueName: "HeadFlyer Brewing",
@@ -106,7 +106,7 @@ export const wildAiEvents: WildAiEvent[] = [
   },
   {
     id: "312804335",
-    title: "Wild AI — January Meetup @ HeadFlyer Brewing",
+    title: "Wild AI - January Meetup @ HeadFlyer Brewing",
     date: "2025-01-20",
     displayDate: "Mon, Jan 20, 2025",
     venueName: "HeadFlyer Brewing",
@@ -125,7 +125,7 @@ export const wildAiEvents: WildAiEvent[] = [
   },
   {
     id: "312280323",
-    title: "Wild AI — December Meetup @ HeadFlyer Brewing",
+    title: "Wild AI - December Meetup @ HeadFlyer Brewing",
     date: "2024-12-16",
     displayDate: "Mon, Dec 16, 2024",
     venueName: "HeadFlyer Brewing",
@@ -211,7 +211,7 @@ export const wildAiEvents: WildAiEvent[] = [
     meetupUrl: "https://www.meetup.com/wild-ai/events/309096029/",
     attendeeCount: 68,
     description:
-      "One of the largest Wild AI gatherings to date — networking mixer with an AI innovations showcase.",
+      "One of the largest Wild AI gatherings to date - networking mixer with an AI innovations showcase.",
     speakerInfo: {
       hasSpeakerDetails: true,
       format: "Fire talks + innovations showcase",
@@ -232,9 +232,9 @@ export type VenueGroup = {
 
 const venueDescriptions: Record<string, string> = {
   "HeadFlyer Brewing":
-    "The longtime home base for Wild AI — a Northeast Minneapolis brewery that hosted the bulk of the community's monthly mixers and innovation showcases.",
+    "The longtime home base for Wild AI - a Northeast Minneapolis brewery that hosted the bulk of the community's monthly mixers and innovation showcases.",
   "Lake Calhoun Executive Center (Improving)":
-    "A modern office venue near Bde Maka Ska where Wild AI hosts its Improving series — including the recent demo night format.",
+    "A modern office venue near Bde Maka Ska where Wild AI hosts its Improving series - including the recent demo night format.",
 };
 
 export function groupByVenue(events: WildAiEvent[]): VenueGroup[] {

@@ -8,7 +8,7 @@ const GopherAIConference = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Gopher AI Demo Night — April 9, 2026 | UMN x Wild AI</title>
+        <title>Gopher AI Demo Night - April 9, 2026 | UMN x Wild AI</title>
         <meta name="description" content="Gopher AI Demo Night on April 9, 2026 at CMU Mississippi Room. See demos from students, researchers, and local startups. Free and open to the public." />
       </Helmet>
       <Navbar />
@@ -56,7 +56,7 @@ const GopherAIConference = () => {
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
-                <p>5:00 PM — 9:00 PM</p>
+                <p>5:00 PM - 9:00 PM</p>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ const GopherAIConference = () => {
           {/* CTA */}
           <div className="bg-primary/25 p-8 cyberpunk-border text-center">
             <h2 className="text-2xl font-bold font-mono mb-3">JOIN US</h2>
-            <p className="text-muted-foreground mb-2">Free and open to the public — no ticket required.</p>
+            <p className="text-muted-foreground mb-2">Free and open to the public - no ticket required.</p>
             <p className="text-muted-foreground mb-6">Just show up and experience the future of AI in Minnesota.</p>
             <p className="font-mono text-wildai-mint text-lg font-bold">April 9 · 5–9 PM · CMU Mississippi Room</p>
           </div>

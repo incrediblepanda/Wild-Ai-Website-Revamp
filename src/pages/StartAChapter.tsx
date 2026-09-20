@@ -31,7 +31,7 @@ const StartAChapter = () => {
       message: form.message || null,
     });
     if (err) {
-      setError('Something went wrong — please try again in a moment.');
+      setError('Something went wrong - please try again in a moment.');
     } else {
       setSubmitted(true);
     }
@@ -41,10 +41,10 @@ const StartAChapter = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Start a Wild AI Chapter — Bring AI meetups to your city</title>
+        <title>Start a Wild AI Chapter - Bring AI meetups to your city</title>
         <meta
           name="description"
-          content="Bring Wild AI to your city. We provide the playbook, brand, and network — you provide the local energy. Apply to start a chapter."
+          content="Bring Wild AI to your city. We provide the playbook, brand, and network - you provide the local energy. Apply to start a chapter."
         />
         <meta property="og:title" content="Start a Wild AI Chapter" />
         <meta property="og:type" content="website" />
@@ -75,7 +75,7 @@ const StartAChapter = () => {
               <h2 className="text-xl bold font-bold font-mono text-wildai-mint mb-4">WHAT WE EXPECT</h2>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />You live in (or near) the city you want to launch</li>
-                <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />A co-organizer or two — this is a team sport</li>
+                <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />A co-organizer or two - this is a team sport</li>
                 <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />Commitment to a monthly cadence for at least 6 months</li>
               </ul>
             </div>
@@ -203,7 +203,7 @@ const StartAChapter = () => {
                 { step: '01', text: 'We review applications weekly and reply within two weeks.' },
                 { step: '02', text: 'A 30-minute call: your city, your co-organizers, your first venue.' },
                 { step: '03', text: 'We set up your chapter page, email list, and launch plan together.' },
-                { step: '04', text: 'Launch night — we help promote, you run the room.' },
+                { step: '04', text: 'Launch night - we help promote, you run the room.' },
               ].map((s) => (
                 <div key={s.step} className="flex items-start gap-4 bg-secondary/40 cyberpunk-border p-5">
                   <span className="font-mono text-wildai-mint text-lg">{s.step}</span>

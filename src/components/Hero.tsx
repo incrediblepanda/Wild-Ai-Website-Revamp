@@ -43,7 +43,7 @@ const Hero = () => {
           <div>
             <div className="line-mask">
               <p className="rise kicker" style={{ ['--rise-delay' as string]: '120ms' }}>
-                Wild AI — Minneapolis
+                Wild AI - Minneapolis
               </p>
             </div>
 

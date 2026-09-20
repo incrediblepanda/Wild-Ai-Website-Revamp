@@ -52,7 +52,7 @@ const EmailCapture = ({
       );
     } catch (err: any) {
       console.error(err);
-      toast.error(err?.message || 'Signup failed — please try again');
+      toast.error(err?.message || 'Signup failed - please try again');
     } finally {
       setSubmitting(false);
     }

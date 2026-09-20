@@ -83,7 +83,7 @@ const SpeakerForm = () => {
         <div className="mb-8">
           <p className="text-lg mb-3">Have an AI project, experiment, or insight to share?</p>
           <p className="section-lede">
-            Our lightning talks are 5 minutes, no slides — just you sharing who you are,
+            Our lightning talks are 5 minutes, no slides - just you sharing who you are,
             what you're working on, and why it's important.
           </p>
         </div>
@@ -116,7 +116,7 @@ const SpeakerForm = () => {
           <div>
             <Label htmlFor="description">About you *</Label>
             <Textarea id="description" value={form.description} onChange={(e) => update('description', e.target.value)} rows={4} required maxLength={5000}
-              placeholder="A short bio — who you are and what you do." />
+              placeholder="A short bio - who you are and what you do." />
           </div>
 
           <div>

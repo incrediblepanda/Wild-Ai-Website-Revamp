@@ -55,9 +55,9 @@ const SpeakersPanel = () => {
   useEffect(() => { load(); }, []);
 
   const eventLabel = (id: string | null) => {
-    if (!id) return '—';
+    if (!id) return '-';
     const e = events.find((x) => x.id === id);
-    return e ? `${fmtDate(e.event_date)}${e.location ? ' · ' + e.location : ''}` : '—';
+    return e ? `${fmtDate(e.event_date)}${e.location ? ' · ' + e.location : ''}` : '-';
   };
 
   const filtered = useMemo(() => {
@@ -162,7 +162,7 @@ const SpeakersPanel = () => {
                     >
                       <SelectTrigger className="w-56 h-8 text-xs"><SelectValue placeholder="Assign…" /></SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="none">— Unassigned —</SelectItem>
+                        <SelectItem value="none">- Unassigned -</SelectItem>
                         {upcoming.map((e) => (
                           <SelectItem key={e.id} value={e.id}>{fmtDate(e.event_date)}{e.location ? ' · ' + e.location : ''}</SelectItem>
                         ))}
@@ -216,7 +216,7 @@ const SpeakersPanel = () => {
                   >
                     <SelectTrigger><SelectValue placeholder="Pick an event…" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">— Unassigned —</SelectItem>
+                      <SelectItem value="none">- Unassigned -</SelectItem>
                       {upcoming.map((e) => (
                         <SelectItem key={e.id} value={e.id}>{fmtDate(e.event_date)}{e.location ? ' · ' + e.location : ''}</SelectItem>
                       ))}

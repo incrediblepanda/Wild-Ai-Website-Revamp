@@ -11,7 +11,7 @@ const EventMay2026 = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Wild AI — May 18, 2026 | Live Demos at Improving Minneapolis</title>
+        <title>Wild AI - May 18, 2026 | Live Demos at Improving Minneapolis</title>
         <meta name="description" content="Wild AI is back May 18, 2026 (6 PM) at the Improving office in Minneapolis. Quick, snappy 10-minute demos from Yaniv Ben-Ami, Lyndon Carlson, Jimmy, and Joanna May." />
       </Helmet>
       <Navbar />
@@ -26,7 +26,7 @@ const EventMay2026 = () => {
             </p>
             <p className="text-muted-foreground">
               This month we're bringing things back toward our technical roots. We've gotten a lot
-              of feedback that people want more live demos, real systems, and technical builds — so
+              of feedback that people want more live demos, real systems, and technical builds - so
               we're leaning hard in that direction.
             </p>
             <p className="text-muted-foreground">
@@ -48,7 +48,7 @@ const EventMay2026 = () => {
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
-                <p>6:00 PM — 8:00 PM</p>
+                <p>6:00 PM - 8:00 PM</p>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const EventMay2026 = () => {
             <div className="flex-1">
               <h3 className="font-bold mb-1">Location</h3>
               <p className="font-medium">Improving Minneapolis</p>
-              <p className="text-muted-foreground">Lakeside Center, 2nd floor — right next to Bde Maka Ska</p>
+              <p className="text-muted-foreground">Lakeside Center, 2nd floor - right next to Bde Maka Ska</p>
               <p className="text-muted-foreground">3033 Excelsior Boulevard, Suite 180</p>
               <p className="text-muted-foreground">Minneapolis, Minnesota 55416</p>
               <a
@@ -71,7 +71,7 @@ const EventMay2026 = () => {
                 View on Google Maps <ExternalLink className="w-3 h-3" />
               </a>
               <p className="text-sm text-muted-foreground/80 mt-3 italic">
-                Hosted by Emily McCarthy and the Improving team — thank you!
+                Hosted by Emily McCarthy and the Improving team - thank you!
               </p>
             </div>
           </div>

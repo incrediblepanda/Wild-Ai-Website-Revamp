@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-md">
-              The AI meetup for people who ship. Fire talks, demo nights, and real networking —
+              The AI meetup for people who ship. Fire talks, demo nights, and real networking -
               city by city across North America.
             </p>
 

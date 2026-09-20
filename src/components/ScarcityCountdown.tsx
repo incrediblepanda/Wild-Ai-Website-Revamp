@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useCountdown } from '@/hooks/useCountdown';
 import { MEETUP_START_TIME, nextMeetupDate } from '@/lib/meetupSchedule';
 
-/** Animated two-digit cell — the digit slides when its value changes. */
+/** Animated two-digit cell - the digit slides when its value changes. */
 const Digit = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center gap-2">
     <div className="relative overflow-hidden rounded-xl border border-border bg-surface-deep/70 px-3 py-3 md:px-5 md:py-4 min-w-[3.5rem] md:min-w-[4.5rem]">
@@ -68,7 +68,7 @@ const ScarcityCountdown = () => {
                 RSVP and we&apos;ll email you event details, the speaker lineup, and a reminder the
                 day before.
               </p>
-              <p className="mt-3 inline-flex chip chip-ember">Most events fill up — RSVP early</p>
+              <p className="mt-3 inline-flex chip chip-ember">Most events fill up - RSVP early</p>
             </div>
 
             <Link

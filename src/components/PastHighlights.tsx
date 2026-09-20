@@ -3,7 +3,7 @@ import { Youtube, PlayCircle, ArrowUpRight } from 'lucide-react';
 import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/motion/Reveal';
 
-// NOTE: Placeholder highlights — swap with real past-event data.
+// NOTE: Placeholder highlights - swap with real past-event data.
 const highlights = [
   {
     date: 'May 2026',
@@ -37,7 +37,7 @@ const PastHighlights = () => {
           </p>
           <h2 className="section-title">Past events</h2>
           <p className="section-lede">
-            Every month is a different corner of the stack — from research deep dives to weekend
+            Every month is a different corner of the stack - from research deep dives to weekend
             side projects.
           </p>
         </Reveal>

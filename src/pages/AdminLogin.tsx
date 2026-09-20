@@ -63,7 +63,7 @@ const AdminLogin = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Admin Login — Wild AI</title>
+        <title>Admin Login - Wild AI</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
       <Navbar />

@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'Who should submit?',
-    a: 'Engineers, founders, researchers, designers — anyone building or shipping with AI. First-time speakers are explicitly welcome; we coach you before you go on.',
+    a: 'Engineers, founders, researchers, designers - anyone building or shipping with AI. First-time speakers are explicitly welcome; we coach you before you go on.',
   },
   {
     q: 'What do speakers get?',
@@ -30,7 +30,7 @@ const faqs = [
 const Speak = () => (
   <div className="flex flex-col min-h-screen">
     <Helmet>
-      <title>Speak at Wild AI — Submit a fire talk or demo</title>
+      <title>Speak at Wild AI - Submit a fire talk or demo</title>
       <meta
         name="description"
         content="Demo your AI project at a Wild AI meetup. Five-minute fire talks, no slides, real builders in the room. Submit your talk for Minneapolis, San Francisco, or Toronto."
@@ -46,7 +46,7 @@ const Speak = () => (
         eyebrow="Fire talks"
         icon={Mic2}
         title={<>Demo at <span>Wild AI</span>.</>}
-        lede="Fire talks are the heart of every meetup: five minutes, no slides, real work on the table. Submit yours — every city, every level of experience."
+        lede="Fire talks are the heart of every meetup: five minutes, no slides, real work on the table. Submit yours - every city, every level of experience."
       />
       <div className="container mx-auto px-4 pt-14">
 
@@ -57,7 +57,7 @@ const Speak = () => (
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start">
                 <Sparkles className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />
-                A live demo of something you built — even half-built
+                A live demo of something you built - even half-built
               </li>
               <li className="flex items-start">
                 <Sparkles className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />

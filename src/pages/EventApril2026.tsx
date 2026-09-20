@@ -33,7 +33,7 @@ const EventApril2026 = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Wild AI Meetup — April 20, 2026 | Improving Minneapolis</title>
+        <title>Wild AI Meetup - April 20, 2026 | Improving Minneapolis</title>
         <meta name="description" content="Wild AI on April 20, 2026 at Improving Minneapolis (6–8 PM). Talks from Kaushik Suresh, Joe LaChance, and Mamady Konneh." />
       </Helmet>
       <Navbar />
@@ -54,7 +54,7 @@ const EventApril2026 = () => {
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
-                <p>6:00 PM — 8:00 PM</p>
+                <p>6:00 PM - 8:00 PM</p>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ const EventApril2026 = () => {
             <div className="flex-1">
               <h3 className="font-bold mb-1">Location</h3>
               <p className="font-medium">Improving Minneapolis</p>
-              <p className="text-muted-foreground">Lakeside Center, 2nd floor — right next to Bde Maka Ska</p>
+              <p className="text-muted-foreground">Lakeside Center, 2nd floor - right next to Bde Maka Ska</p>
               <p className="text-muted-foreground">3033 Excelsior Boulevard, Suite 180</p>
               <p className="text-muted-foreground">Minneapolis, Minnesota 55416</p>
               <a
@@ -77,7 +77,7 @@ const EventApril2026 = () => {
                 View on Google Maps <ExternalLink className="w-3 h-3" />
               </a>
               <p className="text-sm text-muted-foreground/80 mt-3 italic">
-                Hosted by Emily McCarthy and the Improving team — thank you!
+                Hosted by Emily McCarthy and the Improving team - thank you!
               </p>
             </div>
           </div>

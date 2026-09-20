@@ -12,7 +12,7 @@ const values = [
   {
     icon: Flame,
     title: 'SHOW, DON\u2019T TELL',
-    text: 'No vendor keynotes. No slide decks. Every talk is five minutes of real work — a demo, a lesson, a war story from shipping with AI.',
+    text: 'No vendor keynotes. No slide decks. Every talk is five minutes of real work - a demo, a lesson, a war story from shipping with AI.',
   },
   {
     icon: Users,
@@ -32,7 +32,7 @@ const About = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>About Wild AI — The AI meetup for people who ship</title>
+        <title>About Wild AI - The AI meetup for people who ship</title>
         <meta
           name="description"
           content="Wild AI is a community-run meetup network for AI builders. Our story, values, team, and code of conduct."
@@ -52,7 +52,7 @@ const About = () => {
               The best AI conversations happen <span>in a crowded room</span>.
             </>
           }
-          lede="Wild AI is a community-run meetup network for people who actually build with AI. We started in Minneapolis and are growing city by city — one fire talk, one demo night, one crowded bar at a time."
+          lede="Wild AI is a community-run meetup network for people who actually build with AI. We started in Minneapolis and are growing city by city - one fire talk, one demo night, one crowded bar at a time."
         />
         <div className="container mx-auto px-4 pt-14">
 
@@ -66,14 +66,14 @@ const About = () => {
                 No tickets, no sponsors, no agenda beyond "show the weird thing you made."
               </p>
               <p>
-                It kept filling up. The format stayed deliberately simple — five-minute fire
-                talks, no slides, then hours of open networking — because everything we tried to
+                It kept filling up. The format stayed deliberately simple - five-minute fire
+                talks, no slides, then hours of open networking - because everything we tried to
                 add made the room worse. Four years and hundreds of demos later, the formula
                 still holds.
               </p>
               <p>
                 Now we're taking the model to new cities, run by local organizers who care about
-                their local AI scene — not a franchise, a network.
+                their local AI scene - not a franchise, a network.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ const About = () => {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Wild AI is run by a core crew of organizers in Minneapolis, plus chapter leads in
               every launching city. Organizers plan the events, recruit speakers, and keep the
-              rooms welcoming — if you want to meet the people behind it, come to a meetup and
+              rooms welcoming - if you want to meet the people behind it, come to a meetup and
               find whoever is holding the mic.
             </p>
             <p className="text-sm text-muted-foreground">
@@ -146,12 +146,12 @@ const About = () => {
                 Wild AI exists so builders can share real work in a room they trust. That trust
                 is non-negotiable. We are inclusive of all backgrounds, experience levels, and
                 technologies. Harassment, discrimination, or hostile behavior toward anyone in
-                the community — at events or online — results in removal and a ban.
+                the community - at events or online - results in removal and a ban.
               </p>
               <p>
                 Demos are judged on the work, not the person. Recruiters are welcome as
                 attendees and sponsors, but the room is never a pitch stage. If you see or
-                experience anything that violates this, tell any organizer — we take it
+                experience anything that violates this, tell any organizer - we take it
                 seriously and act on it.
               </p>
             </div>

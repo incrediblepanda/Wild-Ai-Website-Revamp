@@ -35,7 +35,7 @@ const ShowAndTell = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Show & Tell — Wild AI</title>
+        <title>Show & Tell - Wild AI</title>
         <meta name="description" content="Check out AI projects built by the Wild AI community. From side projects to startup MVPs, see what builders are creating." />
       </Helmet>
       <Navbar />
@@ -51,7 +51,7 @@ const ShowAndTell = () => {
             <div className="text-center py-20 text-muted-foreground">Loading projects...</div>
           ) : projects.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg mb-4">No approved projects yet — be the first!</p>
+              <p className="text-muted-foreground text-lg mb-4">No approved projects yet - be the first!</p>
               <a
                 href="/events/march-2026"
                 className="btn-primary"

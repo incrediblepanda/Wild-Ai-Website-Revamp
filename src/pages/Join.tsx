@@ -45,7 +45,7 @@ const Join = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Join Wild AI — Get AI meetup invites for your city</title>
+        <title>Join Wild AI - Get AI meetup invites for your city</title>
         <meta
           name="description"
           content="Join the Wild AI community: event invites, speaker lineups, and recaps for Minneapolis, San Francisco, and Toronto."
@@ -60,7 +60,7 @@ const Join = () => {
         <PageHero
           eyebrow="Get on the list"
           title={<>Join <span>Wild AI</span>.</>}
-          lede="One email per event. No spam, no cringe — just fire-talk lineups, demo nights, and recaps from the builders around you."
+          lede="One email per event. No spam, no cringe - just fire-talk lineups, demo nights, and recaps from the builders around you."
         />
         <div className="container mx-auto px-4 pt-14">
 
@@ -72,7 +72,7 @@ const Join = () => {
                   <CheckCircle2 className="w-12 h-12 text-wildai-mint mx-auto mb-4" />
                   <h2 className="text-xl font-bold font-mono mb-2">YOU'RE IN</h2>
                   <p className="text-muted-foreground mb-6">
-                    Watch your inbox — the next event invite for your city lands there first.
+                    Watch your inbox - the next event invite for your city lands there first.
                   </p>
                   <Link to="/chapters">
                     <Button variant="outline">BROWSE CHAPTERS</Button>
@@ -111,13 +111,13 @@ const Join = () => {
                     </Select>
                     {city === 'other' && (
                       <p className="text-xs text-muted-foreground">
-                        No chapter near you yet — we'll notify you as new cities launch.
+                        No chapter near you yet - we'll notify you as new cities launch.
                       </p>
                     )}
                   </div>
                   {status === 'error' && (
                     <p className="text-sm text-destructive">
-                      Something went wrong — please try again.
+                      Something went wrong - please try again.
                     </p>
                   )}
                   <Button
@@ -128,7 +128,7 @@ const Join = () => {
                     {status === 'submitting' ? 'JOINING…' : 'JOIN THE LIST'}
                   </Button>
                   <p className="text-xs text-muted-foreground">
-                    Already on the list? You won't get duplicates — this just updates your city.
+                    Already on the list? You won't get duplicates - this just updates your city.
                   </p>
                 </form>
               )}
@@ -140,7 +140,7 @@ const Join = () => {
                 <Mail className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">EVENT INVITES FIRST</h3>
                 <p className="text-sm text-muted-foreground">
-                  Subscribers get the invite days before public announcements — matters when the
+                  Subscribers get the invite days before public announcements - matters when the
                   room fills up.
                 </p>
               </div>
@@ -148,14 +148,14 @@ const Join = () => {
                 <Sparkles className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">SPEAKER LINEUPS & RECAPS</h3>
                 <p className="text-sm text-muted-foreground">
-                  Who's demoing, what they showed, and the links — even if you had to miss it.
+                  Who's demoing, what they showed, and the links - even if you had to miss it.
                 </p>
               </div>
               <div className="bg-secondary/50 cyberpunk-border p-6">
                 <CalendarDays className="w-6 h-6 text-wildai-mint mb-3" />
                 <h3 className="font-bold font-mono mb-1">CITY-BY-CITY UPDATES</h3>
                 <p className="text-sm text-muted-foreground">
-                  New chapters, launch dates, and venue changes for the city you pick — and only
+                  New chapters, launch dates, and venue changes for the city you pick - and only
                   that city.
                 </p>
               </div>

@@ -89,7 +89,7 @@ serve(async (req) => {
         <a href="${loginUrl}" style="display:inline-block;background:#4ade80;color:#000;font-weight:bold;padding:12px 32px;border-radius:8px;text-decoration:none;">Open Admin Console</a>
       </p>
       <p style="color:#666;font-size:14px;">Sign in with the same email as this message (${profile.email}).</p>
-      <p style="margin-top:20px;color:#666;">— The Wild AI Team</p>
+      <p style="margin-top:20px;color:#666;">- The Wild AI Team</p>
     </div>`;
 
     const res = await fetch("https://api.resend.com/emails", {

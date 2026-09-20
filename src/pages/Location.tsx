@@ -19,7 +19,7 @@ const LocationHero = () => (
         Wild AI <span className="text-wildai-mint">Locations</span>
       </h1>
       <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
-        A historical view of where Wild AI has met — the rooms, breweries, and stages
+        A historical view of where Wild AI has met - the rooms, breweries, and stages
         where local builders, founders, researchers, and curious minds gather around AI.
       </p>
     </div>
@@ -35,7 +35,7 @@ const LocationStats = ({ events }: { events: WildAiEvent[] }) => {
   const stats = [
     { label: 'Past events', value: events.length },
     { label: 'Unique venues', value: venues },
-    { label: 'Primary region', value: primary?.replace(/, $/, '') ?? '—' },
+    { label: 'Primary region', value: primary?.replace(/, $/, '') ?? '-' },
     { label: 'RSVPs (recorded)', value: totalAttendees },
   ];
 
@@ -134,7 +134,7 @@ const PastEventCard = ({ event }: { event: WildAiEvent }) => {
             )}
           </div>
 
-          {/* Speaker / Format — highlighted */}
+          {/* Speaker / Format - highlighted */}
           <div className="flex items-start gap-3 bg-wildai-mint/5 border border-wildai-mint/20 rounded-md px-4 py-3">
             <Mic className="w-4 h-4 mt-0.5 text-wildai-mint shrink-0" />
             <div className="min-w-0">
@@ -211,10 +211,10 @@ const Location = () => {
   return (
     <div className="min-h-screen bg-wildai-teal text-foreground">
       <Helmet>
-        <title>Wild AI Locations — Past Venues & Events in Minneapolis</title>
+        <title>Wild AI Locations - Past Venues & Events in Minneapolis</title>
         <meta
           name="description"
-          content="A historical view of every venue Wild AI has met at — past events, locations, and speaker formats from the Minneapolis AI community."
+          content="A historical view of every venue Wild AI has met at - past events, locations, and speaker formats from the Minneapolis AI community."
         />
         <link rel="canonical" href="https://wildai.us/location" />
       </Helmet>

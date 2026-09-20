@@ -11,7 +11,7 @@ const mentions = [
   {
     outlet: 'Example Tech Weekly',
     quote:
-      'The most refreshingly unpolished AI event in the Twin Cities — and that is exactly why the best builders show up.',
+      'The most refreshingly unpolished AI event in the Twin Cities - and that is exactly why the best builders show up.',
     date: '2026',
   },
   {
@@ -33,7 +33,7 @@ const facts = [
 const Press = () => (
   <div className="flex flex-col min-h-screen">
     <Helmet>
-      <title>Press — Wild AI</title>
+      <title>Press - Wild AI</title>
       <meta
         name="description"
         content="Press resources for Wild AI: brand assets, boilerplate, fact sheet, and media contact."
@@ -49,7 +49,7 @@ const Press = () => (
         eyebrow="Press kit"
         icon={Newspaper}
         title={<>Wild AI <span>press</span>.</>}
-        lede="Everything you need to cover Wild AI — logos, boilerplate, facts, and a real human to talk to."
+        lede="Everything you need to cover Wild AI - logos, boilerplate, facts, and a real human to talk to."
       />
       <div className="container mx-auto px-4 pt-14">
 
@@ -64,7 +64,7 @@ const Press = () => (
             <Download className="w-4 h-4 mr-2" /> DOWNLOAD MEDIA KIT (ZIP)
           </Button>
           <p className="text-xs text-muted-foreground mt-3">
-            Placeholder link — the media kit file is being packaged.
+            Placeholder link - the media kit file is being packaged.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const Press = () => (
           <blockquote className="border-l-2 border-wildai-mint pl-4 text-muted-foreground leading-relaxed">
             Wild AI is a community-run meetup network for people who build with AI. Founded in
             Minneapolis in 2021, its events pair rapid-fire five-minute demos ("fire talks") with
-            hours of open networking — no vendor keynotes, no slide decks. With active and
+            hours of open networking - no vendor keynotes, no slide decks. With active and
             launching chapters across North America, Wild AI is where local AI scenes actually
             happen.
           </blockquote>
@@ -95,7 +95,7 @@ const Press = () => (
             ))}
           </div>
           <p className="text-center text-xs text-muted-foreground mt-4">
-            Example mentions shown — live coverage links coming soon.
+            Example mentions shown - live coverage links coming soon.
           </p>
         </div>
 
@@ -125,7 +125,7 @@ const Press = () => (
             </Button>
           </a>
           <p className="text-xs text-muted-foreground mt-4">
-            Placeholder address — confirm the real press inbox before launch.
+            Placeholder address - confirm the real press inbox before launch.
           </p>
         </div>
       </div>

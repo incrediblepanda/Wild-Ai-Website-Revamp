@@ -56,13 +56,13 @@ const Afterparty = () => {
               Wild AI is a community where Minnesota's top AI builders and entrepreneurs come together each month to share, challenge, and sharpen ideas.
             </p>
             <p className="text-lg text-muted-foreground mb-4">
-              We spotlight three people each month — no slides, no demos, just a mic. Speakers share who they are, what they're working on, or a perspective they bring. After the talks, it's all conversation and connection over a beer.
+              We spotlight three people each month - no slides, no demos, just a mic. Speakers share who they are, what they're working on, or a perspective they bring. After the talks, it's all conversation and connection over a beer.
             </p>
             <p className="text-lg text-muted-foreground mb-4">
               This is where engineers, founders, students, and researchers push AI forward, and where new ideas and companies take shape.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              AI is still wild — an uncharted frontier — and the best way to explore it is together.
+              AI is still wild - an uncharted frontier - and the best way to explore it is together.
             </p>
             <a href="https://www.meetup.com/wild-ai/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" >

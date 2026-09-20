@@ -2,7 +2,7 @@ import React from 'react';
 import CountUp from '@/components/motion/CountUp';
 import Reveal from '@/components/motion/Reveal';
 
-// NOTE: Placeholder numbers — replace with real metrics when available.
+// NOTE: Placeholder numbers - replace with real metrics when available.
 const stats = [
   { value: '500+', label: 'Attendees so far' },
   { value: '12+', label: 'Events hosted' },

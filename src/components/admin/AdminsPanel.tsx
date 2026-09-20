@@ -46,7 +46,7 @@ const AdminsPanel = ({ currentRole }: { currentRole: 'admin' | 'super_admin' | n
     const { error: emailErr } = await supabase.functions.invoke('notify-new-admin', { body: { user_id: userId } });
     setPromotingId(null);
     if (emailErr) toast.warning('Admin granted, but email notification failed');
-    else toast.success('Admin granted — notification email sent');
+    else toast.success('Admin granted - notification email sent');
     load();
   };
 
@@ -96,7 +96,7 @@ const AdminsPanel = ({ currentRole }: { currentRole: 'admin' | 'super_admin' | n
                     {pending.map((p) => (
                       <TableRow key={p.user_id}>
                         <TableCell>{p.email || p.user_id}</TableCell>
-                        <TableCell className="text-muted-foreground">{p.display_name || '—'}</TableCell>
+                        <TableCell className="text-muted-foreground">{p.display_name || '-'}</TableCell>
                         <TableCell className="text-right">
                           <Button size="sm" onClick={() => handlePromote(p.user_id)} disabled={promotingId === p.user_id}>
                             {promotingId === p.user_id ? <Loader2 className="w-4 h-4 animate-spin" /> : (<><ShieldPlus className="w-4 h-4" /> Grant Admin</>)}

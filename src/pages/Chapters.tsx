@@ -22,7 +22,7 @@ const Chapters = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Find a Wild AI Chapter — Minneapolis, San Francisco, Toronto</title>
+        <title>Find a Wild AI Chapter - Minneapolis, San Francisco, Toronto</title>
         <meta
           name="description"
           content="Wild AI meetups across Minneapolis, San Francisco, and Toronto. Find your city, meet local AI builders, and RSVP for the next event."
@@ -133,7 +133,7 @@ const Chapters = () => {
             <div className="bg-secondary/30 border-r border-b border-border p-8 flex flex-col justify-center">
               <h2 className="text-xl font-semibold mb-2">Don't see your city?</h2>
               <p className="text-sm text-muted-foreground mb-5">
-                We help passionate locals launch new Wild AI chapters — playbook, brand, and
+                We help passionate locals launch new Wild AI chapters - playbook, brand, and
                 community included.
               </p>
               <Link to="/start-a-chapter">

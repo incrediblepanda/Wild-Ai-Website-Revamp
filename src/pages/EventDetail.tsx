@@ -59,6 +59,10 @@ const EventDetail = () => {
     .sort((a, b) => a.event_date.localeCompare(b.event_date));
   const related = all.find((e) => e.chapter_id === event.chapter_id) ?? all[0];
 
+  /* "October Meetup - Wild AI" reads with the month half in the accent color. */
+  const [lead, ...tail] = event.title.split(' - ');
+  const rest = tail.length ? ` - ${tail.join(' - ')}` : '';
+
   const startDate = `${event.event_date}T${event.start_time ?? '18:00'}:00`;
   const endDate = `${event.event_date}T${event.end_time ?? '20:00'}:00`;
   const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -70,7 +74,7 @@ const EventDetail = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>{event.title} — Wild AI {event.chapter?.city}</title>
+        <title>{event.title} - Wild AI {event.chapter?.city}</title>
         <meta name="description" content={event.description ?? undefined} />
         <meta property="og:title" content={event.title} />
         <meta property="og:type" content="website" />
@@ -88,7 +92,10 @@ const EventDetail = () => {
             >
               WILD AI {event.chapter?.city.toUpperCase()}
             </Link>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{event.title}</h1>
+            <h1 className="page-hero__title mb-4 text-3xl md:text-5xl">
+              <span>{lead}</span>
+              {rest}
+            </h1>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-muted-foreground mb-8">
               <span className="flex items-center gap-2">
                 <CalendarDays className="w-4 h-4 text-wildai-mint" /> {formatDate(event.event_date)}
@@ -169,7 +176,7 @@ const EventDetail = () => {
               <div className="bg-secondary/40 cyberpunk-border p-8">
                 <h2 className="section-title">SPEAKER LINEUP</h2>
                 <p className="text-muted-foreground">
-                  Fire talks are 5 minutes, no slides — the lineup is announced the week of the event.
+                  Fire talks are 5 minutes, no slides - the lineup is announced the week of the event.
                   Want to demo?{' '}
                   <Link to="/speak" className="text-wildai-mint hover:underline">
                     Submit a demo →

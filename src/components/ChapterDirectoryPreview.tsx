@@ -19,7 +19,7 @@ const ChapterDirectoryPreview = () => {
           </p>
           <h2 className="section-title max-w-2xl text-balance">Find your chapter</h2>
           <p className="section-lede">
-            Wild AI is one community with local chapters. Same format, same energy — in your city.
+            Wild AI is one community with local chapters. Same format, same energy - in your city.
           </p>
         </Reveal>
 

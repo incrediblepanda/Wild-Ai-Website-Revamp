@@ -73,13 +73,13 @@ const AdminShowAndTell = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Admin — Show & Tell — Wild AI</title>
+        <title>Admin - Show & Tell - Wild AI</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-3xl font-bold text-gradient font-mono mb-8">ADMIN — SHOW & TELL</h1>
+          <h1 className="text-3xl font-bold text-gradient font-mono mb-8">ADMIN - SHOW & TELL</h1>
 
           {!authenticated ? (
             <div className="max-w-sm mx-auto space-y-4">

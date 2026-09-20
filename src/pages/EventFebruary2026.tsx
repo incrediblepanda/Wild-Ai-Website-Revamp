@@ -17,7 +17,7 @@ const speakers = [
   },
   {
     name: "Ahmet Ersin A.",
-    title: "Associate Lecturer — University of Wisconsin-River Falls",
+    title: "Associate Lecturer - University of Wisconsin-River Falls",
     linkedin: "https://www.linkedin.com/in/ahmet-ersin-a-2908161/",
   },
 ];
@@ -26,7 +26,7 @@ const EventFebruary2026 = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Wild AI Meetup — February 16, 2026</title>
+        <title>Wild AI Meetup - February 16, 2026</title>
         <meta name="description" content="Join us February 16, 2026 for an evening of AI talks and networking with Blaise Thomas, Jason Haupt, and Ahmet Ersin A." />
       </Helmet>
       <Navbar />
@@ -48,7 +48,7 @@ const EventFebruary2026 = () => {
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
-                <p>6:00 PM — 8:00 PM</p>
+                <p>6:00 PM - 8:00 PM</p>
               </div>
             </div>
           </div>

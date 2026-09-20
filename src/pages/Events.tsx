@@ -43,7 +43,7 @@ const Events = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Wild AI Events — Upcoming AI meetups & demo nights</title>
+        <title>Wild AI Events - Upcoming AI meetups & demo nights</title>
         <meta
           name="description"
           content="All upcoming and past Wild AI events across Minneapolis, San Francisco, and Toronto. Fire talks, demo nights, and networking."
@@ -58,7 +58,7 @@ const Events = () => {
           eyebrow="On the calendar"
           icon={CalendarDays}
           title={<>Wild AI <span>events</span>.</>}
-          lede="Every gathering, every city — upcoming and archived."
+          lede="Every gathering, every city - upcoming and archived."
         />
         <div className="container mx-auto px-4 pt-12">
           {/* Filter bar */}
@@ -105,26 +105,39 @@ const Events = () => {
             {!isLoading && filtered.length === 0 && !showPastFallback && (
               <p className="text-center text-muted-foreground py-10">
                 {timeFilter === 'upcoming'
-                  ? 'No upcoming events in this city yet — check back soon.'
+                  ? 'No upcoming events in this city yet - check back soon.'
                   : 'No past events for this filter yet.'}
               </p>
             )}
             {showPastFallback && (
               <>
                 <p className="text-center text-muted-foreground py-4">
-                  Nothing scheduled right now — here's what the community has done so far:
+                  Nothing scheduled right now - here's what the community has done so far:
                 </p>
                 <h2 className="section-title text-center pt-4">PAST EVENTS</h2>
               </>
             )}
-            {displayList.map((e) => (
+            {displayList.map((e, i) => (
               <Link
                 key={e.id}
                 to={`/events/${e.slug}`}
-                className="block bg-secondary/50 cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group"
+                className={`block cyberpunk-border p-6 transition-colors group ${
+                  i === 0 && !showPastFallback && timeFilter === 'upcoming'
+                    ? 'bg-secondary/80 border-accent/50 ring-1 ring-accent/20'
+                    : 'bg-secondary/50 hover:bg-secondary/80'
+                }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex-grow">
+                    {i === 0 && !showPastFallback && timeFilter === 'upcoming' && (
+                      <p className="eyebrow mb-3">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                        </span>
+                        Next up
+                      </p>
+                    )}
                     <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-1 flex-wrap">
                       <span className="text-wildai-mint">{e.chapter?.city.toUpperCase()}</span>
                       <span>·</span>
