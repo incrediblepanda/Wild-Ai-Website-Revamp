@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
 import { useChapters } from '@/hooks/useChapters';
 import { CheckCircle2, Rocket, Users, Map } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const StartAChapter = () => {
   const { data: chapters } = useChapters();
@@ -51,19 +52,14 @@ const StartAChapter = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <Rocket className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              START A <span className="text-gradient">CHAPTER</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              You bring the local energy. We bring the playbook, the brand, the organizer network,
-              and four years of lessons about what makes AI meetups actually good.
-            </p>
-          </div>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="Bring Wild AI home"
+          icon={Rocket}
+          title={<>Start a <span>chapter</span>.</>}
+          lede="You bring the local energy. We bring the playbook, the brand, the organizer network, and four years of lessons about what makes AI meetups actually good."
+        />
+        <div className="container mx-auto px-4 pt-14">
 
           {/* The pitch + expectations */}
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">

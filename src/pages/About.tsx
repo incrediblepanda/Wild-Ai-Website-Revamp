@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { useChapters } from '@/hooks/useChapters';
 import { Flame, Users, Mic2, ArrowRight } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const values = [
   {
@@ -42,20 +43,18 @@ const About = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          {/* Manifesto hero */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              WE BELIEVE THE BEST AI CONVERSATIONS HAPPEN{' '}
-              <span className="text-gradient">IN A CROWDED ROOM</span>
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Wild AI is a community-run meetup network for people who actually build with AI.
-              We started in Minneapolis and are growing city by city — one fire talk, one demo
-              night, one crowded bar at a time.
-            </p>
-          </div>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="About Wild AI"
+          icon={Flame}
+          title={
+            <>
+              The best AI conversations happen <span>in a crowded room</span>.
+            </>
+          }
+          lede="Wild AI is a community-run meetup network for people who actually build with AI. We started in Minneapolis and are growing city by city — one fire talk, one demo night, one crowded bar at a time."
+        />
+        <div className="container mx-auto px-4 pt-14">
 
           {/* Origin story */}
           <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-16">

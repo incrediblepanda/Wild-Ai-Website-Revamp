@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Newspaper, Download, Mail, Quote } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const mentions = [
   {
@@ -43,18 +44,14 @@ const Press = () => (
     </Helmet>
     <Navbar />
 
-    <main className="pt-24 pb-20 flex-grow">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <Newspaper className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            WILD AI <span className="text-gradient">PRESS</span>
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Everything you need to cover Wild AI — logos, boilerplate, facts, and a real human
-            to talk to.
-          </p>
-        </div>
+    <main className="pb-20 flex-grow">
+      <PageHero
+        eyebrow="Press kit"
+        icon={Newspaper}
+        title={<>Wild AI <span>press</span>.</>}
+        lede="Everything you need to cover Wild AI — logos, boilerplate, facts, and a real human to talk to."
+      />
+      <div className="container mx-auto px-4 pt-14">
 
         {/* Brand assets */}
         <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-10">

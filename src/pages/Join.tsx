@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useChapters } from '@/hooks/useChapters';
+import PageHero from '@/components/PageHero';
 import { CheckCircle2, Mail, Sparkles, CalendarDays } from 'lucide-react';
 
 const Join = () => {
@@ -55,17 +56,13 @@ const Join = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              JOIN <span className="text-gradient">WILD AI</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              One email per event. No spam, no cringe — just fire-talk lineups, demo nights, and
-              recaps from the builders around you.
-            </p>
-          </div>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="Get on the list"
+          title={<>Join <span>Wild AI</span>.</>}
+          lede="One email per event. No spam, no cringe — just fire-talk lineups, demo nights, and recaps from the builders around you."
+        />
+        <div className="container mx-auto px-4 pt-14">
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Signup form */}

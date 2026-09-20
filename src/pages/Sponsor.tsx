@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { CheckCircle2, Users, Megaphone, Handshake } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const tiers = [
   {
@@ -80,19 +81,14 @@ const Sponsor = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <Handshake className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              REACH AI <span className="text-gradient">BUILDERS</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Wild AI rooms are full of people who ship: engineers, founders, and researchers
-              actively building with AI. Sponsors get their attention in person, not in a feed.
-            </p>
-          </div>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="Partner with us"
+          icon={Handshake}
+          title={<>Reach AI <span>builders</span>.</>}
+          lede="Wild AI rooms are full of people who ship: engineers, founders, and researchers actively building with AI. Sponsors get their attention in person, not in a feed."
+        />
+        <div className="container mx-auto px-4 pt-14">
 
           {/* Audience data */}
           <div className="max-w-4xl mx-auto grid sm:grid-cols-3 gap-4 mb-16">

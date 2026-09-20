@@ -6,6 +6,7 @@ import SpeakerForm from '@/components/SpeakerForm';
 import PastSpeakers from '@/components/PastSpeakers';
 import { Link } from 'react-router-dom';
 import { Mic2, Clock, Sparkles } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const faqs = [
   {
@@ -40,19 +41,14 @@ const Speak = () => (
     </Helmet>
     <Navbar />
 
-    <main className="pt-24 pb-20 flex-grow">
-      <div className="container mx-auto px-4">
-        {/* Hero */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <Mic2 className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            DEMO AT <span className="text-gradient">WILD AI</span>
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Fire talks are the heart of every meetup: five minutes, no slides, real work on the
-            table. Submit yours — every city, every level of experience.
-          </p>
-        </div>
+    <main className="pb-20 flex-grow">
+      <PageHero
+        eyebrow="Fire talks"
+        icon={Mic2}
+        title={<>Demo at <span>Wild AI</span>.</>}
+        lede="Fire talks are the heart of every meetup: five minutes, no slides, real work on the table. Submit yours — every city, every level of experience."
+      />
+      <div className="container mx-auto px-4 pt-14">
 
         {/* What we're looking for + what to expect */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">

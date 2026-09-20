@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/select';
 import { CalendarDays, MapPin, ArrowRight, CalendarPlus } from 'lucide-react';
 import { useChapters, useAllEvents, isUpcoming, formatDate, formatTime } from '@/hooks/useChapters';
+import PageHero from '@/components/PageHero';
 
 const Events = () => {
   const { data: chapters } = useChapters();
@@ -52,17 +53,14 @@ const Events = () => {
         <meta name="twitter:card" content="summary" />
       </Helmet>
       <Navbar />
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              WILD AI <span className="text-gradient">EVENTS</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Every gathering, every city — upcoming and archived.
-            </p>
-          </div>
-
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="On the calendar"
+          icon={CalendarDays}
+          title={<>Wild AI <span>events</span>.</>}
+          lede="Every gathering, every city — upcoming and archived."
+        />
+        <div className="container mx-auto px-4 pt-12">
           {/* Filter bar */}
           <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-3 mb-10">
             <Select value={cityFilter} onValueChange={setCityFilter}>
