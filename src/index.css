@@ -58,8 +58,8 @@
     --line-soft: 188 9% 29%;
     --shadow-soft: 0 28px 60px -34px hsl(191 40% 3% / 0.8);
 
-    /* Hero headline accent — #093539. */
-    --hero-accent: 185 73% 13%;
+    /* Headline accent — #a1eec3. */
+    --hero-accent: 147 69% 78%;
 
     --radius: 0.625rem;
   }
@@ -179,7 +179,7 @@
   }
   .display-title em {
     @apply not-italic;
-    color: hsl(var(--accent));
+    color: hsl(var(--hero-accent));
   }
   .section-title {
     @apply font-display font-semibold text-[1.75rem] md:text-[2.25rem] leading-[1.15] mb-4;
@@ -523,21 +523,10 @@
 }
 
 @layer utilities {
-  /* Accent words in page hero headlines, on a soft highlight plate. */
+  /* Accent words in headlines. */
   .text-gradient,
   .chapters-hero__title span {
     color: hsl(var(--hero-accent));
-    background: hsl(172 24% 84% / 0.92);
-    padding: 0.04em 0.22em;
-    margin: 0 -0.08em;
-    border-radius: 0.12em;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-  /* On light bands the plate needs to read against paper instead. */
-  [data-surface='paper'] .text-gradient,
-  [data-surface='paper'] .chapters-hero__title span {
-    background: hsl(179 34% 87% / 0.95);
   }
   .text-balance {
     text-wrap: balance;

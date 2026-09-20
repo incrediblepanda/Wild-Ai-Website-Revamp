@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowDown } from 'lucide-react';
-import { LOGO_SRC } from '@/components/Logo';
 import { useScrollProgress, ramp } from '@/hooks/useScrollProgress';
 
 const meta = [
@@ -37,18 +36,6 @@ const Hero = () => {
       />
       <div className="hero-grain" aria-hidden="true" />
 
-      {/* Oversized ghosted mark anchors the composition. */}
-      <img
-        src={LOGO_SRC}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-[22%] top-1/2 hidden w-[58%] lg:block"
-        style={{
-          transform: 'translate(' + exit * 6 + '%, calc(-50% + ' + exit * 22 + 'vh))',
-          opacity: 0.028 * (1 - exit),
-        }}
-      />
-
       <div
         className="container relative mx-auto px-4"
         style={{
@@ -74,7 +61,7 @@ const Hero = () => {
                 </span>
               </span>
               <span className="line-mask">
-                <span className="rise" style={{ ['--rise-delay' as string]: '380ms' }}>
+                <span className="rise text-gradient" style={{ ['--rise-delay' as string]: '380ms' }}>
                   AI builders
                 </span>
               </span>
