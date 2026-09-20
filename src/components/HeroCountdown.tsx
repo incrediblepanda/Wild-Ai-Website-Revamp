@@ -32,7 +32,7 @@ const HeroCountdown = ({ spent }: { spent?: boolean }) => {
   ];
 
   return (
-    <div className="surface mx-auto w-full max-w-sm p-6 text-center lg:mx-0">
+    <div className="mx-auto w-full max-w-sm text-center lg:mx-0">
       <p className="eyebrow justify-center">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
