@@ -287,7 +287,7 @@
     display: grid;
     place-items: center;
     background-color: #000;
-    transition: background-color 0.7s ease;
+    transition: background-color 0.85s ease;
   }
   .intro-overlay[data-leaving='true'] {
     background-color: transparent;
@@ -337,10 +337,9 @@
       filter: blur(0);
     }
   }
-  /* Flies to the measured navbar position; duration matches FLIGHT_MS. */
+  /* The flight itself is scripted; this just clears the entry keyframes. */
   .intro-overlay[data-leaving='true'] .intro-logo {
     animation: none;
-    transition: transform 0.9s cubic-bezier(0.6, 0.02, 0.2, 1);
   }
   /* The real navbar mark stays hidden until the flying one has landed on it. */
   [data-intro] [data-nav-logo] {
@@ -486,9 +485,7 @@
     line-height: 0.98;
     letter-spacing: -0.038em;
   }
-  .chapters-hero__title span {
-    color: hsl(var(--hero-accent));
-  }
+
   .chapters-hero__telemetry {
     @apply surface p-5 font-mono uppercase text-muted-foreground;
     display: grid;
@@ -526,9 +523,21 @@
 }
 
 @layer utilities {
-  /* Accent words in page hero headlines. */
-  .text-gradient {
+  /* Accent words in page hero headlines, on a soft highlight plate. */
+  .text-gradient,
+  .chapters-hero__title span {
     color: hsl(var(--hero-accent));
+    background: hsl(172 24% 84% / 0.92);
+    padding: 0.04em 0.22em;
+    margin: 0 -0.08em;
+    border-radius: 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  /* On light bands the plate needs to read against paper instead. */
+  [data-surface='paper'] .text-gradient,
+  [data-surface='paper'] .chapters-hero__title span {
+    background: hsl(179 34% 87% / 0.95);
   }
   .text-balance {
     text-wrap: balance;
