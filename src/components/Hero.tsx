@@ -87,9 +87,7 @@ const Hero = () => {
               </span>
               <span className="line-mask">
                 <span className="rise" style={{ ['--rise-delay' as string]: '380ms' }}>
-                  <span className="-mx-1 inline-block bg-primary px-3 pb-1 text-primary-foreground">
-                    AI builders
-                  </span>
+                  AI builders
                 </span>
               </span>
               <span className="line-mask">

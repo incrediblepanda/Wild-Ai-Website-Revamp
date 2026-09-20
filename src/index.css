@@ -58,6 +58,9 @@
     --line-soft: 188 9% 29%;
     --shadow-soft: 0 28px 60px -34px hsl(191 40% 3% / 0.8);
 
+    /* Hero headline accent — #093539. */
+    --hero-accent: 185 73% 13%;
+
     --radius: 0.625rem;
   }
 
@@ -484,7 +487,7 @@
     letter-spacing: -0.038em;
   }
   .chapters-hero__title span {
-    color: hsl(var(--accent));
+    color: hsl(var(--hero-accent));
   }
   .chapters-hero__telemetry {
     @apply surface p-5 font-mono uppercase text-muted-foreground;
@@ -523,8 +526,9 @@
 }
 
 @layer utilities {
+  /* Accent words in page hero headlines. */
   .text-gradient {
-    color: hsl(var(--accent));
+    color: hsl(var(--hero-accent));
   }
   .text-balance {
     text-wrap: balance;
