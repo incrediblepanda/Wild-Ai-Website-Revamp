@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import { LOGO_SRC } from '@/components/Logo';
 import { useScrollProgress, ramp } from '@/hooks/useScrollProgress';
+import HeroVideo from '@/components/motion/HeroVideo';
+
+/** Ambient loop behind the hero. Empty string disables the layer. */
+const HERO_VIDEO_SRC =
+  'https://cdn.builder.io/o/assets%2F52185cbc63e544f6abfcb901069ce1f1%2Fec05831e00b24cc7a226c62b06f6e752?alt=media&token=569bf39a-ad3b-4e11-91dc-2f458a34cce2&apiKey=52185cbc63e544f6abfcb901069ce1f1';
 
 const meta = [
   { k: 'Cadence', v: 'Every third Monday' },
@@ -27,6 +32,13 @@ const Hero = () => {
 
   return (
     <section className="hero-stage" aria-label="Wild AI" aria-hidden={spent}>
+      {HERO_VIDEO_SRC && (
+        <HeroVideo
+          src={HERO_VIDEO_SRC}
+          style={{ opacity: 1 - exit, transform: 'scale(' + (1 + exit * 0.04) + ')' }}
+        />
+      )}
+
       <div
         className="hero-wash"
         aria-hidden="true"
