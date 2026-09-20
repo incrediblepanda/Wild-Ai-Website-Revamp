@@ -17,6 +17,7 @@ import SpeakerCtaBand from '@/components/SpeakerCtaBand';
 import SponsorCtaBand from '@/components/SponsorCtaBand';
 import Footer from '@/components/Footer';
 import Intro from '@/components/Intro';
+import HeroHandoff from '@/components/motion/HeroHandoff';
 
 interface BandProps {
   tone?: 'slate' | 'paper' | 'deep';
@@ -41,8 +42,8 @@ const Index = () => {
       <main>
         <Hero />
 
-        {/* Scrolls up over the sticky hero. */}
-        <div className="relative z-10 shadow-[0_-40px_80px_-30px_hsl(191_40%_3%/0.9)]">
+        {/* Rises up out of the sticky hero. */}
+        <HeroHandoff>
           <Band tone="deep">
             <ScarcityCountdown />
             <StatsBand />
@@ -77,7 +78,7 @@ const Index = () => {
           <Band tone="deep">
             <FinalCtaBand />
           </Band>
-        </div>
+        </HeroHandoff>
       </main>
       <Footer />
     </div>
