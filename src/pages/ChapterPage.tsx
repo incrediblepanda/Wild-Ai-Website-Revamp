@@ -31,7 +31,7 @@ const ChapterPage = () => {
   const { city } = useParams<{ city: string }>();
   const { data: chapter, isLoading, isError } = useChapter(city);
   const { data: organizers } = useChapterOrganizers(chapter?.id);
-  const { data: events } = useChapterEvents(chapter?.id);
+  const { data: events } = useChapterEvents(chapter);
 
   if (!isLoading && !chapter) return <NotFound />;
 

@@ -1,5 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+import {
+  MEETUP_CADENCE,
+  MEETUP_VENUE,
+  meetupTitle,
+  scheduledMeetups,
+} from '@/lib/meetupSchedule';
 
 export interface Chapter {
   id: string;
@@ -47,6 +53,31 @@ export interface ChapterEvent {
   chapter?: Chapter;
 }
 
+const HOME_CHAPTER = 'minneapolis';
+
+/** The recurring venue lives in code, so every surface agrees on it. */
+const withMeetupVenue = (chapter: Chapter): Chapter =>
+  chapter.slug === HOME_CHAPTER
+    ? {
+        ...chapter,
+        cadence: MEETUP_CADENCE,
+        venue_name: MEETUP_VENUE.name,
+        venue_address: MEETUP_VENUE.address,
+      }
+    : chapter;
+
+/** Fills months that have no stored event with the standing third-Monday meetup. */
+const withScheduledMeetups = (events: ChapterEvent[], chapter: Chapter): ChapterEvent[] => {
+  const named = events.map((e) =>
+    isUpcoming(e.event_date) ? { ...e, title: meetupTitle(e.event_date) } : e
+  );
+  const filled = new Set(named.map((e) => e.event_date.slice(0, 7)));
+  const generated = scheduledMeetups(chapter).filter(
+    (m) => !filled.has(m.event_date.slice(0, 7))
+  );
+  return [...generated, ...named];
+};
+
 export const useChapters = () =>
   useQuery({
     queryKey: ['chapters'],
@@ -56,7 +87,7 @@ export const useChapters = () =>
         .select('*')
         .order('sort_order');
       if (error) throw error;
-      return data as Chapter[];
+      return (data as Chapter[]).map(withMeetupVenue);
     },
   });
 
@@ -71,7 +102,7 @@ export const useChapter = (slug: string | undefined) =>
         .eq('slug', slug)
         .maybeSingle();
       if (error) throw error;
-      return (data as Chapter) ?? null;
+      return data ? withMeetupVenue(data as Chapter) : null;
     },
   });
 
@@ -90,18 +121,19 @@ export const useChapterOrganizers = (chapterId: string | undefined) =>
     },
   });
 
-export const useChapterEvents = (chapterId: string | undefined) =>
+export const useChapterEvents = (chapter: Chapter | null | undefined) =>
   useQuery({
-    queryKey: ['chapter-events', chapterId],
-    enabled: !!chapterId,
+    queryKey: ['chapter-events', chapter?.id],
+    enabled: !!chapter,
     queryFn: async (): Promise<ChapterEvent[]> => {
       const { data, error } = await supabase
         .from('chapter_events')
         .select('*')
-        .eq('chapter_id', chapterId!)
+        .eq('chapter_id', chapter!.id)
         .order('event_date', { ascending: false });
       if (error) throw error;
-      return data as unknown as ChapterEvent[];
+      const events = data as unknown as ChapterEvent[];
+      return chapter!.slug === HOME_CHAPTER ? withScheduledMeetups(events, chapter!) : events;
     },
   });
 
@@ -110,12 +142,18 @@ export const useAllEvents = () =>
   useQuery({
     queryKey: ['all-chapter-events'],
     queryFn: async (): Promise<ChapterEvent[]> => {
-      const { data, error } = await supabase
-        .from('chapter_events')
-        .select('*, chapter:chapters(*)')
-        .order('event_date', { ascending: false });
-      if (error) throw error;
-      return data as unknown as ChapterEvent[];
+      const [eventsResult, chaptersResult] = await Promise.all([
+        supabase
+          .from('chapter_events')
+          .select('*, chapter:chapters(*)')
+          .order('event_date', { ascending: false }),
+        supabase.from('chapters').select('*').eq('slug', HOME_CHAPTER).maybeSingle(),
+      ]);
+      if (eventsResult.error) throw eventsResult.error;
+
+      const events = eventsResult.data as unknown as ChapterEvent[];
+      const home = chaptersResult.data as Chapter | null;
+      return home ? withScheduledMeetups(events, withMeetupVenue(home)) : events;
     },
   });
 

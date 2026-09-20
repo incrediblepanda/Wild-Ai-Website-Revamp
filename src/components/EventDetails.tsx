@@ -2,6 +2,8 @@ import React from 'react';
 import { Clock, Users, MessageSquare, Youtube, CalendarDays, MapPin, ArrowUpRight } from 'lucide-react';
 import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/motion/Reveal';
+import { MEETUP_VENUE, meetupTitle, nextMeetupDate } from '@/lib/meetupSchedule';
+import { formatDate } from '@/hooks/useChapters';
 
 const expectations = [
   'Cutting-edge AI discussions',
@@ -25,6 +27,8 @@ const schedule = [
 ];
 
 const EventDetails = () => {
+  const nextDate = nextMeetupDate();
+
   return (
     <section id="event" className="py-14 md:py-20">
       <div className="container mx-auto px-4">
@@ -38,18 +42,20 @@ const EventDetails = () => {
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <SpotlightCard className="h-full p-7">
-              <p className="kicker mb-4">Upcoming event</p>
-              <p className="font-display text-3xl font-semibold text-foreground">August 17, 2026</p>
-              <p className="mt-1 text-muted-foreground">6:00 PM</p>
+              <p className="kicker mb-4">{meetupTitle(nextDate)}</p>
+              <p className="font-display text-3xl font-semibold text-foreground">
+                {formatDate(nextDate)}
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                6:00 PM — third Monday of every month
+              </p>
 
               <div className="mt-6 flex items-start gap-3 border-t border-border pt-6">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
                 <div>
-                  <p className="font-medium">Improving Minneapolis</p>
-                  <p className="text-sm text-muted-foreground">
-                    3033 Excelsior Boulevard, Suite 180
-                  </p>
-                  <p className="text-sm text-muted-foreground">Minneapolis, MN 55416</p>
+                  <p className="font-medium">{MEETUP_VENUE.name}</p>
+                  <p className="text-sm text-muted-foreground">{MEETUP_VENUE.street}</p>
+                  <p className="text-sm text-muted-foreground">{MEETUP_VENUE.cityState}</p>
                 </div>
               </div>
 
