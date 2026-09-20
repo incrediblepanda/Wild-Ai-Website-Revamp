@@ -75,20 +75,21 @@ const SpeakerForm = () => {
   }
 
   return (
-    <section id="speak" className="py-10 md:py-20 bg-secondary/20">
+    <section id="speak" className="py-14 md:py-20">
       <div className="container mx-auto px-4 max-w-2xl">
+        <p className="eyebrow mb-5">Take the mic</p>
         <h2 className="section-title">Speak at Wild AI</h2>
 
-        <div className="text-center mb-8">
+        <div className="mb-8">
           <p className="text-lg mb-3">Have an AI project, experiment, or insight to share?</p>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="section-lede">
             Our lightning talks are 5 minutes, no slides — just you sharing who you are,
             what you're working on, and why it's important.
           </p>
         </div>
 
-        <form onSubmit={submit} className="bg-secondary/40 cyberpunk-border p-6 md:p-8 space-y-5">
-          <h3 className="text-xl font-bold font-mono text-wildai-mint text-center mb-2">APPLY TO SPEAK</h3>
+        <form onSubmit={submit} className="surface p-6 md:p-8 space-y-5">
+          <p className="kicker mb-2">Apply to speak</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>

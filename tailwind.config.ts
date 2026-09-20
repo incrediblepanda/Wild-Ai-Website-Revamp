@@ -56,6 +56,10 @@ export default {
 					raised: 'hsl(var(--surface-raised))',
 					deep: 'hsl(var(--surface-deep))'
 				},
+				ember: {
+					DEFAULT: 'hsl(var(--ember))',
+					foreground: 'hsl(var(--ember-foreground))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -81,8 +85,8 @@ export default {
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'var(--radius)',
-				sm: 'var(--radius)'
+				md: 'calc(var(--radius) - 4px)',
+				sm: 'calc(var(--radius) - 7px)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -100,6 +104,18 @@ export default {
 				'marquee': {
 					from: { transform: 'translateX(0)' },
 					to: { transform: 'translateX(-50%)' },
+				},
+				'fade-in': {
+					from: { opacity: '0', transform: 'translateY(-45%)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'drift': {
+					'0%, 100%': { transform: 'translate3d(0,0,0)' },
+					'50%': { transform: 'translate3d(0,-10px,0)' },
+				},
+				'sheen': {
+					'0%': { transform: 'translateX(-120%)' },
+					'100%': { transform: 'translateX(220%)' },
 				}
 			},
 			animation: {
@@ -107,9 +123,12 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 				'marquee': 'marquee 40s linear infinite',
+				'drift': 'drift 7s ease-in-out infinite',
+				'sheen': 'sheen 2.4s ease-in-out infinite',
 			},
 			boxShadow: {
-				'signal': '0 18px 50px -24px hsl(186 40% 2% / 0.9)',
+				'signal': '0 24px 60px -32px hsl(187 40% 2% / 0.95)',
+				'lift': '0 30px 70px -36px hsl(187 50% 2%)',
 				'inset-line': 'inset 0 1px 0 0 hsl(var(--foreground) / 0.04)',
 			},
 		}

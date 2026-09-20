@@ -1,29 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Handshake } from 'lucide-react';
+import { Handshake, ArrowRight } from 'lucide-react';
+import Reveal from '@/components/motion/Reveal';
 
 /** Full-width sponsorship band. */
 const SponsorCtaBand = () => (
   <section className="py-12 md:py-16">
     <div className="container mx-auto px-4">
-      <div className="cyberpunk-border bg-secondary/50 p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 md:items-end">
-        <div>
-          <p className="signal-label mb-5">
-            <Handshake /> Partners
-          </p>
-          <h2 className="section-title mb-4 max-w-xl">Reach AI builders</h2>
-          <p className="text-muted-foreground max-w-xl leading-relaxed">
-            Sponsor a Wild AI chapter and put your brand in front of hundreds of engineers,
-            founders, and researchers who ship. Sponsorships fund venues, food, and growth.
-          </p>
+      <Reveal>
+        <div className="surface spotlight relative overflow-hidden p-8 md:p-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-ember/10 blur-3xl"
+          />
+          <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className="eyebrow mb-5 text-ember">
+                <Handshake /> Partners
+              </p>
+              <h2 className="section-title max-w-xl text-balance">Reach AI builders</h2>
+              <p className="section-lede">
+                Sponsor a Wild AI chapter and put your brand in front of hundreds of engineers,
+                founders, and researchers who ship. Sponsorships fund venues, food, and growth.
+              </p>
+            </div>
+            <Link to="/sponsor" className="flex-shrink-0">
+              <Button size="lg" variant="outline" className="group">
+                Become a sponsor
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </div>
         </div>
-        <Link to="/sponsor" className="flex-shrink-0">
-          <Button size="lg" variant="outline">
-            Become a sponsor
-          </Button>
-        </Link>
-      </div>
+      </Reveal>
     </div>
   </section>
 );

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { ArrowRight, UserPlus, Compass } from 'lucide-react';
+import SpotlightCard from '@/components/motion/SpotlightCard';
+import Reveal from '@/components/motion/Reveal';
 
 const audience = [
   'Builders & founders shipping AI products',
@@ -17,38 +20,69 @@ const reasons = [
 ];
 
 const columns = [
-  { key: 'Who it\u2019s for', items: audience, tone: 'bg-secondary/50' },
-  { key: 'Why attend', items: reasons, tone: 'bg-primary/25' },
+  { key: 'Who it\u2019s for', icon: UserPlus, items: audience, accent: 'accent' as const },
+  { key: 'Why attend', icon: Compass, items: reasons, accent: 'ember' as const },
 ];
 
 const WhoItsFor = () => {
   return (
     <section className="py-14 md:py-20">
       <div className="container mx-auto px-4">
-        <p className="signal-label mb-5">The room</p>
-        <h2 className="section-title max-w-2xl">Who shows up, and why they keep coming back</h2>
+        <Reveal>
+          <p className="eyebrow mb-5">The room</p>
+          <h2 className="section-title max-w-2xl text-balance">
+            Who shows up, and why they keep coming back
+          </h2>
+          <p className="section-lede">
+            Whether you train models for a living or just installed your first library last weekend,
+            there is a seat here.
+          </p>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6 mt-10 mb-10">
-          {columns.map((col) => (
-            <div key={col.key} className={`cyberpunk-border p-7 ${col.tone}`}>
-              <h3 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-6">
-                {col.key}
-              </h3>
-              <ul className="space-y-4">
-                {col.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[0.9375rem] leading-relaxed">
-                    <span className="mt-2 h-px w-3 flex-shrink-0 bg-accent/60" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {columns.map((col, colIndex) => (
+            <Reveal key={col.key} delay={colIndex * 100}>
+              <SpotlightCard className="h-full p-7">
+                <div className="mb-6 flex items-center gap-3">
+                  <span
+                    className={`flex h-9 w-9 items-center justify-center rounded-lg border ${
+                      col.accent === 'accent'
+                        ? 'border-accent/30 bg-accent/10 text-accent'
+                        : 'border-ember/30 bg-ember/10 text-ember'
+                    }`}
+                  >
+                    <col.icon className="h-4 w-4" />
+                  </span>
+                  <h3 className="font-display text-lg font-semibold">{col.key}</h3>
+                </div>
+                <ul className="space-y-1">
+                  {col.items.map((item) => (
+                    <li
+                      key={item}
+                      className="group flex items-start gap-3 rounded-lg px-3 py-2.5 text-[0.9375rem] leading-relaxed transition-colors hover:bg-secondary/60"
+                    >
+                      <span
+                        className={`mt-[0.6rem] h-1.5 w-1.5 flex-shrink-0 rounded-full transition-transform group-hover:scale-150 ${
+                          col.accent === 'accent' ? 'bg-accent/70' : 'bg-ember/70'
+                        }`}
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </SpotlightCard>
+            </Reveal>
           ))}
         </div>
 
-        <a href="#register">
-          <Button size="lg">Register now</Button>
-        </a>
+        <Reveal delay={150} className="mt-10">
+          <a href="#register">
+            <Button size="lg" className="group">
+              Register now
+              <ArrowRight className="transition-transform group-hover:translate-x-1" />
+            </Button>
+          </a>
+        </Reveal>
       </div>
     </section>
   );

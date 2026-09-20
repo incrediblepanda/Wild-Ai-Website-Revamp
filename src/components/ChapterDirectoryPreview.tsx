@@ -3,69 +3,81 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MapPin, ArrowRight, Rocket } from 'lucide-react';
 import { useChapters } from '@/hooks/useChapters';
+import SpotlightCard from '@/components/motion/SpotlightCard';
+import Reveal from '@/components/motion/Reveal';
 
 /** Home page chapter directory preview: cards for every chapter + "more coming". */
 const ChapterDirectoryPreview = () => {
   const { data: chapters, isLoading } = useChapters();
 
   return (
-    <section className="py-10 md:py-20">
+    <section className="py-14 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-center">Find your chapter</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+        <Reveal>
+          <p className="eyebrow mb-5">
+            <MapPin /> Network
+          </p>
+          <h2 className="section-title max-w-2xl text-balance">Find your chapter</h2>
+          <p className="section-lede">
             Wild AI is one community with local chapters. Same format, same energy — in your city.
           </p>
+        </Reveal>
 
-          <div className="grid md:grid-cols-3 border-l border-t border-border">
-            {isLoading
-              ? [0, 1, 2].map((i) => (
-                  <div key={i} className="bg-secondary/30 border-r border-b border-border p-6 h-52 animate-pulse" />
-                ))
-              : (chapters ?? []).map((c) => (
-                  <Link
-                    key={c.id}
-                    to={`/${c.slug}`}
-                    className="bg-secondary/20 border-r border-b border-border p-6 flex flex-col hover:bg-secondary/60 transition-colors group"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <MapPin className="w-6 h-6 text-wildai-mint" />
-                      {c.status === 'launching' ? (
-                        <span className="text-[10px] font-mono text-wildai-mint border border-wildai-mint/40 rounded px-2 py-0.5 flex items-center gap-1">
-                          <Rocket className="w-3 h-3" /> LAUNCHING
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {isLoading
+            ? [0, 1, 2].map((i) => (
+                <div key={i} className="surface h-56 animate-pulse" />
+              ))
+            : (chapters ?? []).map((c, i) => (
+                <Reveal key={c.id} delay={i * 80}>
+                  <SpotlightCard as={Link} to={`/${c.slug}`} className="group block h-full p-6">
+                    <div className="flex h-full flex-col">
+                      <div className="mb-5 flex items-start justify-between gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
+                          <MapPin className="h-4 w-4" />
                         </span>
-                      ) : (
-                        <span className="text-[10px] font-mono text-wildai-mint">ACTIVE</span>
-                      )}
+                        {c.status === 'launching' ? (
+                          <span className="chip chip-ember">
+                            <Rocket className="h-3 w-3" /> Launching
+                          </span>
+                        ) : (
+                          <span className="chip chip-accent">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Active
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="font-display text-xl font-semibold">{c.city}</h3>
+                      <p className="mt-0.5 text-xs text-muted-foreground">{c.region}</p>
+                      <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
+                        {c.tagline}
+                      </p>
+                      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+                        Go to chapter
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-1">{c.city}</h3>
-                    <p className="text-xs text-muted-foreground mb-3">{c.region}</p>
-                    <p className="text-sm text-muted-foreground flex-grow">{c.tagline}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm text-wildai-mint group-hover:gap-2 transition-all">
-                      Go to chapter <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </Link>
-                ))}
-          </div>
+                  </SpotlightCard>
+                </Reveal>
+              ))}
+        </div>
 
-          <div className="text-center mt-10 space-y-4">
+        <Reveal delay={120}>
+          <div className="mt-10 flex flex-col items-start gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">
-              Don't see your city? <span className="text-wildai-mint">More coming soon.</span>
+              Don&apos;t see your city? <span className="text-accent">More coming soon.</span>
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link to="/chapters">
                 <Button variant="outline" className="w-full sm:w-auto">
                   All chapters
                 </Button>
               </Link>
               <Link to="/start-a-chapter">
-                <Button className="w-full sm:w-auto">
-                  Start a chapter
-                </Button>
+                <Button className="w-full sm:w-auto">Start a chapter</Button>
               </Link>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

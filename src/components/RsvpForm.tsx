@@ -96,13 +96,14 @@ const RsvpForm = () => {
   return (
     <section id="register" className="py-10 md:py-16 lg:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl">
+          <p className="eyebrow mb-5">Reserve a seat</p>
           <h2 className="section-title">Register</h2>
-          
-          <div className="bg-secondary/50 p-6 md:p-8 cyberpunk-border shadow-lg">
-            <h3 className="text-xl font-bold mb-4 font-mono text-center">
-              SECURE YOUR SPOT
-            </h3>
+        </div>
+
+        <div className="mt-8 max-w-3xl">
+          <div className="surface p-6 md:p-8">
+            <p className="kicker mb-6">Secure your spot</p>
             
             <div id="hubspotForm" className="min-h-[450px] w-full overflow-x-hidden">
               <Skeleton className="w-full h-[450px]" />
@@ -127,26 +128,26 @@ const RsvpForm = () => {
           width: 100% !important;
           max-width: 100% !important;
           padding: 0.75rem !important;
-          border-radius: 0.375rem !important;
-          background-color: rgba(10, 53, 56, 0.6) !important;
-          border: 1px solid rgba(168, 240, 200, 0.2) !important;
-          color: white !important;
+          border-radius: 0.75rem !important;
+          background-color: hsl(var(--surface-deep) / 0.7) !important;
+          border: 1px solid hsl(var(--input)) !important;
+          color: hsl(var(--foreground)) !important;
         }
         
         .full-width-form .hs-form .hs-button {
-          background-color: hsl(150, 70%, 80%) !important;
-          color: hsl(175, 67%, 13%) !important;
+          background-color: hsl(var(--primary)) !important;
+          color: hsl(var(--primary-foreground)) !important;
           border: none !important;
-          padding: 0.75rem 1.5rem !important;
-          border-radius: 0.375rem !important;
-          font-weight: 500 !important;
+          padding: 0.85rem 1.5rem !important;
+          border-radius: 9999px !important;
+          font-weight: 600 !important;
           cursor: pointer !important;
           transition: all 0.2s !important;
           width: 100% !important;
         }
         
         .full-width-form .hs-form .hs-button:hover {
-          background-color: rgba(168, 240, 200, 0.9) !important;
+          background-color: hsl(179 62% 19%) !important;
         }
         
         .full-width-form .hs-form .hs-error-msgs {
