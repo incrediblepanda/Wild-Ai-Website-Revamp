@@ -79,14 +79,24 @@ const Intro = () => {
     return () => window.clearTimeout(timer);
   }, [active, done, depart]);
 
-  // Hold the page still for the whole sequence.
+  /*
+   * Hold the page still for the whole sequence. Hiding the overflow also hides
+   * the scrollbar, which widens the viewport and slides every centred layout
+   * sideways, so the reclaimed width is handed back as padding.
+   */
   useEffect(() => {
     if (!active || done) return;
+    const root = document.documentElement;
     const previousOverflow = document.body.style.overflow;
+    const gap = window.innerWidth - root.clientWidth;
+
+    root.style.setProperty('--scroll-lock-gap', gap + 'px');
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
+
     return () => {
       document.body.style.overflow = previousOverflow;
+      root.style.removeProperty('--scroll-lock-gap');
     };
   }, [active, done]);
 

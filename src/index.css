@@ -112,8 +112,6 @@
   }
   html {
     scroll-behavior: smooth;
-    /* Reserve the scrollbar track so scroll locks don't nudge centred content. */
-    scrollbar-gutter: stable;
   }
   ::selection {
     background: hsl(var(--primary));
@@ -346,6 +344,11 @@
   /* The real navbar mark stays hidden until the flying one has landed on it. */
   [data-intro] [data-nav-logo] {
     opacity: 0;
+  }
+  /* Keep scrolled-away scrollbar width reserved for flow and fixed layers. */
+  [data-intro] body,
+  [data-intro] .site-header {
+    padding-right: var(--scroll-lock-gap, 0px);
   }
   /* Hold the hero entrance until the curtain starts lifting. */
   [data-intro='active'] .rise {
