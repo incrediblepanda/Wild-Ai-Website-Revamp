@@ -59,94 +59,81 @@ const SpeakerForm = () => {
 
   if (done) {
     return (
-      <section id="speak" className="py-10 md:py-20 bg-secondary/20">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <div className="bg-secondary/40 cyberpunk-border p-10 text-center">
-            <CheckCircle2 className="w-14 h-14 text-wildai-mint mx-auto mb-4" />
-            <h2 className="text-2xl font-bold font-mono mb-3">APPLICATION RECEIVED</h2>
-            <p className="text-muted-foreground">
-              Thanks for applying to speak at Wild AI. We've sent a confirmation to your email
-              and the team will review your application shortly.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div className="glass flex h-full flex-col items-center justify-center p-10 text-center">
+        <CheckCircle2 className="w-14 h-14 text-accent mb-4" />
+        <h3 className="font-display text-xl font-semibold mb-3">Application received</h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Thanks for applying to speak at Wild AI. We&apos;ve sent a confirmation to your email and
+          the team will review your application shortly.
+        </p>
+      </div>
     );
   }
 
   return (
-    <section id="speak" className="py-14 md:py-20">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <p className="eyebrow mb-5">Take the mic</p>
-        <h2 className="section-title">Speak at Wild AI</h2>
-
-        <div className="mb-8">
-          <p className="text-lg mb-3">Have an AI project, experiment, or insight to share?</p>
-          <p className="section-lede">
-            Our lightning talks are 5 minutes, no slides - just you sharing who you are,
-            what you're working on, and why it's important.
-          </p>
-        </div>
-
-        <form onSubmit={submit} className="surface p-6 md:p-8 space-y-5">
-          <p className="kicker mb-2">Apply to speak</p>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="name">Name *</Label>
-              <Input id="name" value={form.name} onChange={(e) => update('name', e.target.value)} required maxLength={200} />
-            </div>
-            <div>
-              <Label htmlFor="email">Email *</Label>
-              <Input id="email" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} required maxLength={255} />
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" type="tel" value={form.phone} onChange={(e) => update('phone', e.target.value)} maxLength={40} />
-            </div>
-            <div>
-              <Label htmlFor="linkedin">LinkedIn URL</Label>
-              <Input id="linkedin" type="url" value={form.linkedin_url} onChange={(e) => update('linkedin_url', e.target.value)} placeholder="https://linkedin.com/in/…" maxLength={500} />
-            </div>
-          </div>
-
-          <div>
-            <Label htmlFor="description">About you *</Label>
-            <Textarea id="description" value={form.description} onChange={(e) => update('description', e.target.value)} rows={4} required maxLength={5000}
-              placeholder="A short bio - who you are and what you do." />
-          </div>
-
-          <div>
-            <Label htmlFor="building">What are you building? *</Label>
-            <Textarea id="building" value={form.what_building} onChange={(e) => update('what_building', e.target.value)} rows={4} required maxLength={5000}
-              placeholder="The project, idea, or experiment you'd like to share." />
-          </div>
-
-          <div>
-            <Label htmlFor="image">Photo of you</Label>
-            <div className="flex items-center gap-3 mt-1">
-              <label className="flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-md cursor-pointer hover:bg-secondary text-sm">
-                <Upload className="w-4 h-4" />
-                <span>{imageFile ? imageFile.name : 'Choose file'}</span>
-                <input id="image" type="file" accept="image/*" className="hidden"
-                  onChange={(e) => setImageFile(e.target.files?.[0] || null)} />
-              </label>
-              {imageFile && (
-                <Button type="button" variant="ghost" size="sm" onClick={() => setImageFile(null)}>Clear</Button>
-              )}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">Optional. Max 5 MB.</p>
-          </div>
-
-          <Button type="submit" disabled={submitting} className="w-full py-6">
-            {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'SUBMIT APPLICATION'}
-          </Button>
-        </form>
+    <form onSubmit={submit} className="glass flex h-full flex-col gap-5 p-6 md:p-8">
+      <div>
+        <p className="kicker">Take the mic</p>
+        <h3 className="mt-3 font-display text-xl font-semibold">Apply to speak</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Lightning talks are 5 minutes, no slides - just you, your work, and why it matters.
+        </p>
       </div>
-    </section>
+
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="name">Name *</Label>
+          <Input id="name" value={form.name} onChange={(e) => update('name', e.target.value)} required maxLength={200} />
+        </div>
+        <div>
+          <Label htmlFor="email">Email *</Label>
+          <Input id="email" type="email" value={form.email} onChange={(e) => update('email', e.target.value)} required maxLength={255} />
+        </div>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="phone">Phone</Label>
+          <Input id="phone" type="tel" value={form.phone} onChange={(e) => update('phone', e.target.value)} maxLength={40} />
+        </div>
+        <div>
+          <Label htmlFor="linkedin">LinkedIn URL</Label>
+          <Input id="linkedin" type="url" value={form.linkedin_url} onChange={(e) => update('linkedin_url', e.target.value)} placeholder="https://linkedin.com/in/…" maxLength={500} />
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="description">About you *</Label>
+        <Textarea id="description" value={form.description} onChange={(e) => update('description', e.target.value)} rows={4} required maxLength={5000}
+          placeholder="A short bio - who you are and what you do." />
+      </div>
+
+      <div>
+        <Label htmlFor="building">What are you building? *</Label>
+        <Textarea id="building" value={form.what_building} onChange={(e) => update('what_building', e.target.value)} rows={4} required maxLength={5000}
+          placeholder="The project, idea, or experiment you'd like to share." />
+      </div>
+
+      <div>
+        <Label htmlFor="image">Photo of you</Label>
+        <div className="flex items-center gap-3 mt-1">
+          <label className="flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-md cursor-pointer hover:bg-secondary text-sm">
+            <Upload className="w-4 h-4" />
+            <span>{imageFile ? imageFile.name : 'Choose file'}</span>
+            <input id="image" type="file" accept="image/*" className="hidden"
+              onChange={(e) => setImageFile(e.target.files?.[0] || null)} />
+          </label>
+          {imageFile && (
+            <Button type="button" variant="ghost" size="sm" onClick={() => setImageFile(null)}>Clear</Button>
+          )}
+        </div>
+        <p className="text-xs text-muted-foreground mt-1">Optional. Max 5 MB.</p>
+      </div>
+
+      <Button type="submit" disabled={submitting} className="mt-auto w-full py-6">
+        {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Submit application'}
+      </Button>
+    </form>
   );
 };
 

@@ -94,27 +94,25 @@ const RsvpForm = () => {
   }, [toast]);
   
   return (
-    <section id="register" className="py-10 md:py-16 lg:py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl">
-          <p className="eyebrow mb-5">Reserve a seat</p>
-          <h2 className="section-title">Register</h2>
-        </div>
+    <>
+      <div className="glass flex h-full flex-col p-6 md:p-8">
+        <p className="kicker">Reserve a seat</p>
+        <h3 className="mt-3 font-display text-xl font-semibold">Register for the meetup</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Save your spot and we&apos;ll send the lineup plus a reminder before doors open.
+        </p>
 
-        <div className="mt-8 max-w-3xl">
-          <div className="surface p-6 md:p-8">
-            <p className="kicker mb-6">Secure your spot</p>
-            
-            <div id="hubspotForm" className="min-h-[450px] w-full overflow-x-hidden">
-              <Skeleton className="w-full h-[450px]" />
-            </div>
-            
-            <p className="text-center text-sm text-muted-foreground mt-4">
-              By registering, you'll be added to our event mailing list.
-              We respect your privacy and will never share your information.
-            </p>
+        {/* HubSpot renders its own themed form, so it gets a deliberate plate. */}
+        <div className="glass-plate mt-6 flex-grow overflow-hidden p-2">
+          <div id="hubspotForm" className="min-h-[450px] w-full overflow-x-hidden">
+            <Skeleton className="w-full h-[450px]" />
           </div>
         </div>
+
+        <p className="mt-4 text-sm text-muted-foreground">
+          By registering, you&apos;ll be added to our event mailing list. We respect your privacy
+          and will never share your information.
+        </p>
       </div>
 
       {/* Add custom styles for HubSpot form to make it fit better */}
@@ -194,7 +192,7 @@ const RsvpForm = () => {
           min-width: 100% !important;
         }
       `}</style>
-    </section>
+    </>
   );
 };
 

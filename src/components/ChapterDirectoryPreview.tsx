@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { MapPin, ArrowRight, Rocket } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { useChapters } from '@/hooks/useChapters';
-import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/motion/Reveal';
 
 /** Home page chapter directory preview: cards for every chapter + "more coming". */
@@ -25,38 +24,45 @@ const ChapterDirectoryPreview = () => {
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {isLoading
-            ? [0, 1, 2].map((i) => (
-                <div key={i} className="surface h-56 animate-pulse" />
-              ))
+            ? [0, 1, 2].map((i) => <div key={i} className="glass h-56 animate-pulse" />)
             : (chapters ?? []).map((c, i) => (
                 <Reveal key={c.id} delay={i * 80}>
-                  <SpotlightCard as={Link} to={`/${c.slug}`} className="group block h-full p-6">
-                    <div className="flex h-full flex-col">
-                      <div className="mb-5 flex items-start justify-between gap-3">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
-                          <MapPin className="h-4 w-4" />
-                        </span>
-                        {c.status === 'launching' ? (
-                          <span className="chip chip-ember">
-                            <Rocket className="h-3 w-3" /> Launching
-                          </span>
-                        ) : (
-                          <span className="chip chip-accent">
-                            <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Active
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="font-display text-xl font-semibold">{c.city}</h3>
-                      <p className="mt-0.5 text-xs text-muted-foreground">{c.region}</p>
-                      <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
-                        {c.tagline}
-                      </p>
-                      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+                  <Link
+                    to={`/${c.slug}`}
+                    className="glass glass-interactive group flex h-full flex-col p-6 md:p-7"
+                  >
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="font-mono text-[0.625rem] text-muted-foreground">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        className={`kicker flex items-center gap-1.5 ${
+                          c.status === 'launching' ? 'text-ember' : 'text-accent'
+                        }`}
+                      >
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${
+                            c.status === 'launching' ? 'bg-ember' : 'bg-accent'
+                          }`}
+                        />
+                        {c.status === 'launching' ? 'Launching' : 'Active'}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-6 font-display text-2xl font-semibold">{c.city}</h3>
+                    <p className="mt-1 text-xs text-muted-foreground">{c.region}</p>
+                    <p className="mt-4 flex-grow text-sm leading-relaxed text-muted-foreground">
+                      {c.tagline}
+                    </p>
+
+                    <div className="mt-6 flex items-center justify-between gap-4 border-t border-border/50 pt-4">
+                      <span className="kicker">{c.member_count ?? 0}+ members</span>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent">
                         Go to chapter
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>
-                  </SpotlightCard>
+                  </Link>
                 </Reveal>
               ))}
         </div>

@@ -9,7 +9,7 @@ const LogoTile = ({ company }: { company: CompanyLogo }) => (
     target="_blank"
     rel="noopener noreferrer"
     title={company.name}
-    className="group mx-1.5 flex h-20 w-40 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-card px-5 transition-colors hover:border-accent/40 md:h-24 md:w-48"
+    className="glass-plate glass-interactive group mx-1.5 flex h-20 w-40 flex-shrink-0 items-center justify-center px-5 md:h-24 md:w-48"
   >
     <img
       src={company.logo}

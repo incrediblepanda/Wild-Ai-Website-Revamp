@@ -1,6 +1,5 @@
 import React from 'react';
 import { Clock, Users, MessageSquare, Youtube, CalendarDays, MapPin, ArrowUpRight } from 'lucide-react';
-import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/motion/Reveal';
 import { MEETUP_VENUE, meetupTitle, nextMeetupDate } from '@/lib/meetupSchedule';
 import { formatDate } from '@/hooks/useChapters';
@@ -41,7 +40,7 @@ const EventDetails = () => {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
-            <SpotlightCard className="h-full p-7">
+            <div className="glass h-full p-7 md:p-8">
               <p className="kicker mb-4">{meetupTitle(nextDate)}</p>
               <p className="font-display text-3xl font-semibold text-foreground">
                 {formatDate(nextDate)}
@@ -50,7 +49,7 @@ const EventDetails = () => {
                 6:00 PM - third Monday of every month
               </p>
 
-              <div className="mt-6 flex items-start gap-3 border-t border-border pt-6">
+              <div className="mt-6 flex items-start gap-3 border-t border-border/60 pt-6">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
                 <div>
                   <p className="font-medium">{MEETUP_VENUE.name}</p>
@@ -59,7 +58,7 @@ const EventDetails = () => {
                 </div>
               </div>
 
-              <div className="mt-6 border-t border-border pt-6">
+              <div className="mt-6 border-t border-border/60 pt-6">
                 <p className="kicker mb-4">What to expect</p>
                 <ul className="space-y-2.5">
                   {expectations.map((item) => (
@@ -70,17 +69,17 @@ const EventDetails = () => {
                   ))}
                 </ul>
               </div>
-            </SpotlightCard>
+            </div>
           </Reveal>
 
           <Reveal delay={90}>
-            <SpotlightCard className="h-full p-7">
+            <div className="glass h-full p-7 md:p-8">
               <p className="kicker mb-7">Meetup schedule</p>
 
-              <ol className="relative space-y-7 border-l border-border pl-8">
+              <ol className="relative space-y-7 border-l border-border/60 pl-8">
                 {schedule.map((slot) => (
                   <li key={slot.time} className="relative">
-                    <span className="absolute -left-[3.05rem] flex h-9 w-9 items-center justify-center rounded-full border border-accent/25 bg-background text-accent">
+                    <span className="absolute -left-[3.05rem] flex h-9 w-9 items-center justify-center rounded-full border border-accent/25 bg-surface-deep text-accent">
                       <slot.icon className="h-4 w-4" />
                     </span>
                     <h4 className="font-display text-lg font-semibold">{slot.time}</h4>
@@ -102,13 +101,13 @@ const EventDetails = () => {
                 href="https://www.youtube.com/@WildAI-US"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-3 rounded-full border border-border bg-secondary/50 py-2.5 pl-4 pr-5 text-sm font-medium transition-colors hover:border-accent/40 hover:bg-secondary"
+                className="group mt-6 inline-flex items-center gap-3 rounded-full border border-border/70 bg-foreground/[0.04] py-2.5 pl-4 pr-5 text-sm font-medium transition-colors hover:border-accent/40 hover:bg-foreground/[0.08]"
               >
                 <Youtube className="h-5 w-5 text-accent" />
                 <span>Check out our past events on YouTube</span>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-            </SpotlightCard>
+            </div>
           </Reveal>
         </div>
       </div>

@@ -3,8 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import LogoCarousel from '@/components/LogoCarousel';
 import EventDetails from '@/components/EventDetails';
-import RsvpForm from '@/components/RsvpForm';
-import SpeakerForm from '@/components/SpeakerForm';
+import RegisterBand from '@/components/RegisterBand';
 import StatsBand from '@/components/StatsBand';
 import WhoItsFor from '@/components/WhoItsFor';
 import PastHighlights from '@/components/PastHighlights';
@@ -21,13 +20,14 @@ import HeroHandoff from '@/components/motion/HeroHandoff';
 
 interface BandProps {
   tone?: 'slate' | 'paper' | 'deep';
+  glow?: boolean;
   children: React.ReactNode;
 }
 
 /** A themed horizontal band. Paper bands re-scope the colour tokens. */
-const Band = ({ tone = 'slate', children }: BandProps) => (
+const Band = ({ tone = 'slate', glow = false, children }: BandProps) => (
   <div
-    className={`band ${tone === 'deep' ? 'band-deep' : ''}`}
+    className={`band ${tone === 'deep' ? 'band-deep' : ''} ${glow ? 'band-glow' : ''}`}
     data-surface={tone === 'paper' ? 'paper' : undefined}
   >
     {children}
@@ -47,10 +47,10 @@ const Index = () => {
           <Band tone="deep">
             <ScarcityCountdown />
             <StatsBand />
+            <LogoCarousel />
           </Band>
 
-          <Band tone="paper">
-            <LogoCarousel />
+          <Band tone="deep" glow>
             <WhoItsFor />
             <ChapterDirectoryPreview />
           </Band>
@@ -60,7 +60,7 @@ const Index = () => {
             <PastHighlights />
           </Band>
 
-          <Band tone="paper">
+          <Band tone="deep" glow>
             <EventDetails />
           </Band>
 
@@ -70,9 +70,8 @@ const Index = () => {
             <SponsorCtaBand />
           </Band>
 
-          <Band tone="paper">
-            <RsvpForm />
-            <SpeakerForm />
+          <Band tone="deep" glow>
+            <RegisterBand />
           </Band>
 
           <Band tone="deep">
