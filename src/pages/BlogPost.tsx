@@ -109,7 +109,7 @@ const BlogPost = () => {
                     <span className="text-sm text-muted-foreground">{formattedDate}</span>
                   )}
                 </div>
-                <h1 className="text-3xl md:text-4xl font-mono font-bold text-foreground mb-4">
+                <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                   {post.title}
                 </h1>
                 {post.excerpt && (

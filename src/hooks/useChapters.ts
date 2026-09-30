@@ -7,6 +7,10 @@ import {
   scheduledMeetups,
 } from '@/lib/meetupSchedule';
 
+/* Site copy avoids em dashes; stored text still has some. */
+const noEmDash = <T,>(value: T): T =>
+  value == null ? value : JSON.parse(JSON.stringify(value).replace(/\s*\u2014\s*/g, ' - '));
+
 export interface Chapter {
   id: string;
   slug: string;
@@ -87,7 +91,7 @@ export const useChapters = () =>
         .select('*')
         .order('sort_order');
       if (error) throw error;
-      return (data as Chapter[]).map(withMeetupVenue);
+      return (noEmDash(data) as Chapter[]).map(withMeetupVenue);
     },
   });
 
@@ -102,7 +106,7 @@ export const useChapter = (slug: string | undefined) =>
         .eq('slug', slug)
         .maybeSingle();
       if (error) throw error;
-      return data ? withMeetupVenue(data as Chapter) : null;
+      return data ? withMeetupVenue(noEmDash(data) as Chapter) : null;
     },
   });
 
@@ -117,7 +121,7 @@ export const useChapterOrganizers = (chapterId: string | undefined) =>
         .eq('chapter_id', chapterId!)
         .order('sort_order');
       if (error) throw error;
-      return data as ChapterOrganizer[];
+      return noEmDash(data) as ChapterOrganizer[];
     },
   });
 
@@ -132,7 +136,7 @@ export const useChapterEvents = (chapter: Chapter | null | undefined) =>
         .eq('chapter_id', chapter!.id)
         .order('event_date', { ascending: false });
       if (error) throw error;
-      const events = data as unknown as ChapterEvent[];
+      const events = noEmDash(data) as unknown as ChapterEvent[];
       return chapter!.slug === HOME_CHAPTER ? withScheduledMeetups(events, chapter!) : events;
     },
   });
@@ -151,8 +155,8 @@ export const useAllEvents = () =>
       ]);
       if (eventsResult.error) throw eventsResult.error;
 
-      const events = eventsResult.data as unknown as ChapterEvent[];
-      const home = chaptersResult.data as Chapter | null;
+      const events = noEmDash(eventsResult.data) as unknown as ChapterEvent[];
+      const home = noEmDash(chaptersResult.data) as Chapter | null;
       return home ? withScheduledMeetups(events, withMeetupVenue(home)) : events;
     },
   });

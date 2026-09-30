@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoonCafeMap = () => {
   return (
-    <div className="cyberpunk-border overflow-hidden h-[400px]">
+    <div className="surface overflow-hidden h-[400px]">
       <iframe 
         src="https://www.google.com/maps?saddr=345+Washington+St,+St+Paul,+MN+55102&daddr=426+Saint+Peter+St,+Saint+Paul,+MN+55102&dirflg=w&output=embed" 
         width="100%" 

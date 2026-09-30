@@ -65,7 +65,7 @@ const Chapters = () => {
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-lg font-semibold">Chapter map</h2>
               </div>
-              <div className="cyberpunk-border overflow-hidden h-[360px] grayscale contrast-125 opacity-80 hover:grayscale-0 transition-all duration-500">
+              <div className="surface overflow-hidden h-[360px] grayscale contrast-125 opacity-80 hover:grayscale-0 duration-500">
                 <iframe
                   src="https://www.openstreetmap.org/export/embed.html?bbox=-132.0%2C22.0%2C-52.0%2C56.0&layer=mapnik"
                   width="100%"

@@ -45,7 +45,7 @@ const ChapterSwitcher = () => {
           <ChevronDown className="w-3.5 h-3.5" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center" className="w-56 bg-wildai-teal border-secondary">
+      <DropdownMenuContent align="center" className="w-56">
         <DropdownMenuLabel className="text-muted-foreground text-xs font-mono">FIND YOUR CHAPTER</DropdownMenuLabel>
         <DropdownMenuSeparator className="bg-secondary" />
         {(chapters ?? []).map((c) => (

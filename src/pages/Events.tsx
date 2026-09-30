@@ -67,7 +67,7 @@ const Events = () => {
               <SelectTrigger className="w-full sm:w-52 bg-secondary border-border">
                 <SelectValue placeholder="All cities" />
               </SelectTrigger>
-              <SelectContent className="bg-wildai-teal border-secondary">
+              <SelectContent>
                 <SelectItem value="all">All cities</SelectItem>
                 {(chapters ?? []).map((c) => (
                   <SelectItem key={c.slug} value={c.slug}>
@@ -101,7 +101,7 @@ const Events = () => {
 
           {/* Event list */}
           <div className="max-w-3xl mx-auto space-y-4 mb-16">
-            {isLoading && <div className="bg-secondary/50 cyberpunk-border p-6 h-28 animate-pulse" />}
+            {isLoading && <div className="surface p-6 h-28 animate-pulse" />}
             {!isLoading && filtered.length === 0 && !showPastFallback && (
               <p className="text-center text-muted-foreground py-10">
                 {timeFilter === 'upcoming'
@@ -121,10 +121,10 @@ const Events = () => {
               <Link
                 key={e.id}
                 to={`/events/${e.slug}`}
-                className={`block cyberpunk-border p-6 transition-colors group ${
+                className={`block surface surface-interactive p-6 transition-colors group ${
                   i === 0 && !showPastFallback && timeFilter === 'upcoming'
-                    ? 'bg-secondary/80 border-accent/50 ring-1 ring-accent/20'
-                    : 'bg-secondary/50 hover:bg-secondary/80'
+                    ? '!border-accent/50 ring-1 ring-accent/20 bg-primary/30'
+                    : ''
                 }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -156,7 +156,7 @@ const Events = () => {
                         </>
                       ) : null}
                     </div>
-                    <h2 className="text-lg font-bold font-mono group-hover:text-wildai-mint transition-colors">
+                    <h2 className="text-lg font-display font-semibold group-hover:text-wildai-mint transition-colors">
                       {e.title}
                     </h2>
                     {e.venue_name && (

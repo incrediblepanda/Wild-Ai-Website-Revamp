@@ -57,7 +57,7 @@ const About = () => {
         <div className="container mx-auto px-4 pt-14">
 
           {/* Origin story */}
-          <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-16">
+          <div className="max-w-3xl mx-auto surface p-6 md:p-8 mb-16">
             <h2 className="section-title">THE ORIGIN STORY</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -83,9 +83,9 @@ const About = () => {
             <h2 className="section-title text-center">WHAT WE STAND FOR</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {values.map((v) => (
-                <div key={v.title} className="bg-secondary/50 cyberpunk-border p-6 text-center">
+                <div key={v.title} className="surface p-6 text-center">
                   <v.icon className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
-                  <h3 className="font-bold font-mono mb-2">{v.title}</h3>
+                  <h3 className="font-display font-semibold mb-2">{v.title}</h3>
                   <p className="text-sm text-muted-foreground">{v.text}</p>
                 </div>
               ))}
@@ -93,7 +93,7 @@ const About = () => {
           </div>
 
           {/* Team */}
-          <div className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-16">
+          <div className="max-w-3xl mx-auto surface p-6 md:p-8 mb-16">
             <h2 className="section-title">THE TEAM</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Wild AI is run by a core crew of organizers in Minneapolis, plus chapter leads in
@@ -117,7 +117,7 @@ const About = () => {
                 <Link
                   key={c.slug}
                   to={`/${c.slug}`}
-                  className="bg-secondary/50 cyberpunk-border p-5 text-center hover:bg-secondary/80 transition-colors group"
+                  className="surface surface-interactive p-5 text-center transition-colors group"
                 >
                   <p className="font-bold font-mono group-hover:text-wildai-mint transition-colors">
                     {c.city.toUpperCase()}
@@ -130,7 +130,7 @@ const About = () => {
               ))}
               <Link
                 to="/chapters"
-                className="bg-secondary/30 cyberpunk-border p-5 text-center hover:bg-secondary/80 transition-colors flex flex-col items-center justify-center"
+                className="surface surface-interactive p-5 text-center transition-colors flex flex-col items-center justify-center"
               >
                 <p className="font-bold font-mono text-wildai-mint mb-1">MORE CITIES</p>
                 <p className="text-xs text-muted-foreground">See the full directory</p>
@@ -139,7 +139,7 @@ const About = () => {
           </div>
 
           {/* Code of conduct */}
-          <div id="conduct" className="max-w-3xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-16 scroll-mt-28">
+          <div id="conduct" className="max-w-3xl mx-auto surface p-6 md:p-8 mb-16 scroll-mt-28">
             <h2 className="section-title">CODE OF CONDUCT</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -159,7 +159,7 @@ const About = () => {
 
           {/* CTA */}
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold font-mono mb-4">COME TO A MEETUP</h2>
+            <h2 className="text-2xl font-display font-semibold mb-4">COME TO A MEETUP</h2>
             <p className="text-muted-foreground mb-6">
               The fastest way to understand Wild AI is to stand in one of our rooms.
             </p>

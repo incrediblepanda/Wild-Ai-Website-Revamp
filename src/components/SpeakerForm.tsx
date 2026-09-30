@@ -59,7 +59,7 @@ const SpeakerForm = () => {
 
   if (done) {
     return (
-      <div className="glass flex h-full flex-col items-center justify-center p-10 text-center">
+      <div className="glass flex h-full flex-col items-center justify-center p-6 md:p-10 text-center">
         <CheckCircle2 className="w-14 h-14 text-accent mb-4" />
         <h3 className="font-display text-xl font-semibold mb-3">Application received</h3>
         <p className="text-sm leading-relaxed text-muted-foreground">

@@ -12,8 +12,8 @@ import {
 import { formatDate } from '@/hooks/useChapters';
 
 const Cell = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center gap-2">
-    <span className="w-full rounded-lg border border-border/70 bg-surface-deep/60 py-4 text-center font-mono text-3xl font-medium tabular-nums text-foreground md:text-4xl">
+  <div className="flex flex-col items-center gap-1.5 md:gap-2">
+    <span className="w-full rounded-lg border border-border/70 bg-surface-deep/60 py-3 text-center font-mono text-2xl font-medium md:py-4 tabular-nums text-foreground md:text-4xl">
       {String(value).padStart(2, '0')}
     </span>
     <span className="kicker">{label}</span>
@@ -42,7 +42,7 @@ const HeroCountdown = ({ spent }: { spent?: boolean }) => {
       </p>
 
       {cells ? (
-        <div className="mt-6 grid grid-cols-4 gap-2.5">
+        <div className="mt-4 grid grid-cols-4 gap-2 md:mt-6 md:gap-2.5">
           {cells.map((c) => (
             <Cell key={c.label} value={c.value} label={c.label} />
           ))}
@@ -51,18 +51,18 @@ const HeroCountdown = ({ spent }: { spent?: boolean }) => {
         <p className="mt-6 font-display text-2xl text-foreground">Doors are open</p>
       )}
 
-      <p className="mt-7 font-display text-xl font-semibold">{meetupTitle(date)}</p>
+      <p className="mt-5 font-display text-lg font-semibold md:mt-7 md:text-xl">{meetupTitle(date)}</p>
       <p className="mt-2.5 flex items-center justify-center gap-2 text-[0.9375rem] text-muted-foreground">
         <CalendarDays className="h-4 w-4" /> {formatDate(date)} · 6:00 PM
       </p>
-      <p className="mt-1.5 flex items-center justify-center gap-2 text-[0.9375rem] text-muted-foreground">
+      <p className="hero-compact-hide mt-1.5 flex items-center justify-center gap-2 text-[0.9375rem] text-muted-foreground">
         <MapPin className="h-4 w-4" /> {MEETUP_VENUE.name}
       </p>
 
       <Link
         to={`/events/${meetupSlug(date)}`}
         tabIndex={spent ? -1 : undefined}
-        className="group mt-7 inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-accent"
+        className="group mt-4 inline-flex md:mt-7 items-center gap-2 text-[0.9375rem] font-semibold text-accent"
       >
         Event details
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

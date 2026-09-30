@@ -66,11 +66,11 @@ const Join = () => {
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Signup form */}
-            <div className="bg-secondary/40 cyberpunk-border p-8">
+            <div className="surface p-6 md:p-8">
               {status === 'done' ? (
                 <div className="text-center py-10">
                   <CheckCircle2 className="w-12 h-12 text-wildai-mint mx-auto mb-4" />
-                  <h2 className="text-xl font-bold font-mono mb-2">YOU'RE IN</h2>
+                  <h2 className="text-xl font-display font-semibold mb-2">YOU'RE IN</h2>
                   <p className="text-muted-foreground mb-6">
                     Watch your inbox - the next event invite for your city lands there first.
                   </p>
@@ -80,7 +80,7 @@ const Join = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <h2 className="text-xl font-bold font-mono text-wildai-mint">SIGN UP</h2>
+                  <h2 className="text-xl font-display font-semibold text-wildai-mint">SIGN UP</h2>
                   <div className="space-y-2">
                     <Label htmlFor="join-email">Email</Label>
                     <Input
@@ -90,16 +90,16 @@ const Join = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label>Your city</Label>
                     <Select value={city} onValueChange={setCity}>
-                      <SelectTrigger className="bg-wildai-teal">
+                      <SelectTrigger className="bg-surface-deep/70">
                         <SelectValue placeholder="Choose a chapter" />
                       </SelectTrigger>
-                      <SelectContent className="bg-wildai-teal border-secondary">
+                      <SelectContent>
                         {(chapters ?? []).map((c) => (
                           <SelectItem key={c.slug} value={c.slug}>
                             {c.city}
@@ -136,31 +136,31 @@ const Join = () => {
 
             {/* What you get */}
             <div className="space-y-4">
-              <div className="bg-secondary/50 cyberpunk-border p-6">
+              <div className="surface p-6">
                 <Mail className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">EVENT INVITES FIRST</h3>
+                <h3 className="font-display font-semibold mb-1">EVENT INVITES FIRST</h3>
                 <p className="text-sm text-muted-foreground">
                   Subscribers get the invite days before public announcements - matters when the
                   room fills up.
                 </p>
               </div>
-              <div className="bg-secondary/50 cyberpunk-border p-6">
+              <div className="surface p-6">
                 <Sparkles className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">SPEAKER LINEUPS & RECAPS</h3>
+                <h3 className="font-display font-semibold mb-1">SPEAKER LINEUPS & RECAPS</h3>
                 <p className="text-sm text-muted-foreground">
                   Who's demoing, what they showed, and the links - even if you had to miss it.
                 </p>
               </div>
-              <div className="bg-secondary/50 cyberpunk-border p-6">
+              <div className="surface p-6">
                 <CalendarDays className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">CITY-BY-CITY UPDATES</h3>
+                <h3 className="font-display font-semibold mb-1">CITY-BY-CITY UPDATES</h3>
                 <p className="text-sm text-muted-foreground">
                   New chapters, launch dates, and venue changes for the city you pick - and only
                   that city.
                 </p>
               </div>
-              <div className="bg-primary/25 cyberpunk-border p-6">
-                <h3 className="font-bold font-mono text-wildai-mint mb-1">WANT TO DO MORE THAN ATTEND?</h3>
+              <div className="bg-primary/25 surface p-6">
+                <h3 className="font-display font-semibold text-wildai-mint mb-1">WANT TO DO MORE THAN ATTEND?</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Fire talks and chapter organizing are open to everyone on the list.
                 </p>

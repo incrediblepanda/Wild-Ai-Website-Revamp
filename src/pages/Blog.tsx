@@ -25,7 +25,7 @@ const Blog = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <header className="mb-12 text-center">
-                <h1 className="text-4xl md:text-5xl font-mono font-bold text-primary mb-4">
+                <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
                   Blog
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

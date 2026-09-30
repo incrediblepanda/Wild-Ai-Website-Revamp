@@ -39,7 +39,7 @@ const Hero = () => {
           willChange: spent ? undefined : 'transform, opacity',
         }}
       >
-        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
+        <div className="grid items-center gap-8 lg:gap-12 lg:grid-cols-[1.35fr_1fr]">
           <div>
             <div className="line-mask">
               <p className="rise kicker" style={{ ['--rise-delay' as string]: '120ms' }}>
@@ -47,7 +47,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <h1 className="display-title mt-7">
+            <h1 className="display-title mt-4 md:mt-7">
               <span className="line-mask">
                 <span className="rise" style={{ ['--rise-delay' as string]: '260ms' }}>
                   The room where
@@ -66,12 +66,12 @@ const Hero = () => {
             </h1>
 
             <div
-              className="rise hero-rule mt-9 max-w-sm"
+              className="rise hero-rule mt-9 hidden max-w-sm md:block"
               style={{ ['--rise-delay' as string]: '640ms' }}
             />
 
             <p
-              className="rise mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground"
+              className="rise mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:mt-7 md:text-lg"
               style={{ ['--rise-delay' as string]: '720ms' }}
             >
               Hear from local AI leaders. Network with researchers and builders. Share ideas that
@@ -79,17 +79,17 @@ const Hero = () => {
             </p>
 
             <div
-              className="rise mt-9 flex flex-col gap-3 sm:flex-row"
+              className="rise mt-6 grid grid-cols-2 gap-3 sm:flex sm:flex-row md:mt-9"
               style={{ ['--rise-delay' as string]: '820ms' }}
             >
               <a href="#register">
-                <Button size="lg" className="group w-full sm:w-auto" tabIndex={spent ? -1 : undefined}>
+                <Button size="lg" className="group w-full px-4 sm:w-auto sm:px-7" tabIndex={spent ? -1 : undefined}>
                   Register now
                   <ArrowRight className="transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
               <Link to="/events" tabIndex={spent ? -1 : undefined}>
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full px-4 sm:w-auto sm:px-7">
                   Explore events
                 </Button>
               </Link>
@@ -103,7 +103,7 @@ const Hero = () => {
       </div>
 
       <div
-        className="absolute inset-x-0 bottom-8 flex justify-center"
+        className="absolute inset-x-0 bottom-8 hidden justify-center md:flex"
         style={{
           opacity: 1 - ramp(progress, 0, 0.16),
           visibility: spent ? 'hidden' : undefined,

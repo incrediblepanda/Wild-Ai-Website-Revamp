@@ -86,7 +86,7 @@ const Afterparty = () => {
             <div className="mb-16">
               <div className="flex justify-center">
                 <a href="http://attentio.ai/" target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-secondary/60 p-12 cyberpunk-border hover:bg-secondary/80 transition-all duration-300 flex flex-col items-center justify-center min-h-[300px] max-w-md w-full animate-fade-in">
+                  <div className="p-7 md:p-12 surface surface-interactive duration-300 flex flex-col items-center justify-center min-h-[300px] max-w-md w-full animate-fade-in">
                     <img src="/lovable-uploads/attentio-logo.png" alt="Attentio" className="h-40 w-auto object-contain mb-6 group-hover:scale-110 transition-transform" />
                     <p className="text-center font-mono text-xl text-wildai-mint">
                       Attentio
@@ -162,7 +162,7 @@ const Afterparty = () => {
               logo: '/lovable-uploads/caparra-logo.png?v=4',
               url: 'https://caparra.ai/'
             }].map((startup, index) => <a key={index} href={startup.url} target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-secondary/40 p-6 cyberpunk-border hover:bg-secondary/60 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                  <div className="p-6 surface surface-interactive duration-300 flex flex-col items-center justify-center min-h-[200px]">
                     <img src={startup.logo} alt={startup.name} className="h-24 w-auto object-contain mb-4 group-hover:scale-110 transition-transform" />
                     <p className="text-center font-mono text-sm text-muted-foreground group-hover:text-wildai-mint transition-colors">
                       {startup.name}

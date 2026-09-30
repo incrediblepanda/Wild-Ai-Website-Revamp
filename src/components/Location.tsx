@@ -8,7 +8,7 @@ const Location = () => {
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
-              <div className="bg-secondary/50 p-6 rounded-lg h-full cyberpunk-border">
+              <div className="p-6 rounded-lg h-full surface">
                 <h3 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">VENUE</h3>
                 <p className="text-lg font-medium mb-2">TBD</p>
                 <p className="text-muted-foreground mb-6">Location to be announced</p>
@@ -39,7 +39,7 @@ const Location = () => {
               </div>
             </div>
             
-            <div className="cyberpunk-border overflow-hidden h-[400px]">
+            <div className="surface overflow-hidden h-[400px]">
                <div className="flex items-center justify-center h-full bg-secondary/30">
                 <p className="text-muted-foreground font-mono">MAP_COMING_SOON</p>
               </div>

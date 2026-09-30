@@ -34,7 +34,7 @@ const GopherAIConference = () => {
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold font-mono mb-4">
+            <h1 className="text-4xl md:text-5xl font-display font-semibold mb-4">
               GOPHER AI<br />DEMO NIGHT
             </h1>
             <p className="text-lg text-muted-foreground mb-6">Startups, Research, & Technical Systems</p>
@@ -45,14 +45,14 @@ const GopherAIConference = () => {
 
           {/* Date, Time, Location */}
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg">
+            <div className="surface flex items-start gap-4 p-5">
               <Calendar className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Date</h3>
                 <p>Wednesday, April 9, 2026</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg">
+            <div className="surface flex items-start gap-4 p-5">
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
@@ -62,7 +62,7 @@ const GopherAIConference = () => {
           </div>
 
           {/* Location */}
-          <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg mb-10">
+          <div className="surface flex items-start gap-4 p-5 mb-10">
             <MapPin className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold mb-1">Location</h3>
@@ -81,7 +81,7 @@ const GopherAIConference = () => {
           </div>
 
           {/* Parking */}
-          <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg mb-10">
+          <div className="surface flex items-start gap-4 p-5 mb-10">
             <Car className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold mb-1">Parking</h3>
@@ -103,8 +103,8 @@ const GopherAIConference = () => {
           </div>
 
           {/* What to Expect */}
-          <div className="bg-gradient-to-br from-wildai-mint/10 to-accent/10 p-6 rounded-lg mb-10 cyberpunk-border">
-            <h2 className="text-xl font-bold font-mono mb-5">WHAT TO EXPECT</h2>
+          <div className="bg-gradient-to-br from-wildai-mint/10 to-accent/10 p-6 rounded-lg mb-10 surface">
+            <h2 className="text-xl font-display font-semibold mb-5">WHAT TO EXPECT</h2>
             <p className="text-muted-foreground mb-6">
               Come see live demos from students, researchers, and local startups. Meet engineers, founders, and fellow AI enthusiasts from across the Twin Cities.
             </p>
@@ -129,7 +129,7 @@ const GopherAIConference = () => {
 
           {/* Schedule */}
           <div className="mb-10">
-            <h2 className="text-xl font-bold font-mono mb-5">SCHEDULE</h2>
+            <h2 className="text-xl font-display font-semibold mb-5">SCHEDULE</h2>
             <div className="divide-y divide-border">
               {[
                 ['Registration', '5:00 PM'],
@@ -149,8 +149,8 @@ const GopherAIConference = () => {
 
 
           {/* CTA */}
-          <div className="bg-primary/25 p-8 cyberpunk-border text-center">
-            <h2 className="text-2xl font-bold font-mono mb-3">JOIN US</h2>
+          <div className="bg-primary/25 p-6 md:p-8 surface text-center">
+            <h2 className="text-2xl font-display font-semibold mb-3">JOIN US</h2>
             <p className="text-muted-foreground mb-2">Free and open to the public - no ticket required.</p>
             <p className="text-muted-foreground mb-6">Just show up and experience the future of AI in Minnesota.</p>
             <p className="font-mono text-wildai-mint text-lg font-bold">April 9 · 5–9 PM · CMU Mississippi Room</p>

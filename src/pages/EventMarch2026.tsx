@@ -22,7 +22,7 @@ const EventMarch2026 = () => {
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-mono">MARCH 2026 MEETUP</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-display">MARCH 2026 MEETUP</h1>
             <PartyPopper className="w-7 h-7 text-wildai-mint flex-shrink-0" />
           </div>
           <p className="text-muted-foreground mb-10">Anniversary Edition - Show & Tell</p>
@@ -37,14 +37,14 @@ const EventMarch2026 = () => {
 
           {/* Date & Time */}
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg">
+            <div className="surface flex items-start gap-4 p-5">
               <Calendar className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Date</h3>
                 <p>Monday, March 16, 2026</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg">
+            <div className="surface flex items-start gap-4 p-5">
               <Clock className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold mb-1">Time</h3>
@@ -54,7 +54,7 @@ const EventMarch2026 = () => {
           </div>
 
           {/* Location */}
-          <div className="flex items-start gap-4 bg-secondary/50 p-5 rounded-lg mb-10">
+          <div className="surface flex items-start gap-4 p-5 mb-10">
             <MapPin className="w-6 h-6 text-wildai-mint flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold mb-1">Location</h3>
@@ -64,8 +64,8 @@ const EventMarch2026 = () => {
           </div>
 
           {/* Show & Tell */}
-          <div className="bg-secondary/50 p-6 rounded-lg mb-10 cyberpunk-border">
-            <h2 className="text-xl font-bold font-mono mb-4 flex items-center gap-2">
+          <div className="p-6 rounded-lg mb-10 surface">
+            <h2 className="text-xl font-display font-semibold mb-4 flex items-center gap-2">
               <Laptop className="w-5 h-5 text-wildai-mint" />
               SHOW & TELL
             </h2>
@@ -93,13 +93,13 @@ const EventMarch2026 = () => {
           <div className="mb-10" />
 
           {/* Speakers */}
-          <h2 className="text-xl font-bold font-mono mb-6 flex items-center gap-2">
+          <h2 className="text-xl font-display font-semibold mb-6 flex items-center gap-2">
             <Users className="w-5 h-5 text-wildai-mint" />
             SPEAKERS
           </h2>
           <div className="grid gap-4 mb-10">
             {speakers.map((speaker, index) => (
-              <div key={index} className="bg-secondary/50 p-5 rounded-lg flex items-center gap-4">
+              <div key={index} className="surface p-5 flex items-center gap-4">
                 {/* Profile picture placeholder */}
                 <div className="w-12 h-12 rounded-full border-2 border-dashed border-wildai-mint/40 flex items-center justify-center flex-shrink-0 bg-wildai-mint/5">
                   <Users className="w-5 h-5 text-wildai-mint/40" />
@@ -116,7 +116,7 @@ const EventMarch2026 = () => {
           </div>
 
           {/* Schedule */}
-          <h2 className="text-xl font-bold font-mono mb-6">SCHEDULE</h2>
+          <h2 className="text-xl font-display font-semibold mb-6">SCHEDULE</h2>
           <div className="space-y-4 mb-10">
             <div className="flex gap-4">
               <span className="font-mono text-wildai-mint w-28 flex-shrink-0">6:00 PM</span>
@@ -133,8 +133,8 @@ const EventMarch2026 = () => {
           </div>
 
           {/* CTA */}
-          <div className="bg-primary/25 p-8 cyberpunk-border text-center">
-            <h2 className="text-2xl font-bold font-mono mb-3">JOIN US</h2>
+          <div className="bg-primary/25 p-6 md:p-8 surface text-center">
+            <h2 className="text-2xl font-display font-semibold mb-3">JOIN US</h2>
             <p className="text-muted-foreground mb-6">Celebrate our anniversary, show off your projects, and connect with the Wild AI community.</p>
             <a
               href="/#register"

@@ -42,7 +42,7 @@ const EventSpeakers = ({ eventDate, emptyMessage }: Props) => {
 
   if (speakers.length === 0) {
     return (
-      <div className="bg-secondary/50 p-5 rounded-lg mb-10">
+      <div className="surface p-5 mb-10">
         {emptyMessage || (
           <p className="text-muted-foreground">
             Speaker lineup coming soon. Want to speak?{' '}
@@ -56,7 +56,7 @@ const EventSpeakers = ({ eventDate, emptyMessage }: Props) => {
   return (
     <div className="grid sm:grid-cols-2 gap-4 mb-10">
       {speakers.map((s) => (
-        <div key={s.id} className="bg-secondary/50 rounded-lg p-5 border border-border">
+        <div key={s.id} className="surface p-5 border border-border">
           <div className="flex items-start gap-4">
             {s.image_url ? (
               <img src={s.image_url} alt={s.name} className="w-20 h-20 rounded-lg object-cover flex-shrink-0" />

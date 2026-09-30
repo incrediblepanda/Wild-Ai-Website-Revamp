@@ -97,7 +97,7 @@ const Sponsor = () => {
               { icon: Megaphone, stat: '60%+', label: 'of attendees are engineers or founders' },
               { icon: Handshake, stat: '4+ years', label: 'of consistently packed meetups' },
             ].map((s) => (
-              <div key={s.label} className="bg-secondary/50 cyberpunk-border p-6 text-center">
+              <div key={s.label} className="surface p-6 text-center">
                 <s.icon className="w-6 h-6 text-wildai-mint mx-auto mb-2" />
                 <p className="text-3xl font-bold font-mono text-wildai-mint mb-1">{s.stat}</p>
                 <p className="text-xs text-muted-foreground">{s.label}</p>
@@ -106,7 +106,7 @@ const Sponsor = () => {
           </div>
 
           {/* Why sponsor */}
-          <div className="max-w-4xl mx-auto bg-secondary/40 cyberpunk-border p-8 mb-16">
+          <div className="max-w-4xl mx-auto surface p-6 md:p-8 mb-16">
             <h2 className="section-title">WHY SPONSORS KEEP COMING BACK</h2>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-start"><span className="text-wildai-mint mr-2">→</span> Recruitment: meet your next AI hire in person, not in a pile of résumés</li>
@@ -120,8 +120,8 @@ const Sponsor = () => {
             <h2 className="section-title text-center">SPONSORSHIP TIERS</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {tiers.map((t) => (
-                <div key={t.name} className="bg-secondary/50 cyberpunk-border p-6 flex flex-col">
-                  <h3 className="text-lg font-bold font-mono text-wildai-mint mb-1">{t.name}</h3>
+                <div key={t.name} className="surface p-6 flex flex-col">
+                  <h3 className="text-lg font-display font-semibold text-wildai-mint mb-1">{t.name}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{t.price}</p>
                   <ul className="space-y-2 text-sm text-muted-foreground flex-grow">
                     {t.perks.map((p) => (
@@ -157,12 +157,12 @@ const Sponsor = () => {
               Tell us who you are and we'll send pricing, audience data, and available dates.
             </p>
             {submitted ? (
-              <div className="bg-secondary/50 cyberpunk-border p-8 text-center">
+              <div className="surface p-6 md:p-8 text-center">
                 <CheckCircle2 className="w-10 h-10 text-wildai-mint mx-auto mb-3" />
                 <p className="font-bold">Thanks - we'll be in touch shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-secondary/40 cyberpunk-border p-8 space-y-4">
+              <form onSubmit={handleSubmit} className="surface p-6 md:p-8 space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="sponsor-company">Company</Label>
@@ -172,7 +172,7 @@ const Sponsor = () => {
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
                       placeholder="Acme AI"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                   <div className="space-y-2">
@@ -183,7 +183,7 @@ const Sponsor = () => {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Jane Doe"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                 </div>
@@ -196,16 +196,16 @@ const Sponsor = () => {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="jane@acme.ai"
-                    className="bg-wildai-teal"
+                    className="bg-surface-deep/70"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label>Tier of interest</Label>
                   <Select value={form.tier} onValueChange={(v) => setForm({ ...form, tier: v })}>
-                    <SelectTrigger className="bg-wildai-teal">
+                    <SelectTrigger className="bg-surface-deep/70">
                       <SelectValue placeholder="Choose a tier (optional)" />
                     </SelectTrigger>
-                    <SelectContent className="bg-wildai-teal border-secondary">
+                    <SelectContent>
                       <SelectItem value="community">Community</SelectItem>
                       <SelectItem value="supporting">Supporting</SelectItem>
                       <SelectItem value="headline">Headline</SelectItem>
@@ -220,7 +220,7 @@ const Sponsor = () => {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="What are you hoping to get out of sponsoring?"
-                    className="bg-wildai-teal min-h-[100px]"
+                    className="bg-surface-deep/70 min-h-[100px]"
                   />
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}

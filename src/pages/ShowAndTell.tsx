@@ -42,7 +42,7 @@ const ShowAndTell = () => {
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-mono">SHOW & TELL</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-display">SHOW & TELL</h1>
             <Laptop className="w-7 h-7 text-wildai-mint flex-shrink-0" />
           </div>
           <p className="text-muted-foreground mb-10">Projects from the Wild AI community</p>
@@ -62,7 +62,7 @@ const ShowAndTell = () => {
           ) : (
             <div className="grid sm:grid-cols-2 gap-6">
               {projects.map((project) => (
-                <div key={project.id} className="bg-secondary/50 cyberpunk-border overflow-hidden">
+                <div key={project.id} className="surface overflow-hidden">
                   {project.image_url && (
                     <div className="aspect-video bg-background/50 flex items-center justify-center p-4">
                       <img
@@ -73,7 +73,7 @@ const ShowAndTell = () => {
                     </div>
                   )}
                   <div className="p-5">
-                    <h3 className="text-xl font-bold font-mono mb-1">{project.project_name}</h3>
+                    <h3 className="text-xl font-display font-semibold mb-1">{project.project_name}</h3>
                     <a
                       href={project.linkedin_url}
                       target="_blank"

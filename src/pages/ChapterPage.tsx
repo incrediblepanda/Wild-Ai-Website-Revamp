@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
+import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import EmailCapture from '@/components/EmailCapture';
 import NotFound from '@/pages/NotFound';
@@ -36,7 +37,7 @@ const ChapterPage = () => {
   if (!isLoading && !chapter) return <NotFound />;
 
   const sorted = (events ?? []).slice().sort((a, b) => b.event_date.localeCompare(a.event_date));
-  const next = sorted.find((e) => isUpcoming(e.event_date));
+  const next = sorted.filter((e) => isUpcoming(e.event_date)).pop();
   const past = sorted.filter((e) => !isUpcoming(e.event_date));
 
   if (isLoading || !chapter) {
@@ -68,56 +69,41 @@ const ChapterPage = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        {/* City hero */}
-        <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/60 rounded-lg mb-6">
-              <MapPin className="w-4 h-4 text-wildai-mint" />
-              <p className="text-sm md:text-base text-muted-foreground font-mono">
-                WILD AI // {chapter.city.toUpperCase()}
-                {chapter.status === 'launching' && ' // LAUNCHING SOON'}
-              </p>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              {next ? (
-                <>
-                  Next up: <span className="text-gradient">{formatDate(next.event_date)}</span>
-                </>
-              ) : (
-                <>
-                  {chapter.tagline ?? <span className="text-gradient">{chapter.city}</span>}
-                </>
-              )}
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">{chapter.tagline}</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              {next ? (
-                <a href={`/events/${next.slug}`}>
-                  <Button size="lg" >
-                    RSVP NOW
-                  </Button>
-                </a>
-              ) : (
-                <a href="#chapter-signup">
-                  <Button size="lg" >
-                    GET LAUNCH UPDATES
-                  </Button>
-                </a>
-              )}
-              <Link to="/chapters">
-                <Button variant="outline" size="lg">
-                  ALL CHAPTERS
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow={`Wild AI - ${chapter.city}${chapter.status === 'launching' ? ' - Launching soon' : ''}`}
+          icon={MapPin}
+          title={
+            next ? (
+              <>
+                Next up: <span>{formatDate(next.event_date)}</span>
+              </>
+            ) : (
+              chapter.tagline ?? <span>{chapter.city}</span>
+            )
+          }
+          lede={chapter.tagline}
+        >
+          {next ? (
+            <a href={`/events/${next.slug}`}>
+              <Button size="lg">RSVP NOW</Button>
+            </a>
+          ) : (
+            <a href="#chapter-signup">
+              <Button size="lg">GET LAUNCH UPDATES</Button>
+            </a>
+          )}
+          <Link to="/chapters">
+            <Button variant="outline" size="lg">
+              ALL CHAPTERS
+            </Button>
+          </Link>
+        </PageHero>
 
         {/* Next event + cadence */}
-        <section className="container mx-auto px-4 mb-14">
+        <section className="container mx-auto px-4 mb-14 pt-12 md:pt-16">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="bg-secondary p-6 cyberpunk-border">
+            <div className="p-6 surface">
               <h2 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">NEXT EVENT</h2>
               {next ? (
                 <>
@@ -154,7 +140,7 @@ const ChapterPage = () => {
                 </>
               )}
             </div>
-            <div className="bg-primary/25 p-6 cyberpunk-border">
+            <div className="bg-primary/25 p-6 surface">
               <h2 className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent mb-5">THE CADENCE</h2>
               <p className="text-lg mb-3 flex items-center gap-2">
                 <CalendarDays className="w-5 h-5 text-wildai-mint" /> {chapter.cadence ?? 'Monthly'}
@@ -174,7 +160,7 @@ const ChapterPage = () => {
 
         {/* About this chapter */}
         <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-4xl mx-auto bg-secondary/40 cyberpunk-border p-8">
+          <div className="max-w-4xl mx-auto surface p-6 md:p-8">
             <h2 className="section-title">ABOUT THIS CHAPTER</h2>
             <p className="text-muted-foreground leading-relaxed">{chapter.about_text}</p>
           </div>
@@ -194,7 +180,7 @@ const ChapterPage = () => {
                 </p>
               )}
               {(organizers ?? []).map((o) => (
-                <div key={o.id} className="bg-secondary/50 cyberpunk-border p-6 text-center">
+                <div key={o.id} className="surface p-6 text-center">
                   <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center overflow-hidden">
                     {o.photo_url ? (
                       <img src={o.photo_url} alt={o.name} className="w-full h-full object-cover" />
@@ -204,7 +190,7 @@ const ChapterPage = () => {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold font-mono">{o.name}</h3>
+                  <h3 className="font-display font-semibold">{o.name}</h3>
                   {o.role && <p className="text-xs text-muted-foreground mb-2">{o.role}</p>}
                   {o.bio && <p className="text-sm text-muted-foreground mb-3">{o.bio}</p>}
                   {o.contact_email && (
@@ -231,13 +217,13 @@ const ChapterPage = () => {
                   <Link
                     key={e.id}
                     to={`/events/${e.slug}`}
-                    className="bg-secondary/50 cyberpunk-border p-5 hover:bg-secondary/80 transition-colors group"
+                    className="surface surface-interactive p-5 transition-colors group"
                   >
                     <p className="text-xs text-muted-foreground font-mono mb-1">
                       {formatDate(e.event_date)}
                       {e.attendee_count ? ` · ${e.attendee_count} attendees` : ''}
                     </p>
-                    <h3 className="font-bold font-mono group-hover:text-wildai-mint transition-colors">
+                    <h3 className="font-display font-semibold group-hover:text-wildai-mint transition-colors">
                       {e.title}
                     </h3>
                     <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{e.description}</p>
@@ -254,7 +240,7 @@ const ChapterPage = () => {
         {/* Venue / location */}
         {chapter.venue_name && (
           <section className="container mx-auto px-4 mb-14">
-            <div className="max-w-4xl mx-auto bg-secondary/40 cyberpunk-border p-8">
+            <div className="max-w-4xl mx-auto surface p-6 md:p-8">
               <h2 className="section-title">VENUE</h2>
               {chapter.venue_name === 'TBA' ? (
                 <p className="text-muted-foreground">
@@ -281,9 +267,9 @@ const ChapterPage = () => {
 
         {/* Local speaker CTA */}
         <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-4xl mx-auto bg-primary/25 cyberpunk-border p-8 text-center">
+          <div className="max-w-4xl mx-auto bg-primary/25 surface p-6 md:p-8 text-center">
             <Mic2 className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
-            <h2 className="text-xl font-bold font-mono mb-2">
+            <h2 className="text-xl font-display font-semibold mb-2">
               DEMO AT WILD AI {chapter.city.toUpperCase()}
             </h2>
             <p className="text-muted-foreground mb-5 max-w-xl mx-auto">

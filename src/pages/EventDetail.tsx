@@ -82,21 +82,24 @@ const EventDetail = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
+      <main className="pb-20 flex-grow">
         {/* Event hero */}
-        <section className="container mx-auto px-4 mb-12">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="page-hero mb-12">
+          <div className="page-hero__wash" aria-hidden="true" />
+          <div className="hero-grain" aria-hidden="true" />
+          <div className="container relative mx-auto px-4">
+          <div className="mx-auto max-w-4xl">
             <Link
               to={`/${event.chapter?.slug ?? 'chapters'}`}
-              className="inline-block px-4 py-2 bg-secondary/60 rounded-lg mb-6 text-sm font-mono text-wildai-mint hover:bg-secondary transition-colors"
+              className="signal-label mb-5 hover:text-foreground transition-colors"
             >
               WILD AI {event.chapter?.city.toUpperCase()}
             </Link>
-            <h1 className="page-hero__title mb-4 text-3xl md:text-5xl">
+            <h1 className="page-hero__title mb-5">
               <span>{lead}</span>
               {rest}
             </h1>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-muted-foreground mb-8">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-muted-foreground mb-8">
               <span className="flex items-center gap-2">
                 <CalendarDays className="w-4 h-4 text-wildai-mint" /> {formatDate(event.event_date)}
               </span>
@@ -113,7 +116,7 @@ const EventDetail = () => {
               )}
             </div>
             {upcoming ? (
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 {event.meetup_url && (
                   <a href={event.meetup_url} target="_blank" rel="noopener noreferrer">
                     <Button size="lg" >
@@ -133,19 +136,20 @@ const EventDetail = () => {
               </p>
             )}
           </div>
+        </div>
         </section>
 
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-10">
             {/* Description */}
-            <div className="bg-secondary/40 cyberpunk-border p-8">
+            <div className="surface p-6 md:p-8">
               <h2 className="section-title">ABOUT THIS EVENT</h2>
               <p className="text-muted-foreground leading-relaxed">{event.description}</p>
             </div>
 
             {/* Agenda */}
             {(event.agenda ?? []).length > 0 && (
-              <div className="bg-secondary/40 cyberpunk-border p-8">
+              <div className="surface p-6 md:p-8">
                 <h2 className="section-title">RUN OF SHOW</h2>
                 <ul className="space-y-4">
                   {(event.agenda ?? []).map((a, i) => (
@@ -160,11 +164,11 @@ const EventDetail = () => {
 
             {/* Speakers / demo lineup */}
             {displayedSpeakers.length > 0 ? (
-              <div className="bg-secondary/40 cyberpunk-border p-8">
+              <div className="surface p-6 md:p-8">
                 <h2 className="section-title">SPEAKER LINEUP</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {displayedSpeakers.map((s, i) => (
-                    <div key={i} className="bg-secondary/50 rounded-lg p-4">
+                    <div key={i} className="rounded-lg border border-border/60 bg-foreground/[0.03] p-4">
                       <p className="font-bold font-mono">{s.name}</p>
                       {s.company && <p className="text-sm text-wildai-mint">{s.company}</p>}
                       {s.topic && <p className="text-sm text-muted-foreground mt-1">{s.topic}</p>}
@@ -173,7 +177,7 @@ const EventDetail = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-secondary/40 cyberpunk-border p-8">
+              <div className="surface p-6 md:p-8">
                 <h2 className="section-title">SPEAKER LINEUP</h2>
                 <p className="text-muted-foreground">
                   Fire talks are 5 minutes, no slides - the lineup is announced the week of the event.
@@ -187,12 +191,12 @@ const EventDetail = () => {
 
             {/* Venue + map */}
             {event.venue_name && (
-              <div className="bg-secondary/40 cyberpunk-border p-8">
+              <div className="surface p-6 md:p-8">
                 <h2 className="section-title">VENUE</h2>
                 <p className="font-bold text-lg mb-1">{event.venue_name}</p>
                 <p className="text-muted-foreground mb-4">{event.venue_address}</p>
                 {event.venue_address && (
-                  <div className="cyberpunk-border overflow-hidden h-[280px] mb-4">
+                  <div className="surface overflow-hidden h-[280px] mb-4">
                     <iframe
                       src={`https://www.google.com/maps?q=${encodeURIComponent(event.venue_address)}&output=embed`}
                       width="100%"
@@ -216,8 +220,8 @@ const EventDetail = () => {
 
             {/* Share + related */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-secondary/40 cyberpunk-border p-6 flex flex-col justify-center">
-                <h3 className="font-bold font-mono text-wildai-mint mb-2 flex items-center gap-2">
+              <div className="surface p-6 flex flex-col justify-center">
+                <h3 className="font-display font-semibold text-wildai-mint mb-2 flex items-center gap-2">
                   <Share2 className="w-4 h-4" /> SHARE THIS EVENT
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -240,9 +244,9 @@ const EventDetail = () => {
               {related && (
                 <Link
                   to={`/events/${related.slug}`}
-                  className="bg-secondary/40 cyberpunk-border p-6 hover:bg-secondary/80 transition-colors group flex flex-col justify-center"
+                  className="surface surface-interactive p-6 transition-colors group flex flex-col justify-center"
                 >
-                  <h3 className="font-bold font-mono text-wildai-mint mb-2">NEXT UP</h3>
+                  <h3 className="font-display font-semibold text-wildai-mint mb-2">NEXT UP</h3>
                   <p className="text-xs text-muted-foreground font-mono mb-1">
                     {formatDate(related.event_date)} · {related.chapter?.city.toUpperCase()}
                   </p>
@@ -255,9 +259,9 @@ const EventDetail = () => {
             </div>
 
             {/* Sponsors */}
-            <div className="bg-secondary/40 cyberpunk-border p-8 text-center">
+            <div className="surface p-6 md:p-8 text-center">
               <Handshake className="w-8 h-8 text-wildai-mint mx-auto mb-3" />
-              <h3 className="font-bold font-mono mb-2">THIS EVENT IS POWERED BY OUR SPONSORS</h3>
+              <h3 className="font-display font-semibold mb-2">THIS EVENT IS POWERED BY OUR SPONSORS</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Want your logo here? Sponsors fund venues, food, and the community.
               </p>

@@ -40,7 +40,7 @@ const UpcomingEvents = () => {
 
           {!isLoading && upcoming.length === 0 && (
             <Reveal>
-              <div className="surface flex flex-col items-start gap-4 p-8 sm:flex-row sm:items-center sm:justify-between">
+              <div className="surface flex flex-col items-start gap-4 p-6 md:p-8 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-muted-foreground">
                   New dates are being scheduled - join the list below to hear first.
                 </p>

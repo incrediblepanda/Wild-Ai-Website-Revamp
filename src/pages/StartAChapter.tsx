@@ -63,16 +63,16 @@ const StartAChapter = () => {
 
           {/* The pitch + expectations */}
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-secondary/50 cyberpunk-border p-8">
-              <h2 className="text-xl font-bold font-mono text-wildai-mint mb-4">WHAT YOU GET</h2>
+            <div className="surface p-6 md:p-8">
+              <h2 className="text-xl font-display font-semibold text-wildai-mint mb-4">WHAT YOU GET</h2>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start"><Users className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />A proven format: fire talks, demo nights, real networking</li>
                 <li className="flex items-start"><Map className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />Brand, event templates, and a page on this site for your city</li>
                 <li className="flex items-start"><Users className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />A network of organizers who've done it before, on call</li>
               </ul>
             </div>
-            <div className="bg-secondary/50 cyberpunk-border p-8">
-              <h2 className="text-xl bold font-bold font-mono text-wildai-mint mb-4">WHAT WE EXPECT</h2>
+            <div className="surface p-6 md:p-8">
+              <h2 className="text-xl bold font-display font-semibold text-wildai-mint mb-4">WHAT WE EXPECT</h2>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />You live in (or near) the city you want to launch</li>
                 <li className="flex items-start"><Rocket className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />A co-organizer or two - this is a team sport</li>
@@ -89,7 +89,7 @@ const StartAChapter = () => {
                 <Link
                   key={c.slug}
                   to={`/${c.slug}`}
-                  className="bg-secondary/50 cyberpunk-border p-5 text-center hover:bg-secondary/80 transition-colors"
+                  className="surface surface-interactive p-5 text-center transition-colors"
                 >
                   <p className="font-bold font-mono mb-1">{c.city.toUpperCase()}</p>
                   <p className="text-xs text-muted-foreground mb-3">{c.region}</p>
@@ -104,7 +104,7 @@ const StartAChapter = () => {
                   </span>
                 </Link>
               ))}
-              <div className="bg-secondary/30 cyberpunk-border p-5 text-center flex flex-col items-center justify-center">
+              <div className="surface p-5 text-center flex flex-col items-center justify-center">
                 <p className="font-bold font-mono text-wildai-mint mb-1">YOUR CITY</p>
                 <p className="text-xs text-muted-foreground">Next on the map?</p>
               </div>
@@ -118,7 +118,7 @@ const StartAChapter = () => {
               Tell us about your city and why you want to build its AI community.
             </p>
             {submitted ? (
-              <div className="bg-secondary/50 cyberpunk-border p-8 text-center">
+              <div className="surface p-6 md:p-8 text-center">
                 <CheckCircle2 className="w-10 h-10 text-wildai-mint mx-auto mb-3" />
                 <p className="font-bold mb-2">Application received.</p>
                 <p className="text-sm text-muted-foreground">
@@ -126,7 +126,7 @@ const StartAChapter = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-secondary/40 cyberpunk-border p-8 space-y-4">
+              <form onSubmit={handleSubmit} className="surface p-6 md:p-8 space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="ac-city">City you want to launch</Label>
                   <Input
@@ -135,7 +135,7 @@ const StartAChapter = () => {
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
                     placeholder="Austin"
-                    className="bg-wildai-teal"
+                    className="bg-surface-deep/70"
                   />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -147,7 +147,7 @@ const StartAChapter = () => {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Alex Kim"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                   <div className="space-y-2">
@@ -159,7 +159,7 @@ const StartAChapter = () => {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="alex@example.com"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const StartAChapter = () => {
                     value={form.background}
                     onChange={(e) => setForm({ ...form, background: e.target.value })}
                     placeholder="Engineer, founder, community organizer…"
-                    className="bg-wildai-teal"
+                    className="bg-surface-deep/70"
                   />
                 </div>
                 <div className="space-y-2">
@@ -180,7 +180,7 @@ const StartAChapter = () => {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="What does the AI scene look like there today?"
-                    className="bg-wildai-teal min-h-[100px]"
+                    className="bg-surface-deep/70 min-h-[100px]"
                   />
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
@@ -205,7 +205,7 @@ const StartAChapter = () => {
                 { step: '03', text: 'We set up your chapter page, email list, and launch plan together.' },
                 { step: '04', text: 'Launch night - we help promote, you run the room.' },
               ].map((s) => (
-                <div key={s.step} className="flex items-start gap-4 bg-secondary/40 cyberpunk-border p-5">
+                <div key={s.step} className="flex items-start gap-4 surface p-5">
                   <span className="font-mono text-wildai-mint text-lg">{s.step}</span>
                   <p className="text-muted-foreground">{s.text}</p>
                 </div>
