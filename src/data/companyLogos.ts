@@ -2,10 +2,12 @@ export interface CompanyLogo {
   name: string;
   logo: string;
   url: string;
+  /** 'dark-bg': light art on an opaque dark box. 'light-ink': light art on transparency. */
+  tone?: 'dark-bg' | 'deep-bg' | 'light-ink';
 }
 
 /** Companies represented at Wild AI events. */
-export const logos = [
+export const logos: CompanyLogo[] = [
 {
   name: 'Adile Diagnostic',
   logo: '/lovable-uploads/adile-logo.png',
@@ -16,10 +18,12 @@ export const logos = [
   url: 'https://www.amazon.com/'
 }, {
   name: 'Attentio',
+  tone: 'light-ink',
   logo: '/lovable-uploads/attentio-logo.png',
   url: 'http://attentio.ai/'
 }, {
   name: 'BData',
+  tone: 'light-ink',
   logo: '/lovable-uploads/bdata-logo.png',
   url: 'https://bdatainc.com/'
 }, {
@@ -52,6 +56,7 @@ export const logos = [
   url: 'https://www.chosn.io/'
 }, {
   name: 'Crucible Energy',
+  tone: 'dark-bg',
   logo: '/lovable-uploads/crucible-logo.png',
   url: 'https://crucible.energy/'
 }, {
@@ -76,6 +81,7 @@ export const logos = [
   url: 'https://www.fulcrumneuro.com/'
 }, {
   name: 'Gullview Tech',
+  tone: 'light-ink',
   logo: '/lovable-uploads/gullview-logo.png?v=2',
   url: 'https://www.gullviewtech.com/'
 }, {
@@ -96,10 +102,12 @@ export const logos = [
   url: 'https://www.medtronic.com/en-us/index.html'
 }, {
   name: 'Monkey Island',
+  tone: 'light-ink',
   logo: '/lovable-uploads/monkeyisland-logo.png?v=2',
   url: 'https://www.monkeyislandventures.com/'
 }, {
   name: 'Ovul',
+  tone: 'light-ink',
   logo: '/lovable-uploads/ovul-logo.png',
   url: 'https://ovul.ai/'
 }, {
@@ -108,6 +116,7 @@ export const logos = [
   url: 'https://quantifiedmechanix.com/'
 }, {
   name: 'Rainmaker',
+  tone: 'light-ink',
   logo: '/lovable-uploads/rainmaker-logo.png?v=2',
   url: 'https://www.rainmakergrows.com/'
 }, {
@@ -132,6 +141,7 @@ export const logos = [
   url: 'https://www.linkedin.com/company/submitta/'
 }, {
   name: 'Talknician',
+  tone: 'dark-bg',
   logo: '/lovable-uploads/talknician-logo.png',
   url: 'https://www.talknician.com/'
 }, {
@@ -152,10 +162,12 @@ export const logos = [
   url: 'http://www.universite-paris-saclay.fr/fr'
 }, {
   name: 'UST Nexus',
+  tone: 'deep-bg',
   logo: '/lovable-uploads/ustnexus-logo.png',
   url: 'https://ustnexus.club/'
 }, {
   name: 'VirtualGo',
+  tone: 'dark-bg',
   logo: '/lovable-uploads/virtualgo-logo.png',
   url: 'https://www.virtualgoreality.com/'
 }, {

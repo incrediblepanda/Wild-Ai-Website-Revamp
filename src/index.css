@@ -233,6 +233,16 @@
       0 30px 56px -34px hsl(191 45% 3% / 0.95);
   }
 
+  .logo-mark img {
+    opacity: 0.55;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .logo-mark:hover img,
+  .logo-mark:focus-visible img {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
   /* ---------- Surfaces ---------- */
   /* Every card on the site shares the glass treatment. */
   .surface {
