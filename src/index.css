@@ -396,8 +396,7 @@
     z-index: 100;
     display: grid;
     place-items: center;
-    /* Matches the page edge so Safari's bar tint, sampled at load, stays seamless. */
-    background-color: hsl(191 15% 10%);
+    background-color: #000;
     transition: background-color 0.85s ease;
   }
   .intro-overlay[data-leaving='true'] {
