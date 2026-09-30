@@ -118,6 +118,10 @@
   body {
     overflow-x: clip;
   }
+  /* Fills the areas behind the phone status bar and browser toolbar. */
+  html {
+    background-color: hsl(191 15% 10%);
+  }
   /* Ambient wash behind inner pages so glass has depth to catch. */
   body::before {
     content: '';
@@ -376,7 +380,11 @@
   .nav-signal[data-active='true']::after {
     transform: scaleX(1);
   }
+  .site-header {
+    padding-top: env(safe-area-inset-top);
+  }
   .site-footer {
+    padding-bottom: env(safe-area-inset-bottom);
     background: hsl(var(--surface-deep));
   }
 
@@ -663,7 +671,7 @@
     font-size: clamp(2.1rem, 9.6vw, 3.25rem);
   }
   .page-hero {
-    padding: 6.25rem 0 2.75rem;
+    padding: calc(6.25rem + env(safe-area-inset-top)) 0 2.75rem;
   }
   .page-hero__title {
     font-size: clamp(2.2rem, 10vw, 3rem);
@@ -671,11 +679,13 @@
   .section-title {
     font-size: 1.625rem;
   }
-  /* Hero fills the phone screen exactly, clearing the fixed header. */
+  /* Hero runs edge to edge, under the status bar and browser toolbar. */
   .hero-stage {
     min-height: 0;
     height: 100svh;
-    padding-top: 4rem;
+    height: 100lvh;
+    padding-top: calc(4rem + env(safe-area-inset-top));
+    padding-bottom: calc(100lvh - 100svh);
   }
   .intro-logo {
     width: min(68vw, 360px);
