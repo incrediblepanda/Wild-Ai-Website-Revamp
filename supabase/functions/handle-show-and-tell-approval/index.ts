@@ -72,7 +72,7 @@ serve(async (req) => {
           <p style="margin-top: 30px;">
             <a href="https://wild-ai-website.lovable.app/show-and-tell" style="display: inline-block; background: #4ade80; color: #000; font-weight: bold; padding: 12px 32px; border-radius: 8px; text-decoration: none;">View Show & Tell Page</a>
           </p>
-          <p style="margin-top: 20px; color: #666;">— The Wild AI Team</p>
+          <p style="margin-top: 20px; color: #666;">- The Wild AI Team</p>
         </div>
       `;
 
@@ -112,7 +112,7 @@ serve(async (req) => {
 function htmlPage(title: string, message: string): string {
   return `<!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} — Wild AI</title></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} - Wild AI</title></head>
 <body style="font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #111; color: #fff;">
   <div style="text-align: center; padding: 40px; max-width: 500px;">
     <h1 style="font-size: 2rem; margin-bottom: 16px;">${title}</h1>

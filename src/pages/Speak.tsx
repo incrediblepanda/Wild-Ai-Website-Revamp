@@ -6,6 +6,7 @@ import SpeakerForm from '@/components/SpeakerForm';
 import PastSpeakers from '@/components/PastSpeakers';
 import { Link } from 'react-router-dom';
 import { Mic2, Clock, Sparkles } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 const faqs = [
   {
@@ -14,7 +15,7 @@ const faqs = [
   },
   {
     q: 'Who should submit?',
-    a: 'Engineers, founders, researchers, designers — anyone building or shipping with AI. First-time speakers are explicitly welcome; we coach you before you go on.',
+    a: 'Engineers, founders, researchers, designers - anyone building or shipping with AI. First-time speakers are explicitly welcome; we coach you before you go on.',
   },
   {
     q: 'What do speakers get?',
@@ -29,7 +30,7 @@ const faqs = [
 const Speak = () => (
   <div className="flex flex-col min-h-screen">
     <Helmet>
-      <title>Speak at Wild AI — Submit a fire talk or demo</title>
+      <title>Speak at Wild AI - Submit a fire talk or demo</title>
       <meta
         name="description"
         content="Demo your AI project at a Wild AI meetup. Five-minute fire talks, no slides, real builders in the room. Submit your talk for Minneapolis, San Francisco, or Toronto."
@@ -40,28 +41,23 @@ const Speak = () => (
     </Helmet>
     <Navbar />
 
-    <main className="pt-24 pb-20 flex-grow">
-      <div className="container mx-auto px-4">
-        {/* Hero */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <Mic2 className="w-10 h-10 text-wildai-mint mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            DEMO AT <span className="text-gradient">WILD AI</span>
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Fire talks are the heart of every meetup: five minutes, no slides, real work on the
-            table. Submit yours — every city, every level of experience.
-          </p>
-        </div>
+    <main className="pb-20 flex-grow">
+      <PageHero
+        eyebrow="Fire talks"
+        icon={Mic2}
+        title={<>Demo at <span>Wild AI</span>.</>}
+        lede="Fire talks are the heart of every meetup: five minutes, no slides, real work on the table. Submit yours - every city, every level of experience."
+      />
+      <div className="container mx-auto px-4 pt-14">
 
         {/* What we're looking for + what to expect */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-secondary/50 rounded-lg cyberpunk-border p-8">
-            <h2 className="text-xl font-bold font-mono text-wildai-mint mb-4">WHAT WE'RE LOOKING FOR</h2>
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-xl font-display font-semibold text-wildai-mint mb-4">WHAT WE'RE LOOKING FOR</h2>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start">
                 <Sparkles className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />
-                A live demo of something you built — even half-built
+                A live demo of something you built - even half-built
               </li>
               <li className="flex items-start">
                 <Sparkles className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />
@@ -73,8 +69,8 @@ const Speak = () => (
               </li>
             </ul>
           </div>
-          <div className="bg-secondary/50 rounded-lg cyberpunk-border p-8">
-            <h2 className="text-xl font-bold font-mono text-wildai-mint mb-4">WHAT TO EXPECT</h2>
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-xl font-display font-semibold text-wildai-mint mb-4">WHAT TO EXPECT</h2>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start">
                 <Clock className="w-4 h-4 text-wildai-mint mr-3 mt-1 flex-shrink-0" />
@@ -115,7 +111,7 @@ const Speak = () => (
           <h2 className="section-title text-center">FAQ</h2>
           <div className="space-y-4">
             {faqs.map((f) => (
-              <details key={f.q} className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+              <details key={f.q} className="surface p-5">
                 <summary className="font-bold font-mono cursor-pointer text-sm">{f.q}</summary>
                 <p className="text-muted-foreground text-sm mt-3">{f.a}</p>
               </details>

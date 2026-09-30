@@ -63,14 +63,14 @@ const AdminLogin = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Admin Login — Wild AI</title>
+        <title>Admin Login - Wild AI</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-md">
           <h1 className="text-3xl font-bold text-gradient font-mono mb-8 text-center">ADMIN ACCESS</h1>
-          <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+          <div className="bg-secondary/50 cyberpunk-border p-6">
             <Tabs defaultValue="login">
               <TabsList className="w-full grid grid-cols-2 mb-6">
                 <TabsTrigger value="login">Sign In</TabsTrigger>

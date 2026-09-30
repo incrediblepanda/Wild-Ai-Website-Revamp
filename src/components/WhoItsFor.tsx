@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import Reveal from '@/components/motion/Reveal';
 
 const audience = [
   'Builders & founders shipping AI products',
@@ -16,53 +18,63 @@ const reasons = [
   'Stay ahead of what is shipping',
 ];
 
-const WhoItsFor = () => {
-  return (
-    <section className="py-10 md:py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-center">WHO_IT'S_FOR</h2>
+const columns = [
+  { key: 'Who it\u2019s for', items: audience },
+  { key: 'Why attend', items: reasons },
+];
 
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
-            <div className="bg-secondary p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">WHO IT'S FOR</h3>
-              <ul className="space-y-4">
-                {audience.map((a) => (
-                  <li key={a} className="flex items-start">
-                    <span className="text-wildai-mint mr-2">→</span>
-                    <span>{a}</span>
+const WhoItsFor = () => (
+  <section className="py-14 md:py-20">
+    <div className="container mx-auto px-4">
+      <Reveal>
+        <p className="eyebrow mb-5">The room</p>
+        <h2 className="section-title max-w-2xl text-balance">
+          Who shows up, and why they keep coming back
+        </h2>
+        <p className="section-lede">
+          Whether you train models for a living or just installed your first library last weekend,
+          there is a seat here.
+        </p>
+      </Reveal>
+
+      <div className="mt-10 grid gap-5 md:grid-cols-2">
+        {columns.map((col, colIndex) => (
+          <Reveal key={col.key} delay={colIndex * 100}>
+            <div className="glass h-full p-7 md:p-8">
+              <div className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-4">
+                <h3 className="font-display text-lg font-semibold">{col.key}</h3>
+                <span className="kicker">
+                  {String(col.items.length).padStart(2, '0')}
+                </span>
+              </div>
+              <ul className="mt-2">
+                {col.items.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-baseline gap-5 border-b border-border/40 py-3.5 text-[0.9375rem] leading-relaxed last:border-b-0"
+                  >
+                    <span className="font-mono text-[0.625rem] text-muted-foreground">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 p-6 rounded-lg cyberpunk-border">
-              <h3 className="text-xl font-bold mb-4 font-mono">WHY ATTEND</h3>
-              <ul className="space-y-4">
-                {reasons.map((r) => (
-                  <li key={r} className="flex items-start">
-                    <span className="text-wildai-mint mr-2">→</span>
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <a href="#register">
-              <Button
-                size="lg"
-                className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg"
-              >
-                REGISTER NOW
-              </Button>
-            </a>
-          </div>
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
-  );
-};
+
+      <Reveal delay={150} className="mt-10">
+        <a href="#register">
+          <Button size="lg" className="group">
+            Register now
+            <ArrowRight className="transition-transform group-hover:translate-x-1" />
+          </Button>
+        </a>
+      </Reveal>
+    </div>
+  </section>
+);
 
 export default WhoItsFor;

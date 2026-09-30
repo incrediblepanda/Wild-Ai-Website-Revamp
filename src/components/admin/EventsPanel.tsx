@@ -142,7 +142,7 @@ const EventsPanel = () => {
   };
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       <div className="mb-4">
         <h2 className="text-lg font-mono text-wildai-mint">Monthly Events</h2>
         <p className="text-sm text-muted-foreground">
@@ -171,10 +171,10 @@ const EventsPanel = () => {
                   <TableCell className="text-xs whitespace-nowrap">
                     {r.start_time || r.end_time
                       ? `${fmtTime(r.start_time)}${r.end_time ? ' – ' + fmtTime(r.end_time) : ''}`
-                      : <span className="text-muted-foreground">—</span>}
+                      : <span className="text-muted-foreground">-</span>}
                   </TableCell>
-                  <TableCell className="text-sm">{r.location || <span className="text-muted-foreground">—</span>}</TableCell>
-                  <TableCell className="text-sm max-w-[260px] truncate">{r.speakers || <span className="text-muted-foreground">—</span>}</TableCell>
+                  <TableCell className="text-sm">{r.location || <span className="text-muted-foreground">-</span>}</TableCell>
+                  <TableCell className="text-sm max-w-[260px] truncate">{r.speakers || <span className="text-muted-foreground">-</span>}</TableCell>
                   <TableCell className="text-center">
                     <Checkbox
                       checked={r.linkedin_event_created}

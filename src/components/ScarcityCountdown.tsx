@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { useCountdown } from '@/hooks/useCountdown';
+import { MEETUP_START_TIME, nextMeetupDate } from '@/lib/meetupSchedule';
 
-// TODO: Wire to events data — currently hardcoded to match EventDetails.tsx.
-const EVENT_DATE = new Date('2026-08-17T18:00:00-05:00');
-
-function getDiff(target: Date) {
-  const ms = target.getTime() - Date.now();
-  if (ms <= 0) return null;
-  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
-  const hrs = Math.floor((ms / (1000 * 60 * 60)) % 24);
-  const min = Math.floor((ms / (1000 * 60)) % 60);
-  const sec = Math.floor((ms / 1000) % 60);
-  return { days, hrs, min, sec };
-}
+/** Animated two-digit cell - the digit slides when its value changes. */
+const Digit = ({ value, label }: { value: number; label: string }) => (
+  <div className="flex flex-col items-center gap-2">
+    <div className="relative overflow-hidden rounded-xl border border-border bg-surface-deep/70 px-3 py-3 md:px-5 md:py-4 min-w-[3.5rem] md:min-w-[4.5rem]">
+      <span
+        key={value}
+        className="block text-center font-mono text-2xl md:text-4xl font-medium tabular-nums text-foreground"
+        style={{ animation: 'fade-in 0.35s ease' }}
+      >
+        {String(value).padStart(2, '0')}
+      </span>
+    </div>
+    <span className="kicker">{label}</span>
+  </div>
+);
 
 const ScarcityCountdown = () => {
-  const [diff, setDiff] = useState(() => getDiff(EVENT_DATE));
-
-  useEffect(() => {
-    const id = setInterval(() => setDiff(getDiff(EVENT_DATE)), 1000);
-    return () => clearInterval(id);
-  }, []);
+  const diff = useCountdown(new Date(`${nextMeetupDate()}T${MEETUP_START_TIME}:00`));
 
   const tiles = diff
     ? [
@@ -31,41 +33,52 @@ const ScarcityCountdown = () => {
     : null;
 
   return (
-    <section className="pt-24 md:pt-28 pb-8 md:pb-12 relative">
+    <section className="pt-14 md:pt-20 pb-6">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs md:text-sm font-mono text-wildai-mint mb-4 uppercase tracking-[0.3em]">
-            ◢ Next Event Starts In ◣
-          </p>
+        <div className="surface overflow-hidden">
+          {/* Sheen sweep signals "live" without shouting. */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+            <div className="absolute inset-y-0 w-1/3 animate-sheen bg-gradient-to-r from-transparent via-accent/[0.06] to-transparent" />
+          </div>
 
-          {tiles ? (
-            <div className="flex justify-center gap-3 md:gap-6 mb-8">
-              {tiles.map((t) => (
-                <div
-                  key={t.label}
-                  className="bg-secondary cyberpunk-border rounded-xl px-5 py-5 md:px-10 md:py-7 min-w-[88px] md:min-w-[140px] shadow-[0_0_40px_-10px_hsl(var(--wildai-mint)/0.5)]"
-                >
-                  <p className="text-4xl md:text-7xl font-bold font-mono text-wildai-mint leading-none drop-shadow-[0_0_12px_hsl(var(--wildai-mint)/0.6)]">
-                    {String(t.value).padStart(2, '0')}
-                  </p>
-                  <p className="text-[11px] md:text-sm text-muted-foreground font-mono uppercase mt-2 tracking-widest">
-                    {t.label}
-                  </p>
+          <div className="relative grid gap-6 p-6 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:p-7">
+            <div>
+              <p className="eyebrow mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                Next event starts in
+              </p>
+              {tiles ? (
+                <div className="flex gap-2.5 md:gap-3">
+                  {tiles.map((t) => (
+                    <Digit key={t.label} value={t.value} label={t.label} />
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <p className="font-display text-2xl md:text-3xl text-foreground">
+                  Doors opening soon
+                </p>
+              )}
             </div>
-          ) : (
-            <p className="text-2xl md:text-3xl font-mono text-wildai-mint mb-8">
-              Doors opening soon
-            </p>
-          )}
 
-          <p className="text-lg md:text-xl text-foreground mb-2">
-            RSVP and we'll email you event details, the speaker lineup, and a reminder the day before.
-          </p>
-          <p className="text-sm md:text-base font-mono text-wildai-mint uppercase tracking-wide">
-            ⚡ Most events fill up — RSVP early ⚡
-          </p>
+            <div className="md:border-l md:border-border md:pl-10">
+              <p className="text-[0.9375rem] text-muted-foreground leading-relaxed max-w-md">
+                RSVP and we&apos;ll email you event details, the speaker lineup, and a reminder the
+                day before.
+              </p>
+              <p className="mt-3 inline-flex chip chip-ember">Most events fill up - RSVP early</p>
+            </div>
+
+            <Link
+              to="/join"
+              className="group inline-flex items-center gap-2 self-start rounded-full border border-accent/30 bg-accent/10 px-5 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/20 md:self-auto"
+            >
+              RSVP
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

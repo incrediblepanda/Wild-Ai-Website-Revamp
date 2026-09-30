@@ -52,7 +52,7 @@ const EmailCapture = ({
       );
     } catch (err: any) {
       console.error(err);
-      toast.error(err?.message || 'Signup failed — please try again');
+      toast.error(err?.message || 'Signup failed - please try again');
     } finally {
       setSubmitting(false);
     }
@@ -60,7 +60,7 @@ const EmailCapture = ({
 
   if (done) {
     return (
-      <div className={`bg-secondary/40 rounded-lg cyberpunk-border ${compact ? 'p-6' : 'p-10'} text-center`}>
+      <div className={`surface ${compact ? 'p-6' : 'p-10'} text-center`}>
         <CheckCircle2 className="w-10 h-10 text-wildai-mint mx-auto mb-3" />
         <p className="font-mono font-bold text-wildai-mint">YOU'RE ON THE LIST</p>
         <p className="text-sm text-muted-foreground mt-2">Watch your inbox for the next event.</p>
@@ -69,10 +69,10 @@ const EmailCapture = ({
   }
 
   return (
-    <div className={`bg-secondary/40 rounded-lg cyberpunk-border ${compact ? 'p-6' : 'p-8'}`}>
+    <div className={`surface ${compact ? 'p-6' : 'p-8'}`}>
       <div className="flex items-center gap-2 mb-3">
         <Mail className="w-5 h-5 text-wildai-mint" />
-        <h3 className="text-lg font-bold font-mono text-wildai-mint">{title}</h3>
+        <h3 className="text-lg font-display font-semibold text-wildai-mint">{title}</h3>
       </div>
       <p className="text-sm text-muted-foreground mb-4">{description}</p>
       <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3">
@@ -88,7 +88,7 @@ const EmailCapture = ({
         <Button
           type="submit"
           disabled={submitting}
-          className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal font-bold whitespace-nowrap"
+          className="whitespace-nowrap"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : 'SUBSCRIBE'}
         </Button>

@@ -87,7 +87,7 @@ serve(async (req) => {
       if (!isAdmin) return json({ error: "Forbidden" }, 403);
     }
 
-    // Optional overrides for "today" / "now" — useful for previewing/testing from the UI.
+    // Optional overrides for "today" / "now" - useful for previewing/testing from the UI.
     // When `force` is true, send-time-of-day check is bypassed (manual "Run today's now" button).
     let target = todayCT();
     let nowTime = nowCTtime();

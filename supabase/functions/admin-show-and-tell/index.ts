@@ -76,7 +76,7 @@ serve(async (req) => {
                 <p>Hi ${submission.name},</p>
                 <p>Great news! Your project <strong>${submission.project_name}</strong> is now live on our Show & Tell page.</p>
                 <p style="margin-top:30px;"><a href="https://wild-ai-website.lovable.app/show-and-tell" style="display:inline-block;background:#4ade80;color:#000;font-weight:bold;padding:12px 32px;border-radius:8px;text-decoration:none;">View Show & Tell Page</a></p>
-                <p style="margin-top:20px;color:#666;">— The Wild AI Team</p>
+                <p style="margin-top:20px;color:#666;">- The Wild AI Team</p>
               </div>`,
             }),
           });

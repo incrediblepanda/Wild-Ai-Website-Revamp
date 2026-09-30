@@ -182,7 +182,7 @@ const PreviousEvents = () => {
       <Navbar />
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gradient font-mono">PAST EVENTS</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gradient font-display">PAST EVENTS</h1>
           
           <div className="mb-10">
             <p className="text-lg text-muted-foreground mb-6">
@@ -191,8 +191,8 @@ const PreviousEvents = () => {
             
             <div className="space-y-4">
               {pastEvents.map((event) => (
-                <Collapsible key={event.id} className="border border-border rounded-lg overflow-hidden">
-                  <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-secondary/50 hover:bg-secondary/70 transition-colors">
+                <Collapsible key={event.id} className="surface overflow-hidden">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-foreground/5 transition-colors">
                     <div className="text-left">
                       <h3 className="font-bold text-lg">{event.date}</h3>
                       {'venue' in event && event.venue && (

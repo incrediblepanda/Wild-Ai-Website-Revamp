@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { MapPin, Calendar, Users, ExternalLink, Mic, Search } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -10,20 +11,12 @@ import { Button } from '@/components/ui/button';
 import { wildAiEvents, groupByVenue, type WildAiEvent } from '@/data/wildAiEvents';
 
 const LocationHero = () => (
-  <section className="pt-28 md:pt-32 pb-10 md:pb-14">
-    <div className="container mx-auto px-4 max-w-5xl">
-      <p className="font-mono text-wildai-mint text-xs md:text-sm tracking-[0.3em] mb-4">
-        // WILD_AI / LOCATIONS
-      </p>
-      <h1 className="text-4xl md:text-6xl font-mono font-bold leading-tight mb-5">
-        Wild AI <span className="text-wildai-mint">Locations</span>
-      </h1>
-      <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
-        A historical view of where Wild AI has met — the rooms, breweries, and stages
-        where local builders, founders, researchers, and curious minds gather around AI.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Wild AI - Locations"
+    icon={MapPin}
+    title={<>Wild AI <span>Locations</span></>}
+    lede="A historical view of where Wild AI has met - the rooms, breweries, and stages where local builders, founders, researchers, and curious minds gather around AI."
+  />
 );
 
 const LocationStats = ({ events }: { events: WildAiEvent[] }) => {
@@ -35,7 +28,7 @@ const LocationStats = ({ events }: { events: WildAiEvent[] }) => {
   const stats = [
     { label: 'Past events', value: events.length },
     { label: 'Unique venues', value: venues },
-    { label: 'Primary region', value: primary?.replace(/, $/, '') ?? '—' },
+    { label: 'Primary region', value: primary?.replace(/, $/, '') ?? '-' },
     { label: 'RSVPs (recorded)', value: totalAttendees },
   ];
 
@@ -46,7 +39,7 @@ const LocationStats = ({ events }: { events: WildAiEvent[] }) => {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-secondary/40 cyberpunk-border rounded-lg p-5"
+              className="surface p-5"
             >
               <div className="text-2xl md:text-3xl font-mono font-bold text-wildai-mint">
                 {s.value}
@@ -72,13 +65,13 @@ const VenueGroupList = ({ events }: { events: WildAiEvent[] }) => {
           {groups.map((g) => (
             <div
               key={g.venueName}
-              className="bg-secondary/40 cyberpunk-border rounded-lg p-6 flex flex-col"
+              className="surface p-6 flex flex-col"
             >
               <div className="flex items-start justify-between gap-4 mb-3">
-                <h3 className="text-xl font-bold font-mono leading-snug">
+                <h3 className="text-xl font-display font-semibold leading-snug">
                   {g.venueName}
                 </h3>
-                <Badge className="bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90 shrink-0">
+                <Badge className=" shrink-0">
                   {g.eventCount} event{g.eventCount === 1 ? '' : 's'}
                 </Badge>
               </div>
@@ -105,7 +98,7 @@ const PastEventCard = ({ event }: { event: WildAiEvent }) => {
   const year = d.getFullYear();
 
   return (
-    <article className="group bg-secondary/40 cyberpunk-border rounded-lg overflow-hidden hover:bg-secondary/60 hover:border-wildai-mint/60 transition-all">
+    <article className="group surface surface-interactive overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Date block */}
         <div className="md:w-32 shrink-0 bg-wildai-mint/10 border-b md:border-b-0 md:border-r border-wildai-mint/20 flex md:flex-col items-center justify-center gap-2 md:gap-0 py-4 md:py-6 px-4">
@@ -134,7 +127,7 @@ const PastEventCard = ({ event }: { event: WildAiEvent }) => {
             )}
           </div>
 
-          {/* Speaker / Format — highlighted */}
+          {/* Speaker / Format - highlighted */}
           <div className="flex items-start gap-3 bg-wildai-mint/5 border border-wildai-mint/20 rounded-md px-4 py-3">
             <Mic className="w-4 h-4 mt-0.5 text-wildai-mint shrink-0" />
             <div className="min-w-0">
@@ -209,12 +202,12 @@ const Location = () => {
   }, [filtered]);
 
   return (
-    <div className="min-h-screen bg-wildai-teal text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Helmet>
-        <title>Wild AI Locations — Past Venues & Events in Minneapolis</title>
+        <title>Wild AI Locations - Past Venues & Events in Minneapolis</title>
         <meta
           name="description"
-          content="A historical view of every venue Wild AI has met at — past events, locations, and speaker formats from the Minneapolis AI community."
+          content="A historical view of every venue Wild AI has met at - past events, locations, and speaker formats from the Minneapolis AI community."
         />
         <link rel="canonical" href="https://wildai.us/location" />
       </Helmet>
@@ -231,7 +224,7 @@ const Location = () => {
             <h2 className="section-title">PAST_EVENTS_BY_LOCATION</h2>
 
             {/* Filters */}
-            <div className="sticky top-16 z-30 -mx-4 px-4 py-4 mb-8 bg-wildai-teal/90 backdrop-blur-sm border-b border-secondary">
+            <div className="sticky top-16 z-30 -mx-4 px-4 py-4 mb-8 bg-background/85 backdrop-blur-xl border-b border-border">
               <div className="flex flex-col md:flex-row gap-3 md:items-center">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -250,7 +243,7 @@ const Location = () => {
                     onClick={() => setYear('all')}
                     className={
                       year === 'all'
-                        ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90'
+                        ? ''
                         : ''
                     }
                     size="sm"
@@ -265,7 +258,7 @@ const Location = () => {
                       onClick={() => setYear(y)}
                       className={
                         year === y
-                          ? 'bg-wildai-mint text-wildai-teal hover:bg-wildai-mint/90'
+                          ? ''
                           : ''
                       }
                       size="sm"
@@ -278,7 +271,7 @@ const Location = () => {
             </div>
 
             {filtered.length === 0 ? (
-              <div className="text-center py-16 bg-secondary/30 rounded-lg cyberpunk-border">
+              <div className="text-center py-16 surface">
                 <p className="font-mono text-muted-foreground">
                   No events match those filters. Try clearing the search or picking a
                   different year.
@@ -289,7 +282,7 @@ const Location = () => {
                 {grouped.map(([venue, evs]) => (
                   <div key={venue}>
                     <div className="flex items-center gap-3 mb-5">
-                      <h3 className="text-xl md:text-2xl font-mono font-bold text-wildai-mint">
+                      <h3 className="text-xl md:text-2xl font-display font-bold text-wildai-mint">
                         {venue}
                       </h3>
                       <span className="text-xs font-mono text-muted-foreground">

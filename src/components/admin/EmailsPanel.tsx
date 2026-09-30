@@ -104,7 +104,7 @@ const PostmarkTester = () => {
   };
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-4">
+    <div className="bg-secondary/40 cyberpunk-border p-4">
       <div className="flex flex-wrap items-end gap-3">
         <div className="flex-1 min-w-[220px]">
           <Label className="text-xs">Postmark test recipient</Label>
@@ -162,7 +162,7 @@ const Templates = () => {
   };
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       <div className="flex justify-between mb-4">
         <p className="text-sm text-muted-foreground">Reusable HTML templates for marketing emails.</p>
         <Dialog open={open} onOpenChange={setOpen}>
@@ -175,11 +175,11 @@ const Templates = () => {
               <div><Label>HTML</Label><Textarea rows={14} value={form.html} onChange={(e) => setForm({ ...form, html: e.target.value })} className="font-mono text-xs" /></div>
               <div className="text-xs text-muted-foreground bg-background/50 rounded p-3 space-y-1">
                 <p className="font-mono text-wildai-mint">Available placeholders (auto-filled per event):</p>
-                <p><code>{'{{event_date_long}}'}</code> — e.g. "Monday, May 18, 2026"</p>
-                <p><code>{'{{event_date}}'}</code> — ISO date, e.g. "2026-05-18"</p>
-                <p><code>{'{{event_location}}'}</code> — location from the event</p>
+                <p><code>{'{{event_date_long}}'}</code> - e.g. "Monday, May 18, 2026"</p>
+                <p><code>{'{{event_date}}'}</code> - ISO date, e.g. "2026-05-18"</p>
+                <p><code>{'{{event_location}}'}</code> - location from the event</p>
                 <p><code>{'{{event_start_time}}'}</code> · <code>{'{{event_end_time}}'}</code> · <code>{'{{event_time_range}}'}</code></p>
-                <p><code>{'{{event_speakers}}'}</code> — speakers (or "TBA" if blank)</p>
+                <p><code>{'{{event_speakers}}'}</code> - speakers (or "TBA" if blank)</p>
               </div>
             </div>
             <DialogFooter><Button onClick={save} disabled={saving || !form.name || !form.subject}>{saving ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Save'}</Button></DialogFooter>
@@ -208,7 +208,7 @@ const Templates = () => {
       <Dialog open={!!previewing} onOpenChange={(o) => !o && setPreviewing(null)}>
         <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle>{previewing && renderTokens(previewing.name, previewVars)} — {previewing && renderTokens(previewing.subject, previewVars)}</DialogTitle>
+            <DialogTitle>{previewing && renderTokens(previewing.name, previewVars)} - {previewing && renderTokens(previewing.subject, previewVars)}</DialogTitle>
           </DialogHeader>
           <p className="text-xs text-muted-foreground -mt-2">
             Personalization tokens filled from next upcoming event{previewEventDate ? ` (${previewEventDate})` : ''}.
@@ -295,11 +295,11 @@ const Composer = () => {
 
   return (
     <div className="grid lg:grid-cols-2 gap-4">
-      <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5 space-y-3">
+      <div className="bg-secondary/40 cyberpunk-border p-5 space-y-3">
         <div>
           <Label>Load template (optional)</Label>
           <select className="w-full bg-background border border-border rounded-md h-10 px-3 text-sm" onChange={(e) => e.target.value && applyTemplate(e.target.value)}>
-            <option value="">— pick a template —</option>
+            <option value="">- pick a template -</option>
             {templates.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
           </select>
         </div>
@@ -317,7 +317,7 @@ const Composer = () => {
         </div>
       </div>
 
-      <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+      <div className="bg-secondary/40 cyberpunk-border p-5">
         <div className="flex items-center gap-2 mb-3">
           <Label className="mb-0">Recipients</Label>
           <select className="bg-background border border-border rounded-md h-9 px-2 text-sm ml-auto" value={filter} onChange={(e) => setFilter(e.target.value)}>
@@ -351,7 +351,7 @@ const Composer = () => {
       <Dialog open={showPreview} onOpenChange={setShowPreview}>
         <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle>Preview — {renderTokens(subject, previewVars)}</DialogTitle>
+            <DialogTitle>Preview - {renderTokens(subject, previewVars)}</DialogTitle>
           </DialogHeader>
           <p className="text-xs text-muted-foreground -mt-2">
             Personalization tokens filled from next upcoming event{previewEventDate ? ` (${previewEventDate})` : ''}.
@@ -373,7 +373,7 @@ const History = () => {
     });
   }, []);
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       {loading ? <Loader2 className="w-6 h-6 animate-spin text-wildai-mint mx-auto" /> : (
         <Table>
           <TableHeader><TableRow><TableHead>Sent</TableHead><TableHead>Subject</TableHead><TableHead>Recipients</TableHead><TableHead>OK</TableHead><TableHead>Errors</TableHead></TableRow></TableHeader>
@@ -510,7 +510,7 @@ const Automations = () => {
     a === 'all' ? 'All attendees' : a === 'subscribed' ? 'Subscribed only' : 'Event attendees';
 
   return (
-    <div className="bg-secondary/40 rounded-lg cyberpunk-border p-5">
+    <div className="bg-secondary/40 cyberpunk-border p-5">
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <div>
           <h3 className="text-lg font-mono text-wildai-mint">Event Automations</h3>
@@ -532,7 +532,7 @@ const Automations = () => {
                   <Label>Template</Label>
                   <select className="w-full bg-background border border-border rounded-md h-10 px-3 text-sm"
                     value={form.template_id} onChange={(e) => setForm({ ...form, template_id: e.target.value })}>
-                    <option value="">— select a template —</option>
+                    <option value="">- select a template -</option>
                     {templates.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
                   </select>
                   <p className="text-xs text-muted-foreground mt-1">Use <code className="text-wildai-mint">{'{{event_date}}'}</code> in the subject or HTML for dynamic content.</p>

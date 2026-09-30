@@ -76,7 +76,7 @@ export const eventHistory2026: EventHistoryEntry[] = [
     id: '2026-07-20',
     date: '2026-07-20',
     displayDate: 'July 20, 2026',
-    venue: 'Dangerous Man Brewing — back room',
+    venue: 'Dangerous Man Brewing - back room',
     note: 'The only published post was a same-day reminder; no speaker lineup was listed.',
     speakers: [],
   },

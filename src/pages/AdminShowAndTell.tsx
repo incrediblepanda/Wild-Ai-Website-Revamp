@@ -73,13 +73,13 @@ const AdminShowAndTell = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Admin — Show & Tell — Wild AI</title>
+        <title>Admin - Show & Tell - Wild AI</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-3xl font-bold text-gradient font-mono mb-8">ADMIN — SHOW & TELL</h1>
+          <h1 className="text-3xl font-bold text-gradient font-mono mb-8">ADMIN - SHOW & TELL</h1>
 
           {!authenticated ? (
             <div className="max-w-sm mx-auto space-y-4">
@@ -101,7 +101,7 @@ const AdminShowAndTell = () => {
                 <p className="text-muted-foreground text-center py-12">No submissions found.</p>
               ) : (
                 submissions.map((s) => (
-                  <div key={s.id} className="bg-secondary/50 rounded-lg cyberpunk-border p-5 flex flex-col sm:flex-row gap-4">
+                  <div key={s.id} className="bg-secondary/50 cyberpunk-border p-5 flex flex-col sm:flex-row gap-4">
                     {s.image_url && (
                       <img src={s.image_url} alt={s.project_name} className="w-20 h-20 object-contain rounded flex-shrink-0" />
                     )}

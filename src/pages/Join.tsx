@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useChapters } from '@/hooks/useChapters';
+import PageHero from '@/components/PageHero';
 import { CheckCircle2, Mail, Sparkles, CalendarDays } from 'lucide-react';
 
 const Join = () => {
@@ -44,7 +45,7 @@ const Join = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Join Wild AI — Get AI meetup invites for your city</title>
+        <title>Join Wild AI - Get AI meetup invites for your city</title>
         <meta
           name="description"
           content="Join the Wild AI community: event invites, speaker lineups, and recaps for Minneapolis, San Francisco, and Toronto."
@@ -55,27 +56,23 @@ const Join = () => {
       </Helmet>
       <Navbar />
 
-      <main className="pt-24 pb-20 flex-grow">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              JOIN <span className="text-gradient">WILD AI</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              One email per event. No spam, no cringe — just fire-talk lineups, demo nights, and
-              recaps from the builders around you.
-            </p>
-          </div>
+      <main className="pb-20 flex-grow">
+        <PageHero
+          eyebrow="Get on the list"
+          title={<>Join <span>Wild AI</span>.</>}
+          lede="One email per event. No spam, no cringe - just fire-talk lineups, demo nights, and recaps from the builders around you."
+        />
+        <div className="container mx-auto px-4 pt-14">
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Signup form */}
-            <div className="bg-secondary/40 rounded-lg cyberpunk-border p-8">
+            <div className="surface p-6 md:p-8">
               {status === 'done' ? (
                 <div className="text-center py-10">
                   <CheckCircle2 className="w-12 h-12 text-wildai-mint mx-auto mb-4" />
-                  <h2 className="text-xl font-bold font-mono mb-2">YOU'RE IN</h2>
+                  <h2 className="text-xl font-display font-semibold mb-2">YOU'RE IN</h2>
                   <p className="text-muted-foreground mb-6">
-                    Watch your inbox — the next event invite for your city lands there first.
+                    Watch your inbox - the next event invite for your city lands there first.
                   </p>
                   <Link to="/chapters">
                     <Button variant="outline">BROWSE CHAPTERS</Button>
@@ -83,7 +80,7 @@ const Join = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <h2 className="text-xl font-bold font-mono text-wildai-mint">SIGN UP</h2>
+                  <h2 className="text-xl font-display font-semibold text-wildai-mint">SIGN UP</h2>
                   <div className="space-y-2">
                     <Label htmlFor="join-email">Email</Label>
                     <Input
@@ -93,16 +90,16 @@ const Join = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="bg-wildai-teal"
+                      className="bg-surface-deep/70"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label>Your city</Label>
                     <Select value={city} onValueChange={setCity}>
-                      <SelectTrigger className="bg-wildai-teal">
+                      <SelectTrigger className="bg-surface-deep/70">
                         <SelectValue placeholder="Choose a chapter" />
                       </SelectTrigger>
-                      <SelectContent className="bg-wildai-teal border-secondary">
+                      <SelectContent>
                         {(chapters ?? []).map((c) => (
                           <SelectItem key={c.slug} value={c.slug}>
                             {c.city}
@@ -114,24 +111,24 @@ const Join = () => {
                     </Select>
                     {city === 'other' && (
                       <p className="text-xs text-muted-foreground">
-                        No chapter near you yet — we'll notify you as new cities launch.
+                        No chapter near you yet - we'll notify you as new cities launch.
                       </p>
                     )}
                   </div>
                   {status === 'error' && (
                     <p className="text-sm text-destructive">
-                      Something went wrong — please try again.
+                      Something went wrong - please try again.
                     </p>
                   )}
                   <Button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal"
+                    className="w-full"
                   >
                     {status === 'submitting' ? 'JOINING…' : 'JOIN THE LIST'}
                   </Button>
                   <p className="text-xs text-muted-foreground">
-                    Already on the list? You won't get duplicates — this just updates your city.
+                    Already on the list? You won't get duplicates - this just updates your city.
                   </p>
                 </form>
               )}
@@ -139,31 +136,31 @@ const Join = () => {
 
             {/* What you get */}
             <div className="space-y-4">
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="surface p-6">
                 <Mail className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">EVENT INVITES FIRST</h3>
+                <h3 className="font-display font-semibold mb-1">EVENT INVITES FIRST</h3>
                 <p className="text-sm text-muted-foreground">
-                  Subscribers get the invite days before public announcements — matters when the
+                  Subscribers get the invite days before public announcements - matters when the
                   room fills up.
                 </p>
               </div>
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="surface p-6">
                 <Sparkles className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">SPEAKER LINEUPS & RECAPS</h3>
+                <h3 className="font-display font-semibold mb-1">SPEAKER LINEUPS & RECAPS</h3>
                 <p className="text-sm text-muted-foreground">
-                  Who's demoing, what they showed, and the links — even if you had to miss it.
+                  Who's demoing, what they showed, and the links - even if you had to miss it.
                 </p>
               </div>
-              <div className="bg-secondary/50 rounded-lg cyberpunk-border p-6">
+              <div className="surface p-6">
                 <CalendarDays className="w-6 h-6 text-wildai-mint mb-3" />
-                <h3 className="font-bold font-mono mb-1">CITY-BY-CITY UPDATES</h3>
+                <h3 className="font-display font-semibold mb-1">CITY-BY-CITY UPDATES</h3>
                 <p className="text-sm text-muted-foreground">
-                  New chapters, launch dates, and venue changes for the city you pick — and only
+                  New chapters, launch dates, and venue changes for the city you pick - and only
                   that city.
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-wildai-mint/20 to-accent/20 rounded-lg cyberpunk-border p-6">
-                <h3 className="font-bold font-mono text-wildai-mint mb-1">WANT TO DO MORE THAN ATTEND?</h3>
+              <div className="bg-primary/25 surface p-6">
+                <h3 className="font-display font-semibold text-wildai-mint mb-1">WANT TO DO MORE THAN ATTEND?</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Fire talks and chapter organizing are open to everyone on the list.
                 </p>

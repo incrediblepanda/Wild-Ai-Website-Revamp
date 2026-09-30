@@ -31,6 +31,7 @@ import About from "./pages/About";
 import Press from "./pages/Press";
 import Join from "./pages/Join";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Create a new client outside of the component to avoid recreation on each render
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/events/february-2026" element={<EventFebruary2026 />} />

@@ -35,14 +35,14 @@ const ShowAndTell = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Show & Tell — Wild AI</title>
+        <title>Show & Tell - Wild AI</title>
         <meta name="description" content="Check out AI projects built by the Wild AI community. From side projects to startup MVPs, see what builders are creating." />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-20 flex-grow">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-mono">SHOW & TELL</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gradient font-display">SHOW & TELL</h1>
             <Laptop className="w-7 h-7 text-wildai-mint flex-shrink-0" />
           </div>
           <p className="text-muted-foreground mb-10">Projects from the Wild AI community</p>
@@ -51,10 +51,10 @@ const ShowAndTell = () => {
             <div className="text-center py-20 text-muted-foreground">Loading projects...</div>
           ) : projects.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg mb-4">No approved projects yet — be the first!</p>
+              <p className="text-muted-foreground text-lg mb-4">No approved projects yet - be the first!</p>
               <a
                 href="/events/march-2026"
-                className="inline-block bg-wildai-mint text-background font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
+                className="btn-primary"
               >
                 Submit Your Project
               </a>
@@ -62,7 +62,7 @@ const ShowAndTell = () => {
           ) : (
             <div className="grid sm:grid-cols-2 gap-6">
               {projects.map((project) => (
-                <div key={project.id} className="bg-secondary/50 rounded-lg cyberpunk-border overflow-hidden">
+                <div key={project.id} className="surface overflow-hidden">
                   {project.image_url && (
                     <div className="aspect-video bg-background/50 flex items-center justify-center p-4">
                       <img
@@ -73,7 +73,7 @@ const ShowAndTell = () => {
                     </div>
                   )}
                   <div className="p-5">
-                    <h3 className="text-xl font-bold font-mono mb-1">{project.project_name}</h3>
+                    <h3 className="text-xl font-display font-semibold mb-1">{project.project_name}</h3>
                     <a
                       href={project.linkedin_url}
                       target="_blank"

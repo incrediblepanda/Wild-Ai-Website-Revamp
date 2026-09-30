@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Logo from '@/components/Logo';
 import { Link } from 'react-router-dom';
 import { Youtube, Mail, Linkedin, Twitter } from 'lucide-react';
 import EmailCapture from '@/components/EmailCapture';
@@ -14,15 +15,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-[1.2fr_.8fr] gap-12 max-w-6xl mx-auto">
           <div>
             <div className="flex items-center mb-6">
-              <img
-                src="/lovable-uploads/4b758e76-3d87-4964-9506-d66b3fa83e25.png"
-                alt="Wild AI Logo"
-                className="h-8"
-              />
+<Logo className="h-8" />
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-md">
-              The AI meetup for people who ship. Fire talks, demo nights, and real networking —
+              The AI meetup for people who ship. Fire talks, demo nights, and real networking -
               city by city across North America.
             </p>
 

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,6 +52,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				surface: {
+					raised: 'hsl(var(--surface-raised))',
+					deep: 'hsl(var(--surface-deep))'
+				},
+				ember: {
+					DEFAULT: 'hsl(var(--ember))',
+					foreground: 'hsl(var(--ember-foreground))'
+				},
+				cta: {
+					DEFAULT: 'hsl(var(--cta))',
+					foreground: 'hsl(var(--cta-foreground))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -63,7 +74,6 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
 				wildai: {
 					dark: 'hsl(var(--wildai-teal))',
 					neutral: 'hsl(var(--wildai-neutral))',
@@ -73,14 +83,14 @@ export default {
 				}
 			},
 			fontFamily: {
-				mono: ['ui-sans-serif', 'system-ui', 'sans-serif'],
-				sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-				display: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+				sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+				display: ['"Space Grotesk"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				md: 'calc(var(--radius) - 4px)',
+				sm: 'calc(var(--radius) - 7px)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -93,28 +103,37 @@ export default {
 				},
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' },
+					'50%': { opacity: '0.45' },
 				},
-				'gradient-shift': {
-					'0%': { backgroundPosition: '0% 50%' },
-					'50%': { backgroundPosition: '100% 50%' },
-					'100%': { backgroundPosition: '0% 50%' },
+				'marquee': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-50%)' },
+				},
+				'fade-in': {
+					from: { opacity: '0', transform: 'translateY(-45%)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'drift': {
+					'0%, 100%': { transform: 'translate3d(0,0,0)' },
+					'50%': { transform: 'translate3d(0,-10px,0)' },
+				},
+				'sheen': {
+					'0%': { transform: 'translateX(-120%)' },
+					'100%': { transform: 'translateX(220%)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 8s ease infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'marquee': 'marquee 40s linear infinite',
+				'drift': 'drift 7s ease-in-out infinite',
+				'sheen': 'sheen 2.4s ease-in-out infinite',
 			},
 			boxShadow: {
-				'signal': '0 0 28px hsl(var(--primary) / 0.18)',
-			},
-			backgroundImage: {
-				'grid-pattern': 'linear-gradient(rgba(168, 240, 200, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(168, 240, 200, 0.1) 1px, transparent 1px)',
-			},
-			backgroundSize: {
-				'grid-lg': '50px 50px',
+				'signal': '0 24px 60px -32px hsl(187 40% 2% / 0.95)',
+				'lift': '0 30px 70px -36px hsl(187 50% 2%)',
+				'inset-line': 'inset 0 1px 0 0 hsl(var(--foreground) / 0.04)',
 			},
 		}
 	},

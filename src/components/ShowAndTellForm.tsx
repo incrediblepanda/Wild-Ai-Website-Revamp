@@ -66,18 +66,18 @@ const ShowAndTellForm = () => {
 
   if (submitted) {
     return (
-      <div className="bg-secondary/50 p-8 rounded-lg cyberpunk-border text-center">
+      <div className="p-6 md:p-8 surface text-center">
         <CheckCircle className="w-10 h-10 text-wildai-mint mx-auto mb-3" />
-        <h3 className="text-xl font-bold font-mono mb-2">YOU'RE IN!</h3>
+        <h3 className="text-xl font-display font-semibold mb-2">YOU'RE IN!</h3>
         <p className="text-muted-foreground">We'll have a spot ready for your Show & Tell. See you March 16th!</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-secondary/50 p-6 rounded-lg cyberpunk-border space-y-5">
+    <form onSubmit={handleSubmit} className="p-6 surface space-y-5">
       <div>
-        <h3 className="text-lg font-bold font-mono mb-1">SIGN UP FOR SHOW & TELL</h3>
+        <h3 className="text-lg font-display font-semibold mb-1">SIGN UP FOR SHOW & TELL</h3>
         <p className="text-muted-foreground text-sm">Reserve your spot to show off what you've built.</p>
       </div>
 
@@ -166,7 +166,7 @@ const ShowAndTellForm = () => {
       <Button
         type="submit"
         disabled={submitting}
-        className="w-full bg-wildai-mint text-background hover:opacity-90 font-bold"
+        className="w-full"
       >
         {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</> : "Reserve My Spot"}
       </Button>

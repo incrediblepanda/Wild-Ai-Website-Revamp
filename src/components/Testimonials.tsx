@@ -1,6 +1,9 @@
 import React from 'react';
+import { Quote } from 'lucide-react';
+import SpotlightCard from '@/components/motion/SpotlightCard';
+import Reveal from '@/components/motion/Reveal';
 
-// NOTE: Placeholder quotes — replace with real attendee testimonials.
+// NOTE: Placeholder quotes - replace with real attendee testimonials.
 const quotes = [
   {
     quote: 'My best AI collab started at a Wild AI meetup.',
@@ -18,28 +21,30 @@ const quotes = [
 
 const Testimonials = () => {
   return (
-    <section className="py-10 md:py-16">
+    <section className="py-14 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="section-title text-center">WHAT_PEOPLE_SAY</h2>
+        <Reveal>
+          <p className="eyebrow mb-5">
+            <Quote /> Word of mouth
+          </p>
+          <h2 className="section-title">What people say</h2>
+        </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {quotes.map((q) => (
-              <div
-                key={q.attribution}
-                className="bg-secondary/50 p-6 rounded-lg cyberpunk-border flex flex-col"
-              >
-                <p className="text-lg leading-relaxed mb-4 flex-1">
-                  <span className="text-wildai-mint mr-1">“</span>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {quotes.map((q, i) => (
+            <Reveal key={q.attribution} delay={i * 80}>
+              <SpotlightCard className="flex h-full flex-col p-7">
+                <Quote className="mb-5 h-6 w-6 text-accent/50" />
+                <p className="flex-1 font-display text-lg leading-relaxed text-foreground">
                   {q.quote}
-                  <span className="text-wildai-mint ml-1">”</span>
                 </p>
-                <p className="text-sm font-mono text-muted-foreground">
-                  — {q.attribution}
+                <p className="mt-6 flex items-center gap-2.5 border-t border-border pt-5 text-sm text-muted-foreground">
+                  <span className="h-px w-5 bg-accent/60" />
+                  {q.attribution}
                 </p>
-              </div>
-            ))}
-          </div>
+              </SpotlightCard>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

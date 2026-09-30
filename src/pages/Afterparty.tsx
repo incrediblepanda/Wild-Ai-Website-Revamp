@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Footer from '@/components/Footer';
 import LoonCafeMap from '@/components/LoonCafeMap';
+import { LOGO_SRC } from '@/components/Logo';
 import { MapPin } from 'lucide-react';
 const Afterparty = () => {
   const isMobile = useIsMobile();
@@ -10,7 +11,7 @@ const Afterparty = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-8 md:pt-24 md:pb-12 flex items-center relative">
         <div className="absolute top-16 left-0 w-full flex justify-center">
-          <img src="/lovable-uploads/4b758e76-3d87-4964-9506-d66b3fa83e25.png" alt="Wild AI Logo" className={`${isMobile ? 'h-32 max-w-full' : 'h-48 md:h-64'} w-auto object-contain mix-blend-lighten`} />
+          <img src={LOGO_SRC} alt="Wild AI Logo" className={`${isMobile ? 'h-32 max-w-full' : 'h-48 md:h-64'} w-auto object-contain mix-blend-lighten`} />
         </div>
         
         <div className={`container mx-auto px-4 ${isMobile ? 'mt-36' : 'mt-56 md:mt-64'}`}>
@@ -55,16 +56,16 @@ const Afterparty = () => {
               Wild AI is a community where Minnesota's top AI builders and entrepreneurs come together each month to share, challenge, and sharpen ideas.
             </p>
             <p className="text-lg text-muted-foreground mb-4">
-              We spotlight three people each month — no slides, no demos, just a mic. Speakers share who they are, what they're working on, or a perspective they bring. After the talks, it's all conversation and connection over a beer.
+              We spotlight three people each month - no slides, no demos, just a mic. Speakers share who they are, what they're working on, or a perspective they bring. After the talks, it's all conversation and connection over a beer.
             </p>
             <p className="text-lg text-muted-foreground mb-4">
               This is where engineers, founders, students, and researchers push AI forward, and where new ideas and companies take shape.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              AI is still wild — an uncharted frontier — and the best way to explore it is together.
+              AI is still wild - an uncharted frontier - and the best way to explore it is together.
             </p>
             <a href="https://www.meetup.com/wild-ai/" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg">
+              <Button size="lg" >
                 Visit Our Meetup Page
               </Button>
             </a>
@@ -85,7 +86,7 @@ const Afterparty = () => {
             <div className="mb-16">
               <div className="flex justify-center">
                 <a href="http://attentio.ai/" target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-secondary/60 p-12 rounded-lg cyberpunk-border hover:bg-secondary/80 transition-all duration-300 flex flex-col items-center justify-center min-h-[300px] max-w-md w-full animate-fade-in">
+                  <div className="p-7 md:p-12 surface surface-interactive duration-300 flex flex-col items-center justify-center min-h-[300px] max-w-md w-full animate-fade-in">
                     <img src="/lovable-uploads/attentio-logo.png" alt="Attentio" className="h-40 w-auto object-contain mb-6 group-hover:scale-110 transition-transform" />
                     <p className="text-center font-mono text-xl text-wildai-mint">
                       Attentio
@@ -161,7 +162,7 @@ const Afterparty = () => {
               logo: '/lovable-uploads/caparra-logo.png?v=4',
               url: 'https://caparra.ai/'
             }].map((startup, index) => <a key={index} href={startup.url} target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-secondary/40 p-6 rounded-lg cyberpunk-border hover:bg-secondary/60 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                  <div className="p-6 surface surface-interactive duration-300 flex flex-col items-center justify-center min-h-[200px]">
                     <img src={startup.logo} alt={startup.name} className="h-24 w-auto object-contain mb-4 group-hover:scale-110 transition-transform" />
                     <p className="text-center font-mono text-sm text-muted-foreground group-hover:text-wildai-mint transition-colors">
                       {startup.name}
@@ -181,7 +182,7 @@ const Afterparty = () => {
             
             <div className="text-center mb-12">
               <a href="/#register">
-                <Button size="lg" className="bg-wildai-mint hover:bg-wildai-mint/90 text-wildai-teal text-lg mb-8">
+                <Button size="lg" className=" mb-8">
                   Sign Up to Speak
                 </Button>
               </a>

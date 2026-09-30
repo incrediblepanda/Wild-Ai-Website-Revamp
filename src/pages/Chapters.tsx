@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Users, CalendarDays, Rocket, ArrowRight } from 'lucide-react';
 import { useChapters, useAllEvents, isUpcoming, formatDate } from '@/hooks/useChapters';
 import NetworkField from '@/components/NetworkField';
-import chaptersNight from '@/assets/wildai-chapters-night.jpg';
+import PageHero from '@/components/PageHero';
 
 const Chapters = () => {
   const { data: chapters, isLoading } = useChapters();
@@ -22,7 +22,7 @@ const Chapters = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Find a Wild AI Chapter — Minneapolis, San Francisco, Toronto</title>
+        <title>Find a Wild AI Chapter - Minneapolis, San Francisco, Toronto</title>
         <meta
           name="description"
           content="Wild AI meetups across Minneapolis, San Francisco, and Toronto. Find your city, meet local AI builders, and RSVP for the next event."
@@ -36,27 +36,22 @@ const Chapters = () => {
         <meta name="twitter:card" content="summary" />
       </Helmet>
       <Navbar />
-      <main className="pt-20 pb-20 flex-grow chapters-page">
-        <section className="chapters-hero">
-          <img src={chaptersNight} alt="AI builders arriving at a city meetup at night" width={1920} height={1080} className="chapters-hero__image" />
-          <div className="chapters-hero__veil" aria-hidden="true" />
-          <div className="container mx-auto px-4 relative z-10 h-full flex items-end pb-10 md:pb-14">
-            <div className="w-full grid lg:grid-cols-[1fr_250px] gap-10 items-end">
-              <div className="max-w-4xl">
-                <p className="signal-label mb-5">Wild AI chapters</p>
-                <h1 className="chapters-hero__title">Find your<br /><span>community.</span></h1>
-                <p className="text-base md:text-xl text-foreground/80 max-w-xl mt-5">
-                  Meet local AI builders and find the next Wild AI event near you.
-                </p>
-              </div>
-              <div className="chapters-hero__telemetry">
-                <span>Across North America</span>
-                <strong>{chapters?.length ?? 0} chapters</strong>
-                <span>{(chapters ?? []).reduce((sum, chapter) => sum + (chapter.member_count ?? 0), 0)}+ members</span>
-              </div>
-            </div>
-          </div>
-        </section>
+      <main className="pb-20 flex-grow chapters-page">
+        <PageHero
+          eyebrow="Wild AI chapters"
+          title={<>Find your <span>community.</span></>}
+          lede="Meet local AI builders and find the next Wild AI event near you."
+          aside={
+            <>
+              <span>Across North America</span>
+              <strong>{chapters?.length ?? 0} chapters</strong>
+              <span>
+                {(chapters ?? []).reduce((sum, chapter) => sum + (chapter.member_count ?? 0), 0)}+
+                members
+              </span>
+            </>
+          }
+        />
 
         <section className="border-y border-border">
           <div className="container mx-auto px-4 grid lg:grid-cols-2 max-w-7xl">
@@ -70,7 +65,7 @@ const Chapters = () => {
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-lg font-semibold">Chapter map</h2>
               </div>
-              <div className="cyberpunk-border overflow-hidden h-[360px] grayscale contrast-125 opacity-80 hover:grayscale-0 transition-all duration-500">
+              <div className="surface overflow-hidden h-[360px] grayscale contrast-125 opacity-80 hover:grayscale-0 duration-500">
                 <iframe
                   src="https://www.openstreetmap.org/export/embed.html?bbox=-132.0%2C22.0%2C-52.0%2C56.0&layer=mapnik"
                   width="100%"
@@ -138,7 +133,7 @@ const Chapters = () => {
             <div className="bg-secondary/30 border-r border-b border-border p-8 flex flex-col justify-center">
               <h2 className="text-xl font-semibold mb-2">Don't see your city?</h2>
               <p className="text-sm text-muted-foreground mb-5">
-                We help passionate locals launch new Wild AI chapters — playbook, brand, and
+                We help passionate locals launch new Wild AI chapters - playbook, brand, and
                 community included.
               </p>
               <Link to="/start-a-chapter">
